@@ -46,6 +46,18 @@ public class MainActivity extends Activity {
 			  });	  
 	}//onCreate
 	
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        Button sadTromboneSoundButton = (Button) findViewById(R.id.play_sad_trombone_button);
+        sadTromboneSoundButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MediaPlayer mPlayer = MediaPlayer.create(MainActivity.this, R.raw.failtrombone);
+                mPlayer.start();
+            }
+        });
+    }
 	
 	 @Override
 	 public void onCreateContextMenu(ContextMenu menu, View v,
