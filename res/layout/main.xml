@@ -13,6 +13,13 @@
 		android:background="@color/Transparent"
 		android:cacheColorHint="#00000000" >
 	</ListView>
+    <Button
+    android:id="@+id/play_sad_trombone_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Play sad trombone"
+    android:padding="15dp"
+    android:layout_centerInParent="true"/>
 	<com.google.ads.AdView
 		android:id="@+id/adView"
 		android:layout_width="wrap_content"
