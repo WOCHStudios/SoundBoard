@@ -13,11 +13,4 @@
 		android:background="@color/Transparent"
 		android:cacheColorHint="#00000000" >
 	</ListView>
-	<com.google.ads.AdView
-		android:id="@+id/adView"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true"
-		ads:adSize="BANNER"
-		ads:adUnitId="a15258c30685a22" />
 </RelativeLayout>
