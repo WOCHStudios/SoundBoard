@@ -8,3 +8,5 @@ CREATING A SOUND BOARD
 2. ADD KEY-VALUE PAIRS TO SoundBoard\res\raw\filemap.txt
 	A. THERE IS AN EXAMPLE KEY-VALUE PAIR IN THE FILE 
 3.PACKAGE APP AND DEPLOY TO ANDROID DEVICE
+
+For a more detailed walkthrough please visit http://www.wochstudios.com/?q=Soundboard_tutorial
