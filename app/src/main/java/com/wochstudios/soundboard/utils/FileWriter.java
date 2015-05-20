@@ -8,7 +8,7 @@ import java.io.InputStream;
 import android.os.Environment;
 
 public class FileWriter {
-	
+	//Test from AIDE
 	public File writeFile(InputStream stream,String name){
 		 	
 		 try {
