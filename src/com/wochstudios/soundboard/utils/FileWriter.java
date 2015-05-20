@@ -11,6 +11,7 @@ public class FileWriter {
 	
 	public File writeFile(InputStream stream,String name){
 		 //Commit test;
+		 //Commit test from AIDE
 		 try {
 			   InputStream ins = stream;
 			   byte[] buffer = new byte[ins.available()];
