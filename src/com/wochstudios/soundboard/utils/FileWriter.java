@@ -10,7 +10,7 @@ import android.os.Environment;
 public class FileWriter {
 	
 	public File writeFile(InputStream stream,String name){
-		 	
+		 //Commit test;
 		 try {
 			   InputStream ins = stream;
 			   byte[] buffer = new byte[ins.available()];
