@@ -33,7 +33,6 @@ public class MainController {
 	public HashMap<String,String> loadSounds(){
 		try {
 			int id = con.getResources().getIdentifier("filemap", "raw", con.getPackageName());
-			Log.i("ID: ",""+id);
 			InputStream f = con.getResources().openRawResource(id);
 			return loader.loadVaules(f);
 		} catch (IOException e) {

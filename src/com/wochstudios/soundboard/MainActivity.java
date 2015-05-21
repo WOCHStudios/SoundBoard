@@ -29,22 +29,24 @@ public class MainActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		init();
+	}//onCreate
+	
+	
+	private void init(){
 		MC = new MainController(this);
 		Titles = new ArrayList<String>(MC.getMapKeys());
 		Collections.sort(Titles);
-		//creates and sets the click listener for list view
+		createListView();	
+	}
+	
+	private void createListView(){
 		final ListView lv = (ListView) findViewById(R.id.listView1);
 		lv.setAdapter(new ArrayAdapter<String>(this,R.layout.list_item,Titles));
 		registerForContextMenu(lv);
 		lv.setTextFilterEnabled(true);
-		  lv.setOnItemClickListener(new OnItemClickListener() {
-			    public void onItemClick(AdapterView<?> parent, View view,
-			        int position, long id) {
-			    	Log.d("ListItem:OnClick", Titles.get(position));	
-			    	MC.playSound(Titles.get(position));
-			    } 
-			  });	  
-	}//onCreate
+		lv.setOnItemClickListener(new ListViewClickListener());
+	}
 	
 	
 	 @Override
@@ -74,5 +76,10 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}// onCreateOptionsMenu
-
+	
+	private class ListViewClickListener implements OnItemClickListener{
+		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {	
+			MC.playSound(Titles.get(position));
+		} 
+	}
 }
