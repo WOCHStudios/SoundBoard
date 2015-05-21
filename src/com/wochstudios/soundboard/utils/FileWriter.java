@@ -10,23 +10,27 @@ import android.os.Environment;
 public class FileWriter {
 	
 	public File writeFile(InputStream stream,String name){
-		 //Commit test;
-		 //Commit test from AIDE
 		 try {
-			   InputStream ins = stream;
-			   byte[] buffer = new byte[ins.available()];
-			   ins.read(buffer);
-			   ins.close();
 			   String filename = Environment.getExternalStorageDirectory().toString()+File.separator+"download"+File.separator+name+".mp3";
-			   FileOutputStream fos = new FileOutputStream(filename);
-			   fos.write(buffer);
-			   fos.close();
-			      
+			   copyInputStreamToOutputStream(stream,filename);
 		   } catch (IOException io) {
 			   return null;
 		   }
 		   return new File(Environment.getExternalStorageDirectory().toString()+File.separator+"download"+File.separator+name+".mp3");
 		    
+	}
+	
+	private void copyInputStreamToOutputStream(InputStream stream, String file)throws IOException{
+		FileOutputStream fos = new FileOutputStream(file);
+		fos.write(getBufferFromInputStream(stream));
+		fos.close();
+	}
+	
+	private byte[] getBufferFromInputStream(InputStream stream) throws IOException{
+		byte[] buffer = new byte[stream.available()];
+		stream.read(buffer);
+		stream.close();
+		return buffer;
 	}
 	
 }
