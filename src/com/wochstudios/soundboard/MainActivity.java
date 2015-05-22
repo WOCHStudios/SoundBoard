@@ -17,24 +17,25 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.*;
 
 
 
 public class MainActivity extends Activity {
 
 	private ArrayList<String> Titles;
-	private MainController MC;
+	private SoundBoardController MC;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		init();
+		init();	
 	}//onCreate
 	
 	
 	private void init(){
-		MC = new MainController(this);
+		MC = new SoundBoardController(this);
 		Titles = new ArrayList<String>(MC.getMapKeys());
 		Collections.sort(Titles);
 		createListView();	

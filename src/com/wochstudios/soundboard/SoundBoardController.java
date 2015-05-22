@@ -13,7 +13,7 @@ import com.wochstudios.soundboard.utils.MapLoader;
 import com.wochstudios.soundboard.utils.SoundPlayer;
 
 
-public class MainController {
+public class SoundBoardController {
 	private SoundPlayer player = new SoundPlayer();
 	private MapLoader loader = new MapLoader();
 	private Downloader downloader = new Downloader();
@@ -21,7 +21,7 @@ public class MainController {
 	private Context con;
 	
 	
-	public MainController(Context c){
+	public SoundBoardController(Context c){
 		this.con = c;
 		valueMap = this.loadSounds();
 	}

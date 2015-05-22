@@ -7,9 +7,9 @@ import java.io.InputStream;
 
 import android.os.Environment;
 
-public class FileWriter {
+public class FileCopier {
 	//Test
-	public File writeFile(InputStream stream,String name){
+	public File copyFileToSDCard(InputStream stream,String name){
 		 try {
 			   String filename = Environment.getExternalStorageDirectory().toString()+File.separator+"download"+File.separator+name+".mp3";
 			   copyInputStreamToOutputStream(stream,filename);
