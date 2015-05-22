@@ -9,4 +9,5 @@
 	</string-array>
 	<color name="WHITE">#FFFFFF</color>
 	<color name="GOLD">#f5d626</color>
+	<string name="add_sound">Add</string>
 </resources>

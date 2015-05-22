@@ -24,6 +24,7 @@ public final class R {
     }
     public static final class id {
         public static final int Layout1=0x7f0a0000;
+        public static final int add_sound=0x7f0a0003;
         public static final int listView1=0x7f0a0001;
         public static final int menu_settings=0x7f0a0002;
     }
@@ -34,11 +35,13 @@ public final class R {
     }
     public static final class menu {
         public static final int activity_main=0x7f090000;
+        public static final int main_activity_actions=0x7f090001;
     }
     public static final class raw {
         public static final int filemap=0x7f040000;
     }
     public static final class string {
+        public static final int add_sound=0x7f050002;
         public static final int app_name=0x7f050000;
         public static final int menu_settings=0x7f050001;
     }

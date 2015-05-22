@@ -24,7 +24,7 @@ import android.widget.*;
 public class MainActivity extends Activity {
 
 	private ArrayList<String> Titles;
-	private SoundBoardController MC;
+	private SoundBoardController SBC;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -35,8 +35,8 @@ public class MainActivity extends Activity {
 	
 	
 	private void init(){
-		MC = new SoundBoardController(this);
-		Titles = new ArrayList<String>(MC.getMapKeys());
+		SBC = new SoundBoardController(this);
+		Titles = new ArrayList<String>(SBC.getMapKeys());
 		Collections.sort(Titles);
 		createListView();	
 	}
@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
 	 @Override
 	 public boolean onContextItemSelected(MenuItem item) {
 	   AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
-	   MC.downloadRingtone(Titles.get(info.position));
+	   SBC.downloadRingtone(Titles.get(info.position));
 	   return true;
 	 }//onContextItemSelected
  
@@ -76,11 +76,25 @@ public class MainActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		switch (item.getItemId()){
+			case R.id.add_sound:
+				Toast.makeText(this, "Add Sound", Toast.LENGTH_LONG).show();
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
+		
 	}// onCreateOptionsMenu
+	
 	
 	private class ListViewClickListener implements OnItemClickListener{
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {	
-			MC.playSound(Titles.get(position));
+			SBC.playSound(Titles.get(position));
 		} 
 	}
 }
