@@ -5,7 +5,7 @@ import java.util.Collections;
 
 
 
-import android.app.Activity;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -18,13 +18,20 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.*;
+import android.view.View.*;
+import android.view.*;
+import java.util.zip.*;
+import android.graphics.drawable.*;
+import android.app.*;
 
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity  {
 
 	private ArrayList<String> Titles;
 	private SoundBoardController SBC;
+	private AddSoundController ASC;
+	private AddSoundDialogFragment ASDF;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -36,10 +43,14 @@ public class MainActivity extends Activity {
 	
 	private void init(){
 		SBC = new SoundBoardController(this);
+		ASC = new AddSoundController(this);
 		Titles = new ArrayList<String>(SBC.getMapKeys());
 		Collections.sort(Titles);
-		createListView();	
+		createListView();
+		
 	}
+	
+	
 	
 	private void createListView(){
 		final ListView lv = (ListView) findViewById(R.id.listView1);
@@ -83,15 +94,16 @@ public class MainActivity extends Activity {
 	{
 		switch (item.getItemId()){
 			case R.id.add_sound:
-				Toast.makeText(this, "Add Sound", Toast.LENGTH_LONG).show();
+				Toast.makeText(this, ASC.getResourceUri().getPath(), Toast.LENGTH_LONG).show();
+				ASDF = new AddSoundDialogFragment();
+				ASDF.show(getFragmentManager(),"AddSoundDialogFragment");
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);
 		}
 		
-	}// onCreateOptionsMenu
-	
-	
+	}
+
 	private class ListViewClickListener implements OnItemClickListener{
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {	
 			SBC.playSound(Titles.get(position));

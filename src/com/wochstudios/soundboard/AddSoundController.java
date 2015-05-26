@@ -15,7 +15,7 @@ public class AddSoundController
 		
 	}
 	
-	private Uri getResourceUri(){
+	public Uri getResourceUri(){
 		int id = con.getResources().getIdentifier("filemap", "raw", con.getPackageName());
 		Uri uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://"+
 							con.getResources().getResourcePackageName(id)+'/'+
