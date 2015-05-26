@@ -11,12 +11,14 @@ import android.util.Log;
 import com.wochstudios.soundboard.utils.Downloader;
 import com.wochstudios.soundboard.utils.MapLoader;
 import com.wochstudios.soundboard.utils.SoundPlayer;
+import com.wochstudios.soundboard.utils.*;
 
 
 public class SoundBoardController {
 	private SoundPlayer player = new SoundPlayer();
 	private MapLoader loader = new MapLoader();
 	private Downloader downloader = new Downloader();
+	private RingtoneMaker ringtoneMaker = new RingtoneMaker();
 	private HashMap<String,String> valueMap;
 	private Context con;
 	
@@ -33,7 +35,7 @@ public class SoundBoardController {
 	public HashMap<String,String> loadSounds(){
 		try {
 			int id = con.getResources().getIdentifier("filemap", "raw", con.getPackageName());
-			InputStream f = con.getResources().openRawResource(id);
+			InputStream f = con.openFileInput("filemap.txt");
 			return loader.loadVaules(f);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -42,15 +44,15 @@ public class SoundBoardController {
 	}
 	
 	public void playSound(String key){
-		Log.i("MainController:playSound()",""+valueMap.get(key));
 		int rawID = con.getResources().getIdentifier(valueMap.get(key), "raw", con.getPackageName());
 		player.playSound(con, rawID);
 	}
 	
 	
 	public void downloadRingtone(String key){
-		int rawID = con.getResources().getIdentifier(valueMap.get(key), "raw", con.getPackageName());
-		downloader.downloadRingtone(con,con.getResources().openRawResource(rawID) , key);
+		//int rawID = con.getResources().getIdentifier(valueMap.get(key), "raw", con.getPackageName());
+		//downloader.downloadRingtone(con,con.getResources().openRawResource(rawID) , key);
+		ringtoneMaker.setRingtone(key, con);
 	}
 	
 	

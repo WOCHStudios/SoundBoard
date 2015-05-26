@@ -24,19 +24,28 @@ import java.util.zip.*;
 import android.graphics.drawable.*;
 import android.app.*;
 
+import com.wochstudios.soundboard.Interfaces.AddSoundDialogListener;
+import com.wochstudios.soundboard.utils.*;
+import java.io.*;
 
-
-public class MainActivity extends FragmentActivity  {
+public class MainActivity extends FragmentActivity implements  AddSoundDialogListener {
 
 	private ArrayList<String> Titles;
 	private SoundBoardController SBC;
 	private AddSoundController ASC;
 	private AddSoundDialogFragment ASDF;
+	private ListView lv;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		MapCreator mc = new MapCreator();
+		try{
+			mc.createMapFile(this);
+		}catch (IOException e){
+			
+		}
 		init();	
 	}//onCreate
 	
@@ -53,7 +62,7 @@ public class MainActivity extends FragmentActivity  {
 	
 	
 	private void createListView(){
-		final ListView lv = (ListView) findViewById(R.id.listView1);
+		lv = (ListView) findViewById(R.id.listView1);
 		lv.setAdapter(new ArrayAdapter<String>(this,R.layout.list_item,Titles));
 		registerForContextMenu(lv);
 		lv.setTextFilterEnabled(true);
@@ -94,7 +103,6 @@ public class MainActivity extends FragmentActivity  {
 	{
 		switch (item.getItemId()){
 			case R.id.add_sound:
-				Toast.makeText(this, ASC.getResourceUri().getPath(), Toast.LENGTH_LONG).show();
 				ASDF = new AddSoundDialogFragment();
 				ASDF.show(getFragmentManager(),"AddSoundDialogFragment");
 				return true;
@@ -103,6 +111,38 @@ public class MainActivity extends FragmentActivity  {
 		}
 		
 	}
+
+	@Override
+	public void onDialogPositiveClick(DialogFragment dialog)
+	{
+		Toast.makeText(this, this.getFilesDir().toString(), Toast.LENGTH_LONG).show();
+		ASC.AddSoundToFile("Test2","Test2.mp3");
+		refreshListView();
+		
+		
+	}
+
+	@Override
+	public void onDialogNegativeClick(DialogFragment dialog)
+	{
+		try{
+			FileInputStream fis = this.openFileInput("filemap.txt");
+			BufferedReader bfre = new BufferedReader(new InputStreamReader(fis));
+			String line;
+			while((line = bfre.readLine())!= null){
+				Toast.makeText(this,line, Toast.LENGTH_SHORT).show();
+			}
+			}catch (IOException e){
+				
+			}
+	}
+	
+	private void refreshListView(){
+		Titles = new ArrayList<String>(SBC.getMapKeys());
+		Collections.sort(Titles);
+		lv.setAdapter(new ArrayAdapter<String>(this,R.layout.list_item,Titles));
+	}
+
 
 	private class ListViewClickListener implements OnItemClickListener{
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {	

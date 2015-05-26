@@ -4,6 +4,8 @@ import android.net.Uri;
 import android.content.Context;
 import android.content.ContentResolver;
 
+import com.wochstudios.soundboard.utils.MapUpdater;
+
 public class AddSoundController
 {
 	private Context con;
@@ -12,16 +14,8 @@ public class AddSoundController
 	}
 	
 	public void AddSoundToFile(String title, String path){
-		
-	}
-	
-	public Uri getResourceUri(){
-		int id = con.getResources().getIdentifier("filemap", "raw", con.getPackageName());
-		Uri uri = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE+"://"+
-							con.getResources().getResourcePackageName(id)+'/'+
-							con.getResources().getResourceTypeName(id)+'/'+
-							con.getResources().getResourceEntryName(id));
-		return uri;
+		MapUpdater mu = new MapUpdater();
+		mu.updateSoundMapFile(title, path, con);
 	}
 	
 }
