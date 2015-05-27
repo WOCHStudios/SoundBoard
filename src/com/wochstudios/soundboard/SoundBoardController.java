@@ -7,6 +7,7 @@ import java.util.Set;
 
 import android.content.Context;
 import android.util.Log;
+import android.net.Uri;
 
 import com.wochstudios.soundboard.utils.Downloader;
 import com.wochstudios.soundboard.utils.MapLoader;
@@ -44,8 +45,10 @@ public class SoundBoardController {
 	}
 	
 	public void playSound(String key){
-		int rawID = con.getResources().getIdentifier(valueMap.get(key), "raw", con.getPackageName());
-		player.playSound(con, rawID);
+		//int rawID = con.getResources().getIdentifier(valueMap.get(key), "raw", con.getPackageName());
+		//player.playSound(con, rawID);
+		player.playSound(con, Uri.parse(valueMap.get(key)));
+		
 	}
 	
 	

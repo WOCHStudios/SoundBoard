@@ -32,9 +32,10 @@ public class MainActivity extends FragmentActivity implements  AddSoundDialogLis
 
 	private ArrayList<String> Titles;
 	private SoundBoardController SBC;
-	private AddSoundController ASC;
 	private AddSoundDialogFragment ASDF;
 	private ListView lv;
+	
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,6 @@ public class MainActivity extends FragmentActivity implements  AddSoundDialogLis
 	
 	private void init(){
 		SBC = new SoundBoardController(this);
-		ASC = new AddSoundController(this);
 		Titles = new ArrayList<String>(SBC.getMapKeys());
 		Collections.sort(Titles);
 		createListView();
@@ -115,29 +115,16 @@ public class MainActivity extends FragmentActivity implements  AddSoundDialogLis
 	@Override
 	public void onDialogPositiveClick(DialogFragment dialog)
 	{
-		Toast.makeText(this, this.getFilesDir().toString(), Toast.LENGTH_LONG).show();
-		ASC.AddSoundToFile("Test2","Test2.mp3");
 		refreshListView();
-		
-		
 	}
 
 	@Override
-	public void onDialogNegativeClick(DialogFragment dialog)
-	{
-		try{
-			FileInputStream fis = this.openFileInput("filemap.txt");
-			BufferedReader bfre = new BufferedReader(new InputStreamReader(fis));
-			String line;
-			while((line = bfre.readLine())!= null){
-				Toast.makeText(this,line, Toast.LENGTH_SHORT).show();
-			}
-			}catch (IOException e){
-				
-			}
+	public void onDialogNegativeClick(DialogFragment dialog){
+		
 	}
 	
 	private void refreshListView(){
+		SBC.loadSounds();
 		Titles = new ArrayList<String>(SBC.getMapKeys());
 		Collections.sort(Titles);
 		lv.setAdapter(new ArrayAdapter<String>(this,R.layout.list_item,Titles));

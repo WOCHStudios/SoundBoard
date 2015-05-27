@@ -13,9 +13,9 @@ public class AddSoundController
 		this.con = c;
 	}
 	
-	public void AddSoundToFile(String title, String path){
+	public void AddSoundToFile(String title, String Uri){
 		MapUpdater mu = new MapUpdater();
-		mu.updateSoundMapFile(title, path, con);
+		mu.updateSoundMapFile(title, Uri, con);
 	}
 	
 }

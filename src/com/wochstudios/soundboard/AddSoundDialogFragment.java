@@ -4,14 +4,20 @@ import android.os.*;
 import android.content.*;
 import android.text.*;
 import android.view.*;
+import android.widget.Button;
 
 import com.wochstudios.soundboard.Interfaces.AddSoundDialogListener;
+import android.view.View.*;
+import android.widget.*;
+import android.net.Uri;
 
 public class AddSoundDialogFragment extends DialogFragment
 {
-	private AddSoundController ASC;
 	
 	private AddSoundDialogListener mListener;
+	private AddSoundController ASC;
+	private View layout;
+	private Uri fileUri;
 
 	@Override
 	public void onAttach(Activity activity)
@@ -31,9 +37,14 @@ public class AddSoundDialogFragment extends DialogFragment
 	{
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		LayoutInflater inflater = getActivity().getLayoutInflater();
-		builder.setView(inflater.inflate(R.layout.test_layout,null))
+		layout = inflater.inflate(R.layout.dialog_layout,null);
+		ASC = new AddSoundController(getActivity());
+		builder.setView(layout)
 				.setPositiveButton("Add", new Dialog.OnClickListener(){
 					public void onClick(DialogInterface dialog, int id){
+						EditText title = (EditText) layout.findViewById(R.id.SoundTitle);
+						EditText uri = (EditText) layout.findViewById(R.id.SoundFile);
+						ASC.AddSoundToFile(title.getText().toString(),fileUri.toString());
 						mListener.onDialogPositiveClick(AddSoundDialogFragment.this);
 					}
 				})
@@ -43,7 +54,38 @@ public class AddSoundDialogFragment extends DialogFragment
 					}
 				})
 				.setTitle("Add Sound");
+		setupFileBrowserButton(layout);
+				
 		return builder.create();
+	}
+	
+	private void setupFileBrowserButton(View v){
+		Button browse = (Button)v.findViewById(R.id.BrowseBtn);
+		browse.setOnClickListener(new OnClickListener(){
+			@Override
+			public void onClick(View v){
+				Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+				intent.addCategory(Intent.CATEGORY_OPENABLE);
+				intent.setType("*/*");
+				startActivityForResult(intent,42);
+			}
+		});
+	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data)
+	{
+		if(requestCode == 42 && resultCode == Activity.RESULT_OK){
+			if(data != null){
+				fileUri = data.getData();
+				updateFilePathField(fileUri);
+			}
+		}
+	}
+	
+	private void updateFilePathField(Uri fileUri){
+		EditText filePathField = (EditText) layout.findViewById(R.id.SoundFile);
+		filePathField.setText(fileUri.getPath());
 	}
 	
 }
