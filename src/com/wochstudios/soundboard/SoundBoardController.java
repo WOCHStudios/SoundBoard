@@ -8,8 +8,9 @@ import java.util.Set;
 import android.content.Context;
 import android.util.Log;
 import android.net.Uri;
+import android.widget.Toast;
 
-import com.wochstudios.soundboard.utils.Downloader;
+
 import com.wochstudios.soundboard.utils.MapLoader;
 import com.wochstudios.soundboard.utils.SoundPlayer;
 import com.wochstudios.soundboard.utils.*;
@@ -18,7 +19,6 @@ import com.wochstudios.soundboard.utils.*;
 public class SoundBoardController {
 	private SoundPlayer player = new SoundPlayer();
 	private MapLoader loader = new MapLoader();
-	private Downloader downloader = new Downloader();
 	private RingtoneMaker ringtoneMaker = new RingtoneMaker();
 	private HashMap<String,String> valueMap;
 	private Context con;
@@ -30,12 +30,12 @@ public class SoundBoardController {
 	}
 	
 	public Set<String> getMapKeys(){
+		valueMap = this.loadSounds();
 		return valueMap.keySet();
 	}
 	
 	public HashMap<String,String> loadSounds(){
 		try {
-			int id = con.getResources().getIdentifier("filemap", "raw", con.getPackageName());
 			InputStream f = con.openFileInput("filemap.txt");
 			return loader.loadVaules(f);
 		} catch (IOException e) {

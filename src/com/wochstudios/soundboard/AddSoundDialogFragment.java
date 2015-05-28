@@ -15,10 +15,14 @@ public class AddSoundDialogFragment extends DialogFragment
 {
 	
 	private AddSoundDialogListener mListener;
-	private AddSoundController ASC;
+	private MapController ASC;
 	private View layout;
 	private Uri fileUri;
 
+	public AddSoundDialogFragment(MapController c){
+		this.ASC =c;
+	}
+	
 	@Override
 	public void onAttach(Activity activity)
 	{
@@ -38,13 +42,11 @@ public class AddSoundDialogFragment extends DialogFragment
 		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		layout = inflater.inflate(R.layout.dialog_layout,null);
-		ASC = new AddSoundController(getActivity());
 		builder.setView(layout)
 				.setPositiveButton("Add", new Dialog.OnClickListener(){
 					public void onClick(DialogInterface dialog, int id){
 						EditText title = (EditText) layout.findViewById(R.id.SoundTitle);
-						EditText uri = (EditText) layout.findViewById(R.id.SoundFile);
-						ASC.AddSoundToFile(title.getText().toString(),fileUri.toString());
+						ASC.AddSoundToMap(title.getText().toString(),fileUri.toString());
 						mListener.onDialogPositiveClick(AddSoundDialogFragment.this);
 					}
 				})

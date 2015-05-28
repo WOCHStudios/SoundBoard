@@ -32,6 +32,7 @@ public class MainActivity extends FragmentActivity implements  AddSoundDialogLis
 
 	private ArrayList<String> Titles;
 	private SoundBoardController SBC;
+	private MapController MC;
 	private AddSoundDialogFragment ASDF;
 	private ListView lv;
 	
@@ -41,18 +42,14 @@ public class MainActivity extends FragmentActivity implements  AddSoundDialogLis
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		MapCreator mc = new MapCreator();
-		try{
-			mc.createMapFile(this);
-		}catch (IOException e){
-			
-		}
 		init();	
 	}//onCreate
 	
 	
 	private void init(){
 		SBC = new SoundBoardController(this);
+		MC = new MapController(this);
+		MC.createMap();
 		Titles = new ArrayList<String>(SBC.getMapKeys());
 		Collections.sort(Titles);
 		createListView();
@@ -71,22 +68,26 @@ public class MainActivity extends FragmentActivity implements  AddSoundDialogLis
 	
 	
 	 @Override
-	 public void onCreateContextMenu(ContextMenu menu, View v,
-	     ContextMenuInfo menuInfo) {
-	   if (v.getId()==R.id.listView1) {
-	     AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
-	     menu.setHeaderTitle(Titles.get(info.position));
-	     String[] menuItems = getResources().getStringArray(R.array.menuItems);
-	     for (int i = 0; i<menuItems.length; i++) {
-	       menu.add(Menu.NONE, i, i, menuItems[i]);
-	     }
-	   }
+	 public void onCreateContextMenu(ContextMenu menu, View v,ContextMenuInfo menuInfo) {
+	   	if (v.getId()==R.id.listView1) {
+	     	AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
+	     	menu.setHeaderTitle(Titles.get(info.position));
+	     	String[] menuItems = getResources().getStringArray(R.array.menuItems);
+	     	for (int i = 0; i<menuItems.length; i++) {
+	       		menu.add(Menu.NONE, i, i, menuItems[i]);
+	     	}
+	   	}
 	 }//onCreateContextMenu
 	 
 	 @Override
 	 public boolean onContextItemSelected(MenuItem item) {
 	   AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
-	   SBC.downloadRingtone(Titles.get(info.position));
+	   if(item.getItemId() == 0){
+	   	SBC.downloadRingtone(Titles.get(info.position));
+	   }else if(item.getItemId() == 1){
+		 MC.RemoveSoundFromMap(Titles.get(info.position),SBC.loadSounds().get(Titles.get(info.position)));
+		 refreshListView();
+	   }
 	   return true;
 	 }//onContextItemSelected
  
@@ -103,7 +104,7 @@ public class MainActivity extends FragmentActivity implements  AddSoundDialogLis
 	{
 		switch (item.getItemId()){
 			case R.id.add_sound:
-				ASDF = new AddSoundDialogFragment();
+				ASDF = new AddSoundDialogFragment(MC);
 				ASDF.show(getFragmentManager(),"AddSoundDialogFragment");
 				return true;
 			default:
@@ -124,7 +125,6 @@ public class MainActivity extends FragmentActivity implements  AddSoundDialogLis
 	}
 	
 	private void refreshListView(){
-		SBC.loadSounds();
 		Titles = new ArrayList<String>(SBC.getMapKeys());
 		Collections.sort(Titles);
 		lv.setAdapter(new ArrayAdapter<String>(this,R.layout.list_item,Titles));

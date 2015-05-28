@@ -7,14 +7,17 @@ import android.widget.*;
 
 public class MapCreator
 {
-	public void createMapFile(Context con) throws IOException{
-		String filename = "filemap.txt";
-		String content = "";
-		if(!doesMapExists(con.openFileInput(filename))){
-			FileOutputStream fos = con.openFileOutput(filename,Context.MODE_PRIVATE);
-			fos.write(content.getBytes());
-			fos.close();
-		}	
+	private final String filename="filemap.txt";
+	
+	public void createMapFile(Context con){
+		try{
+			String content = "";
+			if(!doesMapExists(con.openFileInput(filename))){
+				FileOutputStream fos = con.openFileOutput(filename,Context.MODE_PRIVATE);
+				fos.write(content.getBytes());
+				fos.close();
+			}
+		}catch (IOException e){}
 	}
 	
 	private boolean doesMapExists(InputStream in) throws IOException{

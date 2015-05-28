@@ -6,6 +6,7 @@
 	<color name="Black">#000</color>
 	<string-array name="menuItems">
 		<item>Set as Ringtone</item>
+		<item>Remove Sound</item>
 	</string-array>
 	<color name="WHITE">#FFFFFF</color>
 	<color name="GOLD">#f5d626</color>
