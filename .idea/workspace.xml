@@ -1,239 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="2dd50f48-85d6-4b8c-9dad-480d20304403" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.classpath" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.project" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.settings\org.eclipse.jdt.core.prefs" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\AndroidManifest.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\SoundBoard.apk" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\MainActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\MainActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\MainController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\R$array.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\R$menu.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\R$raw.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\R.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\utils\Downloader.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\utils\FileWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\utils\MapLoader.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\utils\RingtoneMaker.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\soundboard\utils\SoundPlayer.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\MainActivity$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\MainActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\MainController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\R$array.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\R$menu.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\R$raw.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\R.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\utils\Downloader.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\utils\FileWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\utils\MapLoader.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\utils\RingtoneMaker.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classes\com\wochstudios\theleaguesoundboard\utils\SoundPlayer.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\adrt\ADRT.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\adrt\ADRTLogCatReader.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\adrt\ADRTLongMap.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\adrt\ADRTLongSet.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\adrt\ADRTMetadata.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\adrt\ADRTReceiver.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\adrt\ADRTReflector.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\adrt\ADRTSender.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\adrt\ADRTThread.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\adrt\ADRTThreadLocal.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\AddSoundController$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\AddSoundController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\AddSoundDialogFragment$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\AddSoundDialogFragment$100000000$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\AddSoundDialogFragment$100000000.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\AddSoundDialogFragment$100000001$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\AddSoundDialogFragment$100000001.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\AddSoundDialogFragment$100000002$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\AddSoundDialogFragment$100000002.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\AddSoundDialogFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\BuildConfig$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\Interfaces\AddSoundDialogListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\MainActivity$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\MainActivity$100000000$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\MainActivity$100000000.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\MainActivity$ListViewClickListener$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\MainActivity$ListViewClickListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\MainActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\MainController$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\MainController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\Manifest$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\Manifest.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\MapController$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\MapController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$array$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$array.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$attr$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$color$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$drawable$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$id$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$layout$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$menu$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$menu.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$raw$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$raw.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$string$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$style$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\R.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\SoundBoardController$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\SoundBoardController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\Downloader$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\Downloader.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\FileCopier$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\FileCopier.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\FileWriter$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\FileWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\MapCreator$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\MapCreator.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\MapLoader$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\MapLoader.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\MapUpdater$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\MapUpdater.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\RingtoneMaker$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\RingtoneMaker.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\SoundPlayer$0$debug.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesdebug\com\wochstudios\soundboard\utils\SoundPlayer.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\adrt\ADRTLogCatReader.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\adrt\ADRTLogCatReader.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\adrt\ADRTSender.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\adrt\ADRTSender.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\AddSoundController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\AddSoundController.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\AddSoundDialogFragment$100000000.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\AddSoundDialogFragment$100000000.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\AddSoundDialogFragment$100000001.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\AddSoundDialogFragment$100000001.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\AddSoundDialogFragment$100000002.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\AddSoundDialogFragment$100000002.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\AddSoundDialogFragment.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\AddSoundDialogFragment.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\BuildConfig.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\BuildConfig.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\Interfaces\AddSoundDialogListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\Interfaces\AddSoundDialogListener.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\MainActivity$100000000.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\MainActivity$100000000.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\MainActivity$ListViewClickListener.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\MainActivity$ListViewClickListener.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\MainActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\MainActivity.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\MainController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\MainController.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\Manifest.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\Manifest.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\MapController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\MapController.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$array.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$array.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$attr.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$color.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$color.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$drawable.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$drawable.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$id.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$id.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$layout.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$layout.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$menu.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$menu.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$raw.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$raw.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$string.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R$style.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\R.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\SoundBoardController.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\SoundBoardController.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\Downloader.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\Downloader.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\FileCopier.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\FileCopier.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\FileWriter.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\FileWriter.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\MapCreator.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\MapCreator.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\MapLoader.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\MapLoader.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\MapUpdater.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\MapUpdater.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\RingtoneMaker.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\RingtoneMaker.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\SoundPlayer.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\classesrelease\com\wochstudios\soundboard\utils\SoundPlayer.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\jardex\android-support-v4.jar.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\jarlist.cache" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\res\drawable-hdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\res\drawable-ldpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\res\drawable-mdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\res\drawable-xhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\res\drawable-xxhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\bin\resources.ap_" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\gen\com\wochstudios\soundboard\BuildConfig.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\gen\com\wochstudios\soundboard\Manifest.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\gen\com\wochstudios\soundboard\R.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\import-summary.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\libs\android-support-v4.jar" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\project.properties" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\drawable-hdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\drawable-ldpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\drawable-mdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\drawable-xhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\drawable-xxhdpi\Thumbs.db" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\drawable-xxhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\layout\dialog_layout.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\layout\list_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\layout\main.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\menu\activity_main.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\menu\main_activity_actions.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\raw\filemap.txt" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\values-v11\styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\values\strings.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\res\values\styles.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\src\com\wochstudios\soundboard\AddSoundDialogFragment.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\src\com\wochstudios\soundboard\Interfaces\AddSoundDialogListener.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\src\com\wochstudios\soundboard\MainActivity.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\src\com\wochstudios\soundboard\MapController.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\src\com\wochstudios\soundboard\SoundBoardController.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\src\com\wochstudios\soundboard\utils\MapCreator.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\src\com\wochstudios\soundboard\utils\MapLoader.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\src\com\wochstudios\soundboard\utils\MapUpdater.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\src\com\wochstudios\soundboard\utils\RingtoneMaker.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\src\com\wochstudios\soundboard\utils\SoundPlayer.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\src\main\java\com\wochstudios\soundboard\MainController.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\src\main\java\com\wochstudios\soundboard\utils\Downloader.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\src\main\java\com\wochstudios\soundboard\utils\FileWriter.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/outputFileStates.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug-androidTest.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/resources/resources-debug.ap_" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/androidTest/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/androidTest/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/androidTest/debug/com/wochstudios/soundboard/test/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/androidTest/debug/com/wochstudios/soundboard/test/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/wochstudios/soundboard/BuildConfig.java" afterPath="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/wochstudios/soundboard/BuildConfig.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/wochstudios/soundboard/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wochstudios/soundboard/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/wochstudios/soundboard/utils/MapLoader.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wochstudios/soundboard/utils/MapLoader.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/wochstudios/soundboard/R.java" afterPath="$PROJECT_DIR$/app/build/generated/source/r/debug/com/wochstudios/soundboard/R.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/wochstudios/soundboard/utils/RingtoneMaker.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wochstudios/soundboard/utils/RingtoneMaker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/wochstudios/soundboard/utils/SoundPlayer.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/wochstudios/soundboard/utils/SoundPlayer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/menu/activity_main.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/menu/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/activity_main.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/androidTest/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeAssets/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/androidTest/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/androidTest/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeResources/debug/merger.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-v11/values-v11.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values-v11/values-v11.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/res/debug/values/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SoundBoard.iws" />
@@ -261,7 +66,28 @@
     <favorites_list name="SoundBoard" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.22849463">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -788,7 +614,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4293113371332" />
+        <entry key="$PROJECT_DIR$" value="4299602625646" />
       </map>
     </option>
     <option name="projectBuildClasspath">
@@ -1032,6 +858,14 @@
       <projects_view />
     </option>
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+      </list>
+    </option>
+  </component>
   <component name="NamedScopeManager">
     <order />
   </component>
@@ -1085,13 +919,117 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SoundBoard" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="raw" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SoundBoard" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="menu" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SoundBoard" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SoundBoard" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SoundBoard" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="soundboard" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SoundBoard" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1102,6 +1040,9 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="T062805T9W" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="AVD-4_0" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager" selected="Android Application.app">
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -1245,6 +1186,9 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="2dd50f48-85d6-4b8c-9dad-480d20304403" name="Default" comment="" />
@@ -1255,36 +1199,44 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32998326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32998326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24962178" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2473525" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -1294,10 +1246,35 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/import-summary.txt">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="36" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22849463">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

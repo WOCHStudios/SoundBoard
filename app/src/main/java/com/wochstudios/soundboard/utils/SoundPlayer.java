@@ -2,6 +2,7 @@ package com.wochstudios.soundboard.utils;
 
 import android.content.Context;
 import android.media.MediaPlayer;
+import android.net.*;
 
 public class SoundPlayer {
 	private MediaPlayer mp;
@@ -10,10 +11,10 @@ public class SoundPlayer {
 		mp = new MediaPlayer();
 	}
 	
-	public boolean playSound(Context con, int id){
+	public boolean playSound(Context con, Uri uri){
 		try {
 			if(!mp.isPlaying()){
-				mp = MediaPlayer.create(con, id);
+				mp = MediaPlayer.create(con, uri);
 				mp.start();
 				return true;
 			}

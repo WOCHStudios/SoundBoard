@@ -5,8 +5,10 @@
 	<color name="Transparent">#00FFFFFF</color>
 	<color name="Black">#000</color>
 	<string-array name="menuItems">
-		<item>Download ringtone</item>
+		<item>Set as Ringtone</item>
+		<item>Remove Sound</item>
 	</string-array>
 	<color name="WHITE">#FFFFFF</color>
 	<color name="GOLD">#f5d626</color>
+	<string name="add_sound">Add</string>
 </resources>
