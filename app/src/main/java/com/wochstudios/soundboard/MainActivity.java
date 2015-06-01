@@ -5,7 +5,7 @@ import java.util.Collections;
 
 
 
-import android.app.Activity;
+import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextMenu;
@@ -17,53 +17,77 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.*;
+import android.view.View.*;
+import android.view.*;
+import java.util.zip.*;
+import android.graphics.drawable.*;
+import android.app.*;
 
+import com.wochstudios.soundboard.Interfaces.AddSoundDialogListener;
+import com.wochstudios.soundboard.utils.*;
+import java.io.*;
 
-
-public class MainActivity extends Activity {
+public class MainActivity extends FragmentActivity implements  AddSoundDialogListener {
 
 	private ArrayList<String> Titles;
-	private MainController MC;
+	private SoundBoardController SBC;
+	private MapController MC;
+	private AddSoundDialogFragment ASDF;
+	private ListView lv;
+	
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		MC = new MainController(this);
-		Titles = new ArrayList<String>(MC.getMapKeys());
-		Collections.sort(Titles);
-		//creates and sets the click listener for list view
-		final ListView lv = (ListView) findViewById(R.id.listView1);
-		lv.setAdapter(new ArrayAdapter<String>(this,R.layout.list_item,Titles));
-		registerForContextMenu(lv);
-		lv.setTextFilterEnabled(true);
-		  lv.setOnItemClickListener(new OnItemClickListener() {
-			    public void onItemClick(AdapterView<?> parent, View view,
-			        int position, long id) {
-			    	Log.d("ListItem:OnClick", Titles.get(position));	
-			    	MC.playSound(Titles.get(position));
-			    } 
-			  });	  
+		init();	
 	}//onCreate
 	
 	
+	private void init(){
+		SBC = new SoundBoardController(this);
+		MC = new MapController(this);
+		MC.createMap();
+		Titles = new ArrayList<String>(SBC.getMapKeys());
+		Collections.sort(Titles);
+		createListView();
+		
+	}
+	
+	
+	
+	private void createListView(){
+		lv = (ListView) findViewById(R.id.listView1);
+		lv.setAdapter(new ArrayAdapter<String>(this,R.layout.list_item,Titles));
+		registerForContextMenu(lv);
+		lv.setTextFilterEnabled(true);
+		lv.setOnItemClickListener(new ListViewClickListener());
+	}
+	
+	
 	 @Override
-	 public void onCreateContextMenu(ContextMenu menu, View v,
-	     ContextMenuInfo menuInfo) {
-	   if (v.getId()==R.id.listView1) {
-	     AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
-	     menu.setHeaderTitle(Titles.get(info.position));
-	     String[] menuItems = getResources().getStringArray(R.array.menuItems);
-	     for (int i = 0; i<menuItems.length; i++) {
-	       menu.add(Menu.NONE, i, i, menuItems[i]);
-	     }
-	   }
+	 public void onCreateContextMenu(ContextMenu menu, View v,ContextMenuInfo menuInfo) {
+	   	if (v.getId()==R.id.listView1) {
+	     	AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
+	     	menu.setHeaderTitle(Titles.get(info.position));
+	     	String[] menuItems = getResources().getStringArray(R.array.menuItems);
+	     	for (int i = 0; i<menuItems.length; i++) {
+	       		menu.add(Menu.NONE, i, i, menuItems[i]);
+	     	}
+	   	}
 	 }//onCreateContextMenu
 	 
 	 @Override
 	 public boolean onContextItemSelected(MenuItem item) {
 	   AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
-	   MC.downloadRingtone(Titles.get(info.position));
+	   if(item.getItemId() == 0){
+	   	SBC.downloadRingtone(Titles.get(info.position));
+	   }else if(item.getItemId() == 1){
+		 MC.RemoveSoundFromMap(Titles.get(info.position),SBC.loadSounds().get(Titles.get(info.position)));
+		 refreshListView();
+	   }
 	   return true;
 	 }//onContextItemSelected
  
@@ -73,6 +97,43 @@ public class MainActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
-	}// onCreateOptionsMenu
+	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item)
+	{
+		switch (item.getItemId()){
+			case R.id.add_sound:
+				ASDF = new AddSoundDialogFragment(MC);
+				ASDF.show(getFragmentManager(),"AddSoundDialogFragment");
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
+		
+	}
+
+	@Override
+	public void onDialogPositiveClick(DialogFragment dialog)
+	{
+		refreshListView();
+	}
+
+	@Override
+	public void onDialogNegativeClick(DialogFragment dialog){
+		
+	}
+	
+	private void refreshListView(){
+		Titles = new ArrayList<String>(SBC.getMapKeys());
+		Collections.sort(Titles);
+		lv.setAdapter(new ArrayAdapter<String>(this,R.layout.list_item,Titles));
+	}
+
+
+	private class ListViewClickListener implements OnItemClickListener{
+		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {	
+			SBC.playSound(Titles.get(position));
+		} 
+	}
 }
