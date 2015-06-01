@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 19
+    compileSdkVersion 13
     buildToolsVersion "21.1.2"
 
     defaultConfig {
         applicationId "com.wochstudios.soundboard"
-        minSdkVersion 19
-        targetSdkVersion 19
+        minSdkVersion 8
+        targetSdkVersion 17
     }
 
     buildTypes {

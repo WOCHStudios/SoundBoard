@@ -23,30 +23,23 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int BrowseBtn=0x7f0a0003;
-        public static final int Layout1=0x7f0a0004;
-        public static final int SoundFile=0x7f0a0002;
-        public static final int SoundTitle=0x7f0a0001;
-        public static final int add_sound=0x7f0a0006;
-        public static final int listView1=0x7f0a0005;
-        public static final int popupLayout=0x7f0a0000;
+        public static final int Layout1=0x7f0a0000;
+        public static final int listView1=0x7f0a0001;
+        public static final int menu_settings=0x7f0a0002;
     }
     public static final class layout {
-        public static final int dialog_layout=0x7f030000;
-        public static final int list_item=0x7f030001;
-        public static final int main=0x7f030002;
+        public static final int list_item=0x7f030000;
+        public static final int main=0x7f030001;
     }
     public static final class menu {
         public static final int activity_main=0x7f090000;
-        public static final int main_activity_actions=0x7f090001;
     }
     public static final class raw {
         public static final int filemap=0x7f040000;
     }
     public static final class string {
-        public static final int add_sound=0x7f080000;
-        public static final int app_name=0x7f080001;
-        public static final int menu_settings=0x7f080002;
+        public static final int app_name=0x7f080000;
+        public static final int menu_settings=0x7f080001;
     }
     public static final class style {
         /**  API 11 theme customizations can go here. 

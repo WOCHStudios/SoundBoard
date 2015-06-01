@@ -3,14 +3,12 @@
     <!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string-array name="menuItems">
-		<item>Set as Ringtone</item>
-		<item>Remove Sound</item>
+		<item>Download ringtone</item>
 	</string-array>
     <color name="Black">#000</color>
     <color name="GOLD">#f5d626</color>
     <color name="Transparent">#00FFFFFF</color>
     <color name="WHITE">#FFFFFF</color>
-    <string name="add_sound">Add</string>
     <string name="app_name">Sound Board</string>
     <string name="menu_settings">Settings</string>
     <!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/src/main/res/values/styles.xml -->

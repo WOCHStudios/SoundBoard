@@ -7,36 +7,34 @@ import java.util.Set;
 
 import android.content.Context;
 import android.util.Log;
-import android.net.Uri;
-import android.widget.Toast;
 
-
+import com.wochstudios.soundboard.utils.Downloader;
 import com.wochstudios.soundboard.utils.MapLoader;
 import com.wochstudios.soundboard.utils.SoundPlayer;
-import com.wochstudios.soundboard.utils.*;
 
 
-public class SoundBoardController {
+public class MainController {
 	private SoundPlayer player = new SoundPlayer();
 	private MapLoader loader = new MapLoader();
-	private RingtoneMaker ringtoneMaker = new RingtoneMaker();
+	private Downloader downloader = new Downloader();
 	private HashMap<String,String> valueMap;
 	private Context con;
 	
 	
-	public SoundBoardController(Context c){
+	public MainController(Context c){
 		this.con = c;
 		valueMap = this.loadSounds();
 	}
 	
 	public Set<String> getMapKeys(){
-		valueMap = this.loadSounds();
 		return valueMap.keySet();
 	}
 	
 	public HashMap<String,String> loadSounds(){
 		try {
-			InputStream f = con.openFileInput("filemap.txt");
+			int id = con.getResources().getIdentifier("filemap", "raw", con.getPackageName());
+			Log.i("ID: ",""+id);
+			InputStream f = con.getResources().openRawResource(id);
 			return loader.loadVaules(f);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -45,17 +43,15 @@ public class SoundBoardController {
 	}
 	
 	public void playSound(String key){
-		//int rawID = con.getResources().getIdentifier(valueMap.get(key), "raw", con.getPackageName());
-		//player.playSound(con, rawID);
-		player.playSound(con, Uri.parse(valueMap.get(key)));
-		
+		Log.i("MainController:playSound()",""+valueMap.get(key));
+		int rawID = con.getResources().getIdentifier(valueMap.get(key), "raw", con.getPackageName());
+		player.playSound(con, rawID);
 	}
 	
 	
 	public void downloadRingtone(String key){
-		//int rawID = con.getResources().getIdentifier(valueMap.get(key), "raw", con.getPackageName());
-		//downloader.downloadRingtone(con,con.getResources().openRawResource(rawID) , key);
-		ringtoneMaker.setRingtone(key, con);
+		int rawID = con.getResources().getIdentifier(valueMap.get(key), "raw", con.getPackageName());
+		downloader.downloadRingtone(con,con.getResources().openRawResource(rawID) , key);
 	}
 	
 	
