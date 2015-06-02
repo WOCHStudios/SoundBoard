@@ -11,7 +11,7 @@
     <color name="Transparent">#00FFFFFF</color>
     <color name="WHITE">#FFFFFF</color>
     <string name="add_sound">Add</string>
-    <string name="app_name">Sound Board</string>
+    <string name="app_name">MySounds</string>
     <string name="menu_settings">Settings</string>
     <!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/src/main/res/values/styles.xml -->
     <eat-comment/>
