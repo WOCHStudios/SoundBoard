@@ -1,13 +1,8 @@
 package com.wochstudios.soundboard;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
-
-
-import android.support.v4.app.FragmentActivity;
+import android.app.DialogFragment;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.FragmentActivity;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
@@ -17,18 +12,14 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.*;
-import android.view.View.*;
-import android.view.*;
-import java.util.zip.*;
-import android.graphics.drawable.*;
-import android.app.*;
 
+import com.wochstudios.soundboard.Controllers.MainController;
+import com.wochstudios.soundboard.Controllers.MapController;
+import com.wochstudios.soundboard.Database.SoundboardDBHelper;
 import com.wochstudios.soundboard.Interfaces.AddSoundDialogListener;
-import com.wochstudios.soundboard.utils.*;
-import java.io.*;
-import com.wochstudios.soundboard.Database.*;
-import com.wochstudios.soundboard.Controllers.*;
+
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends FragmentActivity implements  AddSoundDialogListener {
 

@@ -1,10 +1,8 @@
 package com.wochstudios.soundboard.Database.DAO;
 
-import android.database.*;
-import android.content.*;
-import android.database.sqlite.*;
-
-import com.wochstudios.soundboard.Database.SounboardContract.SoundsTable;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 public class SoundsDAO implements SoundboardDbDAO
 {

@@ -1,8 +1,8 @@
 package com.wochstudios.soundboard.Database.DAO;
 
-import android.database.*;
-import android.database.sqlite.*;
-import android.content.*;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 
 import com.wochstudios.soundboard.Database.SounboardContract.SoundboardsTable;
 

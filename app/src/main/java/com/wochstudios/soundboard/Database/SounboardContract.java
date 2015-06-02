@@ -1,5 +1,6 @@
 package com.wochstudios.soundboard.Database;
-import android.provider.*;
+
+import android.provider.BaseColumns;
 
 public final class SounboardContract
 {

@@ -1,16 +1,14 @@
 package com.wochstudios.soundboard.Controllers;
 
-import android.net.Uri;
 import android.content.Context;
-import android.content.ContentResolver;
 
+import com.wochstudios.soundboard.utils.MapCreator;
+import com.wochstudios.soundboard.utils.MapLoader;
+import com.wochstudios.soundboard.utils.MapUpdater;
 
-import com.wochstudios.soundboard.utils.*;
-
-import java.util.Set;
-import java.util.HashMap;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 
 public class MapController
 {

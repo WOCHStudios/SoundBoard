@@ -1,19 +1,13 @@
 package com.wochstudios.soundboard.Controllers;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.Set;
-
 import android.content.Context;
-import android.util.Log;
 import android.net.Uri;
-import android.widget.Toast;
-
 
 import com.wochstudios.soundboard.utils.MapLoader;
+import com.wochstudios.soundboard.utils.RingtoneMaker;
 import com.wochstudios.soundboard.utils.SoundPlayer;
-import com.wochstudios.soundboard.utils.*;
+
+import java.util.HashMap;
 
 
 public class MainController {

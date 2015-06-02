@@ -1,13 +1,10 @@
 package com.wochstudios.soundboard.utils;
 
-import java.io.File;
-
 import android.content.Context;
-import android.util.Log;
-import android.widget.*;
+import android.widget.Toast;
 
-import java.io.IOException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.HashMap;
 
 public class MapUpdater

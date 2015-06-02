@@ -1,5 +1,6 @@
 package com.wochstudios.soundboard.Interfaces;
-import android.app.*;
+
+import android.app.DialogFragment;
 
 public interface AddSoundDialogListener
 {

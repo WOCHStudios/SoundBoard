@@ -2,7 +2,7 @@ package com.wochstudios.soundboard.utils;
 
 import android.content.Context;
 import android.media.MediaPlayer;
-import android.net.*;
+import android.net.Uri;
 
 public class SoundPlayer {
 	private MediaPlayer mp;
