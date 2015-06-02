@@ -47,10 +47,10 @@ public class MainActivity extends FragmentActivity implements  AddSoundDialogLis
 	
 	
 	private void init(){
-		SBC = new SoundBoardController(this);
 		MC = new MapController(this);
 		MC.createMap();
-		Titles = new ArrayList<String>(SBC.getMapKeys());
+		SBC = new SoundBoardController(this, MC.getSoundMap());
+		Titles = new ArrayList<String>(MC.getSoundMap().keySet());
 		Collections.sort(Titles);
 		createListView();
 		
@@ -85,7 +85,8 @@ public class MainActivity extends FragmentActivity implements  AddSoundDialogLis
 	   if(item.getItemId() == 0){
 	   	SBC.downloadRingtone(Titles.get(info.position));
 	   }else if(item.getItemId() == 1){
-		 MC.RemoveSoundFromMap(Titles.get(info.position),SBC.loadSounds().get(Titles.get(info.position)));
+		 //MC.RemoveSoundFromMap(Titles.get(info.position),SBC.loadSounds().get(Titles.get(info.position)));
+		 MC.RemoveSoundFromMap(Titles.get(info.position));
 		 refreshListView();
 	   }
 	   return true;
@@ -125,7 +126,7 @@ public class MainActivity extends FragmentActivity implements  AddSoundDialogLis
 	}
 	
 	private void refreshListView(){
-		Titles = new ArrayList<String>(SBC.getMapKeys());
+		Titles = new ArrayList<String>(MC.getSoundMap().keySet());
 		Collections.sort(Titles);
 		lv.setAdapter(new ArrayAdapter<String>(this,R.layout.list_item,Titles));
 	}

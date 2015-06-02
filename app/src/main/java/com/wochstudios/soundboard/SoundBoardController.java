@@ -24,11 +24,11 @@ public class SoundBoardController {
 	private Context con;
 	
 	
-	public SoundBoardController(Context c){
+	public SoundBoardController(Context c, HashMap<String,String> map){
 		this.con = c;
-		valueMap = this.loadSounds();
+		this.valueMap = map;
 	}
-	
+	/*
 	public Set<String> getMapKeys(){
 		valueMap = this.loadSounds();
 		return valueMap.keySet();
@@ -42,7 +42,7 @@ public class SoundBoardController {
 			e.printStackTrace();
 			return new HashMap<String,String>();
 		}
-	}
+	}*/
 	
 	public void playSound(String key){
 		//int rawID = con.getResources().getIdentifier(valueMap.get(key), "raw", con.getPackageName());
