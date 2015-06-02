@@ -1,4 +1,4 @@
-package com.wochstudios.soundboard;
+package com.wochstudios.soundboard.Controllers;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,7 +16,7 @@ import com.wochstudios.soundboard.utils.SoundPlayer;
 import com.wochstudios.soundboard.utils.*;
 
 
-public class SoundBoardController {
+public class MainController {
 	private SoundPlayer player = new SoundPlayer();
 	private MapLoader loader = new MapLoader();
 	private RingtoneMaker ringtoneMaker = new RingtoneMaker();
@@ -24,7 +24,7 @@ public class SoundBoardController {
 	private Context con;
 	
 	
-	public SoundBoardController(Context c, HashMap<String,String> map){
+	public MainController(Context c, HashMap<String,String> map){
 		this.con = c;
 		this.valueMap = map;
 	}

@@ -27,12 +27,15 @@ import android.app.*;
 import com.wochstudios.soundboard.Interfaces.AddSoundDialogListener;
 import com.wochstudios.soundboard.utils.*;
 import java.io.*;
+import com.wochstudios.soundboard.Database.*;
+import com.wochstudios.soundboard.Controllers.*;
 
 public class MainActivity extends FragmentActivity implements  AddSoundDialogListener {
 
 	private ArrayList<String> Titles;
-	private SoundBoardController SBC;
+	private MainController SBC;
 	private MapController MC;
+	private SoundboardDBHelper SDH;
 	private AddSoundDialogFragment ASDF;
 	private ListView lv;
 	
@@ -47,9 +50,10 @@ public class MainActivity extends FragmentActivity implements  AddSoundDialogLis
 	
 	
 	private void init(){
+		SDH = new SoundboardDBHelper(this);
 		MC = new MapController(this);
 		MC.createMap();
-		SBC = new SoundBoardController(this, MC.getSoundMap());
+		SBC = new MainController(this, MC.getSoundMap());
 		Titles = new ArrayList<String>(MC.getSoundMap().keySet());
 		Collections.sort(Titles);
 		createListView();
