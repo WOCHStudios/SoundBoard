@@ -4,8 +4,11 @@ import java.io.File;
 
 import android.content.Context;
 import android.util.Log;
-import java.io.*;
 import android.widget.*;
+
+import java.io.IOException;
+import java.io.FileOutputStream;
+import java.util.HashMap;
 
 public class MapUpdater
 {
@@ -24,7 +27,7 @@ public class MapUpdater
 					addSoundToMap(title, uri);
 					break;
 				case REMOVE_CODE:
-					removeSoundFromMap(title,uri);
+					//removeSoundFromMap(title,uri);
 					break;
 				default:
 					break;
@@ -35,24 +38,22 @@ public class MapUpdater
 	}
 	
 	private void addSoundToMap(String title, String uri) throws IOException{
-			String content = "\n"+title+":"+uri;
+			String content = "\n"+title+"="+uri;
 			FileOutputStream fos = con.openFileOutput("filemap.txt", Context.MODE_APPEND);
 			fos.write(content.getBytes());
 			fos.close();	
 	}
 	
-	private void removeSoundFromMap(String Title,String uri) throws IOException{
-		BufferedReader bfr = new BufferedReader(new InputStreamReader(con.openFileInput("filemap.txt")));
-		FileOutputStream fos = con.openFileOutput("filemap.txt", Context.MODE_PRIVATE);
-		String line = null;
-		String removedLine = Title+":"+uri;
-		while((line = bfr.readLine())!= null){
-			if (!line.equals(removedLine)){
+	public void removeSoundFromMap(String Title,HashMap<String,String> map){
+		map.remove(Title);
+		try{
+			FileOutputStream fos = con.openFileOutput("filemap.txt", Context.MODE_PRIVATE);
+			for(HashMap.Entry<String,String> entry : map.entrySet()){
+				String line = entry.getKey()+"="+entry.getValue();
 				fos.write(line.getBytes());
 			}
-		}
-		fos.close();
-		bfr.close();
+			fos.close();
+		}catch (IOException e){}
 	}
 	
 }

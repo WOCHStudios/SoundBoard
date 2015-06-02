@@ -22,7 +22,7 @@ public class MapLoader {
 		String line = "";
 		while((line = bfr.readLine()) != null){
 			if(!line.isEmpty()){
-				String[] pair = line.trim().split(":");
+				String[] pair = line.trim().split("=");
 				valueMap.put(pair[KEY],pair[VALUE]);
 			}
 		}

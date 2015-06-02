@@ -7,6 +7,7 @@ import android.view.*;
 import android.widget.Button;
 
 import com.wochstudios.soundboard.Interfaces.AddSoundDialogListener;
+import com.wochstudios.soundboard.Controllers.MapController;
 import android.view.View.*;
 import android.widget.*;
 import android.net.Uri;
