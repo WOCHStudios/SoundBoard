@@ -44,10 +44,6 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	
 	private void init(){
 		SDH = new SoundboardDBHelper(this);
-		//SDH.insertIntoDatabase(SoundboardDBHelper.SOUNDBOARDS_TABLE_CODE,null);
-		//Log.i("SDH findSoundboard", SDH.findSoundboard("2").getName());
-		SDH.insertIntoDatabase(SoundboardDBHelper.SOUNDS_TABLE_CODE,null);
-		Log.i("SDH findSound",SDH.findSound().getTitle());
 		MC = new MapController(this);
 		MC.createMap();
 		SBC = new MainController(this, MC.getSoundMap());

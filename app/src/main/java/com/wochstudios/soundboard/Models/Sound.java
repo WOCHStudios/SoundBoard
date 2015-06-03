@@ -9,6 +9,8 @@ public class Sound implements ISoundboardModel
 	private Uri uri;
 	private String soundboard_id;
 	
+	public Sound(){}
+	
 	public Sound (int id, String t, Uri u, String sb_id){
 		this._ID = id;
 		this.Title = t;
@@ -16,12 +18,12 @@ public class Sound implements ISoundboardModel
 		this.soundboard_id = sb_id;
 	}
 
-	public void setSb_id(String sb_id)
+	public void setSoundboardId(String sb_id)
 	{
 		this.soundboard_id = sb_id;
 	}
 
-	public String getSb_id()
+	public String getSoundboardId()
 	{
 		return soundboard_id;
 	}

@@ -9,6 +9,6 @@ public interface ISoundboardDAO
 {
 	public boolean insert(SQLiteDatabase db, String table, ContentValues v);
 	public Cursor read(SQLiteDatabase db,String table, String[] select, String where, String[] whereValues,String order);
-	public void delete();
-	public boolean update();
+	public boolean delete(SQLiteDatabase db, String table, String selection, String[] args);
+	public boolean update(SQLiteDatabase db, ContentValues values, String table, String selection, String[] args);
 }

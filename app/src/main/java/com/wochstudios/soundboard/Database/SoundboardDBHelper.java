@@ -10,6 +10,8 @@ import com.wochstudios.soundboard.Database.DAO.*;
 import com.wochstudios.soundboard.Database.SounboardContract.*;
 import com.wochstudios.soundboard.Models.*;
 
+import java.util.ArrayList;
+
 public class SoundboardDBHelper extends SQLiteOpenHelper
 {
 	public static final int DATABASE_VERSION = 1;
@@ -65,19 +67,35 @@ public class SoundboardDBHelper extends SQLiteOpenHelper
 			sb.setName(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_NAME)));
 			sb.setDate_created(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_DATE_CREATED)));
 		}
+		c.close();
 		return sb;
 	}
 	
 	public Sound findSound(){
-		String id = null,title = null, uri = null, soundboard_id = null;
+		Sound s = new Sound();
 		Cursor c = sbDAO.read(this.getReadableDatabase(), SoundsTable.TABLE_NAME,null,SoundsTable._ID+" =?", new String[]{"1"},null);
 		while(c.moveToNext()){
-			id = c.getString(c.getColumnIndex(SoundsTable._ID));
-			title = c.getString(c.getColumnIndex(SoundsTable.COLUMN_TITLE));
-			uri = c.getString(c.getColumnIndex(SoundsTable.COLUMN_URI));
-			soundboard_id = c.getString(c.getColumnIndex(SoundsTable.COLUMN_SOUNDBOARD_ID));
+			s.setID(Integer.parseInt(c.getString(c.getColumnIndex(SoundsTable._ID))));
+			s.setTitle(c.getString(c.getColumnIndex(SoundsTable.COLUMN_TITLE)));
+			s.setUri(Uri.parse(c.getString(c.getColumnIndex(SoundsTable.COLUMN_URI))));
+			s.setSoundboardId(c.getString(c.getColumnIndex(SoundsTable.COLUMN_SOUNDBOARD_ID)));
 		}
-		return new Sound(Integer.parseInt(id),title,Uri.parse(uri),soundboard_id);
+		c.close();
+		return s;
+	}
+	
+	public ArrayList<Sound>getSoundsForSoundboard(Soundboard sb){
+		ArrayList<Sound> sounds = new ArrayList<Sound>();
+		Cursor c = sbDAO.read(this.getReadableDatabase(), SoundsTable.TABLE_NAME,null, SoundsTable.COLUMN_SOUNDBOARD_ID+" =?",new String[]{sb.getID()+""},null);
+		while(c.moveToNext()){
+			Sound s = new Sound();
+			s.setID(Integer.parseInt(c.getString(c.getColumnIndex(SoundsTable._ID))));
+			s.setTitle(c.getString(c.getColumnIndex(SoundsTable.COLUMN_TITLE)));
+			s.setUri(Uri.parse(c.getString(c.getColumnIndex(SoundsTable.COLUMN_URI))));
+			s.setSoundboardId(sb.getID()+"");
+			sounds.add(s);
+		}
+		return sounds;
 	}
 	
 }

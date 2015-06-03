@@ -27,16 +27,17 @@ public class SoundboardDAO implements ISoundboardDAO
 	}
 
 	@Override
-	public void delete()
+	public boolean delete(SQLiteDatabase db, String table, String selection, String[] args)
 	{
-		// TODO: Implement this method
+		int result =db.delete(table,selection,args);
+		return (result > 0);
 	}
 
 	@Override
-	public boolean update()
+	public boolean update(SQLiteDatabase db, ContentValues values, String table, String selection, String[] args)
 	{
-		// TODO: Implement this method
-		return false;
+		int result = db.update(table, values,selection,args);
+		return (result > 0);
 	}
 
 }
