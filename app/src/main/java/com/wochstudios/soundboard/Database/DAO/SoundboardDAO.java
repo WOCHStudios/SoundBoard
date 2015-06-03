@@ -6,21 +6,24 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.wochstudios.soundboard.Database.SounboardContract.SoundboardsTable;
 
-public class SoundboardsDAO implements SoundboardDbDAO
+public class SoundboardDAO implements ISoundboardDAO
 {
 
+	public SoundboardDAO(){}
+	
 	@Override
-	public boolean insert(SQLiteDatabase db, ContentValues v)
+	public boolean insert(SQLiteDatabase db, String table,ContentValues v)
 	{
-		long result = db.insert(SoundboardsTable.TABLE_NAME, null,v);		
-		return (result < 0)? false:true;
+		//long result = 0;
+		long result = db.insert(table, null,v);		
+		return (result < 0);
 	}
 
 	@Override
-	public Cursor read()
+	public Cursor read(SQLiteDatabase db, String table, String[] select, String where, String[] whereValues,String order)
 	{
-		// TODO: Implement this method
-		return null;
+		Cursor c = db.query(table, select, where, whereValues, null, null, order);
+		return c;
 	}
 
 	@Override

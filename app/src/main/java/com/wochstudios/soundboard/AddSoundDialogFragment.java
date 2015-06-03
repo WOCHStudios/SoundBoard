@@ -15,12 +15,12 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.wochstudios.soundboard.Controllers.MapController;
-import com.wochstudios.soundboard.Interfaces.AddSoundDialogListener;
+import com.wochstudios.soundboard.Interfaces.IAddSoundDialogListener;
 
 public class AddSoundDialogFragment extends DialogFragment
 {
 	
-	private AddSoundDialogListener mListener;
+	private IAddSoundDialogListener mListener;
 	private MapController ASC;
 	private View layout;
 	private Uri fileUri;
@@ -34,7 +34,7 @@ public class AddSoundDialogFragment extends DialogFragment
 	{
 		super.onAttach(activity);
 		try{
-			mListener = (AddSoundDialogListener) activity;
+			mListener = (IAddSoundDialogListener) activity;
 		}catch (ClassCastException e){
 			throw new ClassCastException(activity.toString()+" must implement Listener");
 		}

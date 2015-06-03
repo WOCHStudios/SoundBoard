@@ -16,12 +16,14 @@ import android.widget.ListView;
 import com.wochstudios.soundboard.Controllers.MainController;
 import com.wochstudios.soundboard.Controllers.MapController;
 import com.wochstudios.soundboard.Database.SoundboardDBHelper;
-import com.wochstudios.soundboard.Interfaces.AddSoundDialogListener;
+import com.wochstudios.soundboard.Interfaces.IAddSoundDialogListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import android.content.*;
+import android.util.*;
 
-public class MainActivity extends FragmentActivity implements  AddSoundDialogListener {
+public class MainActivity extends FragmentActivity implements  IAddSoundDialogListener {
 
 	private ArrayList<String> Titles;
 	private MainController SBC;
@@ -42,6 +44,10 @@ public class MainActivity extends FragmentActivity implements  AddSoundDialogLis
 	
 	private void init(){
 		SDH = new SoundboardDBHelper(this);
+		//SDH.insertIntoDatabase(SoundboardDBHelper.SOUNDBOARDS_TABLE_CODE,null);
+		//Log.i("SDH findSoundboard", SDH.findSoundboard("2").getName());
+		SDH.insertIntoDatabase(SoundboardDBHelper.SOUNDS_TABLE_CODE,null);
+		Log.i("SDH findSound",SDH.findSound().getTitle());
 		MC = new MapController(this);
 		MC.createMap();
 		SBC = new MainController(this, MC.getSoundMap());
