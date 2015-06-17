@@ -14,7 +14,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.wochstudios.soundboard.Controllers.MainController;
-import com.wochstudios.soundboard.Controllers.MapController;
 import com.wochstudios.soundboard.Database.SoundboardDBHelper;
 import com.wochstudios.soundboard.Interfaces.IAddSoundDialogListener;
 
@@ -23,16 +22,15 @@ import java.util.Collections;
 import android.content.*;
 import android.util.*;
 import com.wochstudios.soundboard.Controllers.*;
+import com.wochstudios.soundboard.Models.*;
 
 public class MainActivity extends FragmentActivity implements  IAddSoundDialogListener {
 
 	private ArrayList<String> Titles;
 	private MainController SBC;
-	private MapController MC;
 	private DatabaseController DC;
 	private AddSoundDialogFragment ASDF;
 	private ListView lv;
-	
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -44,11 +42,9 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	
 	
 	private void init(){
-		MC = new MapController(this);
-		MC.createMap();
 		DC = new DatabaseController(this);
-		SBC = new MainController(this, MC.getSoundMap());
-		Titles = new ArrayList<String>(DC.getSoundboard("1").getTitlesOfSounds());
+		SBC = new MainController(this, DC.getSoundboard("1"));
+		Titles = DC.getSoundboard("1").getTitlesOfSounds();
 		Collections.sort(Titles);
 		createListView();
 		
@@ -83,8 +79,7 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	   if(item.getItemId() == 0){
 	   	SBC.downloadRingtone(Titles.get(info.position));
 	   }else if(item.getItemId() == 1){
-		 //MC.RemoveSoundFromMap(Titles.get(info.position),SBC.loadSounds().get(Titles.get(info.position)));
-		 MC.RemoveSoundFromMap(Titles.get(info.position));
+		 //MC.RemoveSoundFromMap(Titles.get(info.position));
 		 DC.removeSoundFromSoundboard(DC.getSoundboard("1").getSoundByTitle(Titles.get(info.position)).getID()+"");
 		 Log.i("DC Tests","Size after remove: "+DC.getSoundboard("1").getSounds().size());
 		 refreshListView();
@@ -105,7 +100,7 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	{
 		switch (item.getItemId()){
 			case R.id.add_sound:
-				ASDF = new AddSoundDialogFragment(MC,DC);
+				ASDF = new AddSoundDialogFragment(DC);
 				ASDF.show(getFragmentManager(),"AddSoundDialogFragment");
 				return true;
 			default:
@@ -118,6 +113,7 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	public void onDialogPositiveClick(DialogFragment dialog)
 	{
 		Log.i("DC Tests", "Size after add:"+DC.getSoundboard("1").getSounds().size());
+		SBC.setSoundboard(DC.getSoundboard("1"));
 		refreshListView();
 	}
 
@@ -127,7 +123,7 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	}
 	
 	private void refreshListView(){
-		Titles = new ArrayList<String>(MC.getSoundMap().keySet());
+		Titles = DC.getSoundboard("1").getTitlesOfSounds();
 		Collections.sort(Titles);
 		lv.setAdapter(new ArrayAdapter<String>(this,R.layout.list_item,Titles));
 	}
