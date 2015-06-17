@@ -11,8 +11,8 @@ import java.io.File;
 
 
 public class RingtoneMaker {
-	public void setRingtone(String name, Context con){
-		File k = new File(Environment.getExternalStorageDirectory().toString()+File.separator+"download"+File.separator+name+".mp3");   
+	public void setRingtone(String name, Uri uri, Context con){
+		File k = new File(uri.toString());   
 		addURIToContentResolver(k,getContentValues(k,name),con);
 	}
 	

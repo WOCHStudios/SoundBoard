@@ -34,7 +34,6 @@ public class MainController {
 				player.playSound(con, temp.getUri());
 			}
 		}
-		//player.playSound(con, Uri.parse(valueMap.get(key)));
 	}
 	
 	public void setSoundboard(Soundboard sb){
@@ -42,12 +41,10 @@ public class MainController {
 	}
 	
 	public void downloadRingtone(String key){
-		ringtoneMaker.setRingtone(key, con);
+		for(Sound temp : soundboard.getSounds()){
+			if(key.equals(temp.getTitle())){
+				ringtoneMaker.setRingtone(key,temp.getUri(), con);
+			}
+		}
 	}
-	
-	
-	
-	
-	
-
 }

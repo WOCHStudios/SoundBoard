@@ -31,6 +31,7 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	private DatabaseController DC;
 	private AddSoundDialogFragment ASDF;
 	private ListView lv;
+	private String SoundboardId;
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -42,9 +43,10 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	
 	
 	private void init(){
+		SoundboardId ="1";
 		DC = new DatabaseController(this);
-		SBC = new MainController(this, DC.getSoundboard("1"));
-		Titles = DC.getSoundboard("1").getTitlesOfSounds();
+		SBC = new MainController(this, DC.getSoundboard(SoundboardId));
+		Titles = DC.getSoundboard(SoundboardId).getTitlesOfSounds();
 		Collections.sort(Titles);
 		createListView();
 		
@@ -79,9 +81,7 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	   if(item.getItemId() == 0){
 	   	SBC.downloadRingtone(Titles.get(info.position));
 	   }else if(item.getItemId() == 1){
-		 //MC.RemoveSoundFromMap(Titles.get(info.position));
-		 DC.removeSoundFromSoundboard(DC.getSoundboard("1").getSoundByTitle(Titles.get(info.position)).getID()+"");
-		 Log.i("DC Tests","Size after remove: "+DC.getSoundboard("1").getSounds().size());
+		   DC.removeSoundFromSoundboard(DC.getSoundboard(SoundboardId).getSoundByTitle(Titles.get(info.position)).getID()+"");
 		 refreshListView();
 	   }
 	   return true;
@@ -90,7 +90,6 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
@@ -112,8 +111,7 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	@Override
 	public void onDialogPositiveClick(DialogFragment dialog)
 	{
-		Log.i("DC Tests", "Size after add:"+DC.getSoundboard("1").getSounds().size());
-		SBC.setSoundboard(DC.getSoundboard("1"));
+		SBC.setSoundboard(DC.getSoundboard(SoundboardId));
 		refreshListView();
 	}
 
