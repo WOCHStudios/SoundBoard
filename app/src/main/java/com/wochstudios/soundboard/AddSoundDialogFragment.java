@@ -16,17 +16,21 @@ import android.widget.EditText;
 
 import com.wochstudios.soundboard.Controllers.MapController;
 import com.wochstudios.soundboard.Interfaces.IAddSoundDialogListener;
+import com.wochstudios.soundboard.Controllers.*;
 
 public class AddSoundDialogFragment extends DialogFragment
 {
 	
 	private IAddSoundDialogListener mListener;
 	private MapController ASC;
+	private DatabaseController DC;
+	
 	private View layout;
 	private Uri fileUri;
 
-	public AddSoundDialogFragment(MapController c){
+	public AddSoundDialogFragment(MapController c, DatabaseController dc){
 		this.ASC =c;
+		this.DC = dc;
 	}
 	
 	@Override
@@ -53,6 +57,7 @@ public class AddSoundDialogFragment extends DialogFragment
 					public void onClick(DialogInterface dialog, int id){
 						EditText title = (EditText) layout.findViewById(R.id.SoundTitle);
 						ASC.AddSoundToMap(title.getText().toString(),fileUri.toString());
+						DC.addSoundToSoundboard(title.getText().toString(),fileUri.toString(),"1");
 						mListener.onDialogPositiveClick(AddSoundDialogFragment.this);
 					}
 				})

@@ -11,13 +11,12 @@ import com.wochstudios.soundboard.Database.SounboardContract.*;
 import com.wochstudios.soundboard.Models.*;
 
 import java.util.ArrayList;
+import android.provider.*;
 
 public class SoundboardDBHelper extends SQLiteOpenHelper
 {
 	public static final int DATABASE_VERSION = 1;
 	public static final String DATABASE_NAME = "Soundboard.db";
-	public static final String SOUNDS_TABLE_CODE = "sounds";
-	public static final String SOUNDBOARDS_TABLE_CODE = "soundboards";
 	
 	private ISoundboardDAO sbDAO;
 	
@@ -46,16 +45,11 @@ public class SoundboardDBHelper extends SQLiteOpenHelper
 	
 	
 	public void insertIntoDatabase(String table, ContentValues values ){
-		switch (table){
-			case SOUNDS_TABLE_CODE:
-				sbDAO.insert(this.getWritableDatabase(),SoundsTable.TABLE_NAME, values);
-				break;
-			case SOUNDBOARDS_TABLE_CODE:
-				sbDAO.insert(this.getWritableDatabase(),SoundboardsTable.TABLE_NAME, values);
-				break;
-			default:
-				break;
-		}
+		sbDAO.insert(this.getWritableDatabase(),table, values);
+	}
+	
+	public void removeFromDatabase(String table,String id){
+		sbDAO.delete(this.getWritableDatabase(),table,BaseColumns._ID+" =?",new String[]{id});
 	}
 	
 
@@ -68,6 +62,7 @@ public class SoundboardDBHelper extends SQLiteOpenHelper
 			sb.setDate_created(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_DATE_CREATED)));
 		}
 		c.close();
+		sb.setSounds(getSoundsForSoundboard(sb));
 		return sb;
 	}
 	
@@ -84,7 +79,7 @@ public class SoundboardDBHelper extends SQLiteOpenHelper
 		return s;
 	}
 	
-	public ArrayList<Sound>getSoundsForSoundboard(Soundboard sb){
+	private ArrayList<Sound>getSoundsForSoundboard(Soundboard sb){
 		ArrayList<Sound> sounds = new ArrayList<Sound>();
 		Cursor c = sbDAO.read(this.getReadableDatabase(), SoundsTable.TABLE_NAME,null, SoundsTable.COLUMN_SOUNDBOARD_ID+" =?",new String[]{sb.getID()+""},null);
 		while(c.moveToNext()){

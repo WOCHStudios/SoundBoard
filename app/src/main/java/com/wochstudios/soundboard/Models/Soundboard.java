@@ -73,6 +73,17 @@ public class Soundboard implements ISoundboardModel
 		return titleList;
 	}
 	
+	public Sound getSoundByTitle(String title){
+		for(Sound s : sounds){
+			if(s.getTitle().equals(title)){
+				return s;
+			}
+		}
+		return new Sound();
+	}
+	
+	
+	
 	
 	
 }

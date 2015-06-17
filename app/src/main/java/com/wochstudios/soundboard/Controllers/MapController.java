@@ -5,10 +5,12 @@ import android.content.Context;
 import com.wochstudios.soundboard.utils.MapCreator;
 import com.wochstudios.soundboard.utils.MapLoader;
 import com.wochstudios.soundboard.utils.MapUpdater;
+import com.wochstudios.soundboard.Models.*;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class MapController
 {
@@ -45,6 +47,10 @@ public class MapController
 			e.printStackTrace();
 			return new HashMap<String,String>();
 		}
+	}
+	
+	public HashMap<String,String> getSoundMap(ArrayList<Sound> s){
+		return ml.loadValues(s);
 	}
 	
 }

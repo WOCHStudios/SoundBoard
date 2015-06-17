@@ -22,13 +22,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import android.content.*;
 import android.util.*;
+import com.wochstudios.soundboard.Controllers.*;
 
 public class MainActivity extends FragmentActivity implements  IAddSoundDialogListener {
 
 	private ArrayList<String> Titles;
 	private MainController SBC;
 	private MapController MC;
-	private SoundboardDBHelper SDH;
+	private DatabaseController DC;
 	private AddSoundDialogFragment ASDF;
 	private ListView lv;
 	
@@ -43,11 +44,11 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	
 	
 	private void init(){
-		SDH = new SoundboardDBHelper(this);
 		MC = new MapController(this);
 		MC.createMap();
+		DC = new DatabaseController(this);
 		SBC = new MainController(this, MC.getSoundMap());
-		Titles = new ArrayList<String>(MC.getSoundMap().keySet());
+		Titles = new ArrayList<String>(DC.getSoundboard("1").getTitlesOfSounds());
 		Collections.sort(Titles);
 		createListView();
 		
@@ -84,6 +85,8 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	   }else if(item.getItemId() == 1){
 		 //MC.RemoveSoundFromMap(Titles.get(info.position),SBC.loadSounds().get(Titles.get(info.position)));
 		 MC.RemoveSoundFromMap(Titles.get(info.position));
+		 DC.removeSoundFromSoundboard(DC.getSoundboard("1").getSoundByTitle(Titles.get(info.position)).getID()+"");
+		 Log.i("DC Tests","Size after remove: "+DC.getSoundboard("1").getSounds().size());
 		 refreshListView();
 	   }
 	   return true;
@@ -102,7 +105,7 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	{
 		switch (item.getItemId()){
 			case R.id.add_sound:
-				ASDF = new AddSoundDialogFragment(MC);
+				ASDF = new AddSoundDialogFragment(MC,DC);
 				ASDF.show(getFragmentManager(),"AddSoundDialogFragment");
 				return true;
 			default:
@@ -114,6 +117,7 @@ public class MainActivity extends FragmentActivity implements  IAddSoundDialogLi
 	@Override
 	public void onDialogPositiveClick(DialogFragment dialog)
 	{
+		Log.i("DC Tests", "Size after add:"+DC.getSoundboard("1").getSounds().size());
 		refreshListView();
 	}
 
