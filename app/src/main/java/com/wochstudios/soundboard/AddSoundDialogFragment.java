@@ -14,8 +14,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.wochstudios.soundboard.Controllers.DatabaseController;
 import com.wochstudios.soundboard.Interfaces.IAddSoundDialogListener;
-import com.wochstudios.soundboard.Controllers.*;
 
 public class AddSoundDialogFragment extends DialogFragment
 {

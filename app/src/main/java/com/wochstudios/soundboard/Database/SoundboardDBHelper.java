@@ -1,17 +1,22 @@
 
 package com.wochstudios.soundboard.Database;
 
-import android.content.*;
-import android.database.*;
-import android.database.sqlite.*;
-import android.net.*;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import android.net.Uri;
+import android.provider.BaseColumns;
 
-import com.wochstudios.soundboard.Database.DAO.*;
-import com.wochstudios.soundboard.Database.SounboardContract.*;
-import com.wochstudios.soundboard.Models.*;
+import com.wochstudios.soundboard.Database.DAO.ISoundboardDAO;
+import com.wochstudios.soundboard.Database.DAO.SoundboardDAO;
+import com.wochstudios.soundboard.Database.SounboardContract.SoundboardsTable;
+import com.wochstudios.soundboard.Database.SounboardContract.SoundsTable;
+import com.wochstudios.soundboard.Models.Sound;
+import com.wochstudios.soundboard.Models.Soundboard;
 
 import java.util.ArrayList;
-import android.provider.*;
 
 public class SoundboardDBHelper extends SQLiteOpenHelper
 {

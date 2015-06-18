@@ -1,17 +1,15 @@
 package com.wochstudios.soundboard.Controllers;
 
-import java.util.ArrayList;
-
-import com.wochstudios.soundboard.Models.*;
-import com.wochstudios.soundboard.Database.*;
-import com.wochstudios.soundboard.Database.SounboardContract.*;
-
-import android.content.Context;
 import android.content.ContentValues;
-import android.content.*;
+import android.content.Context;
 
+import com.wochstudios.soundboard.Database.SounboardContract.SoundboardsTable;
+import com.wochstudios.soundboard.Database.SounboardContract.SoundsTable;
+import com.wochstudios.soundboard.Database.SoundboardDBHelper;
+import com.wochstudios.soundboard.Models.Soundboard;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.text.*;
 
 public class DatabaseController
 {

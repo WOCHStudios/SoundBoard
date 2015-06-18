@@ -13,16 +13,12 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.wochstudios.soundboard.Controllers.DatabaseController;
 import com.wochstudios.soundboard.Controllers.MainController;
-import com.wochstudios.soundboard.Database.SoundboardDBHelper;
 import com.wochstudios.soundboard.Interfaces.IAddSoundDialogListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import android.content.*;
-import android.util.*;
-import com.wochstudios.soundboard.Controllers.*;
-import com.wochstudios.soundboard.Models.*;
 
 public class MainActivity extends FragmentActivity implements  IAddSoundDialogListener {
 
