@@ -6,5 +6,6 @@
 	android:padding="10dp"
 	android:textColor="@color/GOLD"
 	android:textSize="30sp"
-	android:textStyle="bold" >
+	android:textStyle="bold" 
+	android:id="@+id/listItemTxt">
 </TextView>
