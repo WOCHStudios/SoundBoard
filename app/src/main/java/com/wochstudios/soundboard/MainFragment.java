@@ -1,6 +1,6 @@
 package com.wochstudios.soundboard;
 
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.app.DialogFragment;
 import android.view.*;
 import android.view.ContextMenu.*;
@@ -17,7 +17,7 @@ import android.widget.*;
 import com.wochstudios.soundboard.Interfaces.*;
 import android.app.*;
 
-public class MainFragment extends Fragment implements IAddSoundDialogListener
+public class MainFragment extends Fragment
 {
 	private ArrayList<String> Titles;
 	private MainController SBC;
@@ -25,8 +25,10 @@ public class MainFragment extends Fragment implements IAddSoundDialogListener
 	private ListView lv;
 	private String SoundboardId;
 	
-	public MainFragment()
-	{}
+	public MainFragment(DatabaseController c)
+	{
+		this.DC = c;
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
@@ -39,7 +41,6 @@ public class MainFragment extends Fragment implements IAddSoundDialogListener
 	
 	private void init(){
 		SoundboardId = "1";
-		DC = new DatabaseController(getActivity());
 		SBC = new MainController(getActivity(), DC.getSoundboard(SoundboardId));
 		Titles = DC.getSoundboard(SoundboardId).getTitlesOfSounds();
 		Collections.sort(Titles);
@@ -79,22 +80,15 @@ public class MainFragment extends Fragment implements IAddSoundDialogListener
 	}//onContextItemSelected
 	
 	
-	private void refreshListView()
+	public void refreshListView()
 	{
+		SBC.setSoundboard(DC.getSoundboard(SoundboardId));
 		Titles = DC.getSoundboard(SoundboardId).getTitlesOfSounds();
 		Collections.sort(Titles);
 		lv.setAdapter(new ArrayAdapter<String>(getActivity(),R.layout.list_item,Titles));
 	}
-
-	@Override
-	public void onDialogPositiveClick(DialogFragment dialog)
-	{
-		SBC.setSoundboard(DC.getSoundboard(SoundboardId));
-		refreshListView();
-	}
-
-	@Override
-	public void onDialogNegativeClick(DialogFragment dialog){}
+	
+	
 
 	
 	private class ListViewClickListener implements OnItemClickListener{

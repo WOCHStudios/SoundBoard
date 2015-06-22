@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.util.Log;
 
 import com.wochstudios.soundboard.Controllers.DatabaseController;
 import com.wochstudios.soundboard.Interfaces.IAddSoundDialogListener;
@@ -53,6 +54,7 @@ public class AddSoundDialogFragment extends DialogFragment
 				.setPositiveButton("Add", new Dialog.OnClickListener(){
 					public void onClick(DialogInterface dialog, int id){
 						EditText title = (EditText) layout.findViewById(R.id.SoundTitle);
+						Log.d("","");
 						DC.addSoundToSoundboard(title.getText().toString(),fileUri.toString(),"1");
 						mListener.onDialogPositiveClick(AddSoundDialogFragment.this);
 					}
