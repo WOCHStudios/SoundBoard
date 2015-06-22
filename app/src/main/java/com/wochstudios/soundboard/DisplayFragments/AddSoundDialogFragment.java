@@ -1,4 +1,4 @@
-package com.wochstudios.soundboard;
+package com.wochstudios.soundboard.DisplayFragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -17,6 +17,7 @@ import android.util.Log;
 
 import com.wochstudios.soundboard.Controllers.DatabaseController;
 import com.wochstudios.soundboard.Interfaces.IAddSoundDialogListener;
+import com.wochstudios.soundboard.R;
 
 public class AddSoundDialogFragment extends DialogFragment
 {

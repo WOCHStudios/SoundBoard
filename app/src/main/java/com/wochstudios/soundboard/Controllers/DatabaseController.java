@@ -2,6 +2,7 @@ package com.wochstudios.soundboard.Controllers;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.widget.Toast;
 
 import com.wochstudios.soundboard.Database.SounboardContract.SoundboardsTable;
 import com.wochstudios.soundboard.Database.SounboardContract.SoundsTable;
@@ -52,16 +53,21 @@ public class DatabaseController
 		return s;
 	}
 	
+	
+	public boolean checkForSoundboards(){
+		return mDbHelper.getCountOfSoundboards() > 0;
+	}
+	
 	private void createTestSoundboard(){
 		ContentValues sb = new ContentValues();
-		sb.put(SoundboardsTable.COLUMN_NAME,"TestDatabase");
+		sb.put(SoundboardsTable.COLUMN_NAME,"TestDatabase2");
 		sb.put(SoundboardsTable.COLUMN_DATE_CREATED,
 			  new SimpleDateFormat("mm/dd/yyyy").format(new Date()).toString());
 			  
 		ContentValues s = new ContentValues();
 		s.put(SoundsTable.COLUMN_TITLE, "Test Sound");
 		s.put(SoundsTable.COLUMN_URI, "TestUri");
-		s.put(SoundsTable.COLUMN_SOUNDBOARD_ID, "1");	  
+		s.put(SoundsTable.COLUMN_SOUNDBOARD_ID, "2");	  
 		
 		
 		mDbHelper.insertIntoDatabase(SoundboardsTable.TABLE_NAME, sb);

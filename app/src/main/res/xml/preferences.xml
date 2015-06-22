@@ -3,6 +3,7 @@
 	>
 	<EditTextPreference android:title="Default Soundboard Id"
 		android:key="defaultSoundboard"
-		android:summary="Please enter a number">
+		android:summary="Please enter a number"
+		android:defaultValue="1">
 	</EditTextPreference>
 </PreferenceScreen>	

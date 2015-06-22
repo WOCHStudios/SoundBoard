@@ -1,4 +1,4 @@
-package com.wochstudios.soundboard;
+package com.wochstudios.soundboard.DisplayFragments;
 
 import android.app.Fragment;
 import android.app.DialogFragment;
@@ -10,12 +10,15 @@ import android.widget.AdapterView.OnItemClickListener;
 
 
 import com.wochstudios.soundboard.Controllers.*;
+import com.wochstudios.soundboard.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import android.widget.*;
 import com.wochstudios.soundboard.Interfaces.*;
 import android.app.*;
+import android.content.*;
+import android.preference.*;
 
 public class MainFragment extends Fragment
 {
@@ -25,8 +28,9 @@ public class MainFragment extends Fragment
 	private ListView lv;
 	private String SoundboardId;
 	
-	public MainFragment(DatabaseController c)
+	public MainFragment(DatabaseController c, String id)
 	{
+		this.SoundboardId = id;
 		this.DC = c;
 	}
 
