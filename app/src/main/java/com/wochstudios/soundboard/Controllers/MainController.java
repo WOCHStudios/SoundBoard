@@ -1,6 +1,7 @@
 package com.wochstudios.soundboard.Controllers;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import com.wochstudios.soundboard.Models.Sound;
 import com.wochstudios.soundboard.Models.Soundboard;
@@ -13,15 +14,10 @@ import java.util.HashMap;
 public class MainController {
 	private SoundPlayer player = new SoundPlayer();
 	private RingtoneMaker ringtoneMaker = new RingtoneMaker();
-	private HashMap<String,String> valueMap;
 	private Context con;
 	private Soundboard soundboard;
 	
-	
-	public MainController(Context c, HashMap<String,String> map){
-		this.con = c;
-		this.valueMap = map;
-	}
+
 	
 	public MainController(Context c, Soundboard sb){
 		this.con = c;
@@ -29,6 +25,7 @@ public class MainController {
 	}
 	
 	public void playSound(String key){
+		Toast.makeText(con,"Soundboard ID: "+soundboard.getID(),Toast.LENGTH_SHORT).show();
 		for(Sound temp : soundboard.getSounds()){
 			if(key.equals(temp.getTitle())){
 				player.playSound(con, temp.getUri());

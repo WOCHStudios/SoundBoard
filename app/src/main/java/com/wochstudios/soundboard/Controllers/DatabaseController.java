@@ -11,6 +11,7 @@ import com.wochstudios.soundboard.Models.Soundboard;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.*;
 
 public class DatabaseController
 {
@@ -56,6 +57,12 @@ public class DatabaseController
 	
 	public boolean checkForSoundboards(){
 		return mDbHelper.getCountOfSoundboards() > 0;
+	}
+	
+	public ArrayList<String> getSoundboardNames(){
+		ArrayList<String> temp = mDbHelper.getSoundboardNames();
+		temp.add(0,"Add Soundboard..");
+		return temp;
 	}
 	
 	private void createTestSoundboard(){

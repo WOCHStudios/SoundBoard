@@ -8,22 +8,28 @@ import android.content.DialogInterface;
 import com.wochstudios.soundboard.R;
 import com.wochstudios.soundboard.Controllers.*;
 import android.widget.*;
+import com.wochstudios.soundboard.Interfaces.*;
 
 public class CreateSoundboardFragment extends DialogFragment
 {
 	private View layout;
 	private DatabaseController DC;
+	private IDialogListener mListener;
 	
 	public CreateSoundboardFragment(DatabaseController dc)
 	{
 		this.DC = dc;
 	}
-
+	
 	@Override
 	public void onAttach(Activity activity)
 	{
-		// TODO: Implement this method
 		super.onAttach(activity);
+		try{
+			mListener = (IDialogListener) activity;
+		}catch (ClassCastException e){
+			throw new ClassCastException(activity.toString()+" must implement Listener");
+		}
 	}
 
 	@Override
@@ -37,6 +43,7 @@ public class CreateSoundboardFragment extends DialogFragment
 				public void onClick(DialogInterface dialog, int id){
 					EditText text = (EditText)layout.findViewById(R.id.SoundBoardTitle);
 					DC.addSoundboardToDatabase(text.getText().toString());
+					mListener.onDialogPositiveClick(CreateSoundboardFragment.this);
 				}
 			})
 			.setTitle("Create Soundboard");

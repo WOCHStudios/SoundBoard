@@ -16,20 +16,22 @@ import android.widget.EditText;
 import android.util.Log;
 
 import com.wochstudios.soundboard.Controllers.DatabaseController;
-import com.wochstudios.soundboard.Interfaces.IAddSoundDialogListener;
+import com.wochstudios.soundboard.Interfaces.IDialogListener;
 import com.wochstudios.soundboard.R;
 
 public class AddSoundDialogFragment extends DialogFragment
 {
 	
-	private IAddSoundDialogListener mListener;
+	private IDialogListener mListener;
 	private DatabaseController DC;
 	
 	private View layout;
 	private Uri fileUri;
+	private String soundboard_id;
 
-	public AddSoundDialogFragment(DatabaseController dc){
+	public AddSoundDialogFragment(DatabaseController dc, String soundboard_id){
 		this.DC = dc;
+		this.soundboard_id = soundboard_id;
 	}
 	
 	@Override
@@ -37,7 +39,7 @@ public class AddSoundDialogFragment extends DialogFragment
 	{
 		super.onAttach(activity);
 		try{
-			mListener = (IAddSoundDialogListener) activity;
+			mListener = (IDialogListener) activity;
 		}catch (ClassCastException e){
 			throw new ClassCastException(activity.toString()+" must implement Listener");
 		}
@@ -56,7 +58,7 @@ public class AddSoundDialogFragment extends DialogFragment
 					public void onClick(DialogInterface dialog, int id){
 						EditText title = (EditText) layout.findViewById(R.id.SoundTitle);
 						Log.d("","");
-						DC.addSoundToSoundboard(title.getText().toString(),fileUri.toString(),"1");
+						DC.addSoundToSoundboard(title.getText().toString(),fileUri.toString(),soundboard_id);
 						mListener.onDialogPositiveClick(AddSoundDialogFragment.this);
 					}
 				})

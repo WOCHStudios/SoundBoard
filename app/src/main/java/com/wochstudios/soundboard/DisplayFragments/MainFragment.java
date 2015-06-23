@@ -44,7 +44,6 @@ public class MainFragment extends Fragment
 	}
 	
 	private void init(){
-		SoundboardId = "1";
 		SBC = new MainController(getActivity(), DC.getSoundboard(SoundboardId));
 		Titles = DC.getSoundboard(SoundboardId).getTitlesOfSounds();
 		Collections.sort(Titles);
@@ -93,12 +92,16 @@ public class MainFragment extends Fragment
 	}
 	
 	
-
+	public void setSoundboardId(String id){
+		this.SoundboardId = id;
+	}
 	
 	private class ListViewClickListener implements OnItemClickListener{
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {	
 			SBC.playSound(Titles.get(position));
 		} 
 	}
+	
+	
 	
 }
