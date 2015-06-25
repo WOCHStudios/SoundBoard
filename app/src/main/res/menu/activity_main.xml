@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+	<item
+        android:id="@+id/add_sound"
+		android:icon="@drawable/ic_action_new"
+        android:title="@string/add_sound"
+		android:showAsAction="always"/>
+	<item
+		android:id="@+id/settings"
+		android:title="@string/menu_settings"
+		android:showAsAction="never"/>
+</menu>

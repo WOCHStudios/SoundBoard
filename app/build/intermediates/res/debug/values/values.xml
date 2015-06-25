@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string-array name="menuItems">
+		<item>Set as Ringtone</item>
+		<item>Remove Sound</item>
+	</string-array>
+    <color name="Black">#000</color>
+    <color name="GOLD">#f5d626</color>
+    <color name="Transparent">#00FFFFFF</color>
+    <color name="WHITE">#FFFFFF</color>
+    <string name="add_sound">Add</string>
+    <string name="app_name">MySounds</string>
+    <string name="menu_settings">Settings</string>
+    <!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Light">		<!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+		-->
+	</style>
+    <style name="AppTheme" parent="AppBaseTheme">		<!-- All customizations that are NOT specific to a particular API-level can go here. -->
+	</style>
+</resources>

@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+	<item
+        android:id="@+id/add_sound"
+        android:title="@string/add_sound"
+		android:showAsAction="always"/>
+</menu>
+<!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/src/main/res/menu/activity_main.xml -->
