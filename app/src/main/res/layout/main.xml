@@ -3,21 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent" 
-	tools:context = ".MainActivity">
+	tools:context = ".MainActivity"
+	android:background="@color/WHITE">
 	
 	<FrameLayout
 		android:id="@+id/content_frame"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"/>
-	<ListView
-		android:id="@+id/left_drawer"
-		android:layout_width="240dp"
-		android:layout_height="match_parent"
-		android:layout_gravity="start"
-		android:choiceMode="singleChoice"
-		android:divider="@color/WHITE"
-		android:dividerHeight="1dp"
-		android:background="@color/Black"
-	/>
+	
+	
+		<ListView
+			android:id="@+id/left_drawer"
+			android:layout_width="fill_parent"
+			android:layout_height="fill_parent"
+			android:layout_gravity="start"
+			android:background="@color/WHITE"
+		/>
+	
 	
 </android.support.v4.widget.DrawerLayout>	

@@ -11,7 +11,7 @@ import com.wochstudios.soundboard.utils.SoundPlayer;
 import java.util.HashMap;
 
 
-public class MainController {
+public class SoundboardController {
 	private SoundPlayer player = new SoundPlayer();
 	private RingtoneMaker ringtoneMaker = new RingtoneMaker();
 	private Context con;
@@ -19,7 +19,7 @@ public class MainController {
 	
 
 	
-	public MainController(Context c, Soundboard sb){
+	public SoundboardController(Context c, Soundboard sb){
 		this.con = c;
 		this.soundboard = sb;
 	}

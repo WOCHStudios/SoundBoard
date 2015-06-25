@@ -15,7 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.wochstudios.soundboard.Controllers.DatabaseController;
-import com.wochstudios.soundboard.Controllers.MainController;
+import com.wochstudios.soundboard.Controllers.SoundboardController;
 import com.wochstudios.soundboard.Interfaces.IDialogListener;
 import com.wochstudios.soundboard.DisplayFragments.*;
 
@@ -28,18 +28,20 @@ import android.support.v4.widget.*;
 import android.support.v7.app.*;
 import com.wochstudios.soundboard.Controllers.*;
 import org.w3c.dom.*;
+import com.wochstudios.soundboard.Interfaces.*;
 
-public class MainActivity extends Activity implements IDialogListener{
+public class MainActivity extends Activity implements IDialogListener, ISoundboardFragmentListener{
 
 	private DatabaseController DC;
 	private DrawerController DrC;
 	private DialogFragment DF;
-	private MainFragment mfragment;
+	private SoundboardFragment mfragment;
 	private SharedPreferences shrPre;
 	
 	
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
+	private ActionBarDrawerToggle toggle;
 	
 	private final static String CREATE_SOUNDBOARD_NAME = "CreateSoundboardFragment";
 	private final static String ADD_SOUND_NAME = "AddSoundDialogFragment";
@@ -55,7 +57,6 @@ public class MainActivity extends Activity implements IDialogListener{
 		checkForSoundboards();
 		shrPre = PreferenceManager.getDefaultSharedPreferences(this);
 		shrPre.edit().putString("currentSoundboard",shrPre.getString("defaultSoundboard","")).commit();		
-		Toast.makeText(this, shrPre.getString("defaultSoundboard",""),Toast.LENGTH_SHORT).show();
 		
 		DrC = new DrawerController();
 		mDrawerLayout = (DrawerLayout)findViewById(R.id.container);
@@ -65,6 +66,18 @@ public class MainActivity extends Activity implements IDialogListener{
 		if(savedInstanceState == null){
 			updateFragment(R.id.content_frame,shrPre.getString("defaultSoundboard",""));
 		}
+		
+		getActionBar().setHomeButtonEnabled(true);
+		getActionBar().setIcon(R.drawable.ic_drawer);
+		
+		toggle = new ActionBarDrawerToggle(
+			this,
+			mDrawerLayout,
+			null,
+			R.string.drawer_open,
+			R.string.drawer_close);
+		
+		
 			
 	}//onCreate
 	
@@ -75,20 +88,21 @@ public class MainActivity extends Activity implements IDialogListener{
 	}
 	
 	private void setupDrawerList(ListView lv){
-		lv.setAdapter(new ArrayAdapter<String>(lv.getContext(),R.layout.list_item,DC.getSoundboardNames()));
+		lv.setAdapter(new ArrayAdapter<String>(lv.getContext(),R.layout.drawer_item,R.id.DrawerItemTxt,DC.getSoundboardNames()));
 		lv.setOnItemClickListener(new OnItemClickListener(){
 				@Override
 				public void onItemClick(AdapterView parent, View view, int position,long id){
 					switch(position){
 						case 0:
 							launchDialogFragment(CREATE_SOUNDBOARD_NAME);
+							mDrawerLayout.closeDrawer(mDrawerList);
 							break;
 						default:
 							shrPre.edit().putString("currentSoundboard",""+position).commit();
-							mfragment.setSoundboardId(position+"");
-							mfragment.refreshListView();
-							//Toast.makeText(view.getContext(), shrPre.getString("currentSoundboard",""),Toast.LENGTH_SHORT).show();
-							
+							Toast.makeText(view.getContext(),""+position,Toast.LENGTH_SHORT).show();
+							mfragment.setSoundboard(DC.getSoundboard(position+""));
+							mfragment.refreshListView(DC.getSoundboard(position+""));
+							mDrawerLayout.closeDrawer(mDrawerList);							
 							break;
 					}
 				}
@@ -96,7 +110,8 @@ public class MainActivity extends Activity implements IDialogListener{
 	}
 	
 	private void updateFragment(int fragement_id, String soundboard_id){
-		mfragment = new MainFragment(DC,soundboard_id);
+		//mfragment = new SoundboardFragment(DC,soundboard_id);
+		mfragment = new SoundboardFragment(DC.getSoundboard(soundboard_id));
 		getFragmentManager().beginTransaction()
 			.add(fragement_id,mfragment)
 				.commit();
@@ -111,6 +126,9 @@ public class MainActivity extends Activity implements IDialogListener{
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item)
 	{
+		if(toggle.onOptionsItemSelected(item)){
+			return true;
+		}
 		switch (item.getItemId()){
 			case R.id.add_sound:
 				launchDialogFragment(ADD_SOUND_NAME);
@@ -129,13 +147,20 @@ public class MainActivity extends Activity implements IDialogListener{
 	@Override
 	public void onDialogPositiveClick(DialogFragment dialog)
 	{
-		mfragment.refreshListView();
+		mfragment.refreshListView(DC.getSoundboard(shrPre.getString("currentSoundboard","")));
 		DrC.refreshDrawerList(mDrawerList, DC.getSoundboardNames());
 	}
 
 	@Override
-	public void onDialogNegativeClick(DialogFragment dialog){}
-	
+	public void onDialogNegativeClick(DialogFragment dialog)
+	{}
+
+	@Override
+	public void onSoundRemoveCall(String soundID)
+	{
+		DC.removeSoundFromSoundboard(soundID);
+		mfragment.refreshListView(DC.getSoundboard(shrPre.getString("currentSoundboard","")));
+	}	
 	
 	public void launchDialogFragment(String name){
 		switch(name){

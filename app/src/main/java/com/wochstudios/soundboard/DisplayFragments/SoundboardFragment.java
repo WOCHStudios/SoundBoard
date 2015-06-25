@@ -19,19 +19,18 @@ import com.wochstudios.soundboard.Interfaces.*;
 import android.app.*;
 import android.content.*;
 import android.preference.*;
+import com.wochstudios.soundboard.Models.*;
 
-public class MainFragment extends Fragment
+public class SoundboardFragment extends Fragment
 {
 	private ArrayList<String> Titles;
-	private MainController SBC;
-	private DatabaseController DC;
+	private SoundboardController SBC;
 	private ListView lv;
-	private String SoundboardId;
+	private Soundboard soundboard;
+	private ISoundboardFragmentListener listener;
 	
-	public MainFragment(DatabaseController c, String id)
-	{
-		this.SoundboardId = id;
-		this.DC = c;
+	public SoundboardFragment(Soundboard s){
+		this.soundboard = s;
 	}
 
 	@Override
@@ -44,8 +43,8 @@ public class MainFragment extends Fragment
 	}
 	
 	private void init(){
-		SBC = new MainController(getActivity(), DC.getSoundboard(SoundboardId));
-		Titles = DC.getSoundboard(SoundboardId).getTitlesOfSounds();
+		SBC = new SoundboardController(getActivity(), soundboard);
+		Titles = soundboard.getTitlesOfSounds();
 		Collections.sort(Titles);
 	}
 	
@@ -56,7 +55,18 @@ public class MainFragment extends Fragment
 		lv.setTextFilterEnabled(true);
 		lv.setOnItemClickListener(new ListViewClickListener());
 	}
-	
+
+	@Override
+	public void onAttach(Activity activity)
+	{
+		super.onAttach(activity);
+		try{
+			listener = (ISoundboardFragmentListener) activity;
+		}catch (ClassCastException e){
+			throw new ClassCastException(activity.toString()+ "must implement interface");
+		}
+	}
+
 	
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,ContextMenuInfo menuInfo) {
@@ -76,24 +86,24 @@ public class MainFragment extends Fragment
 		if(item.getItemId() == 0){
 			SBC.downloadRingtone(Titles.get(info.position));
 		}else if(item.getItemId() == 1){
-			DC.removeSoundFromSoundboard(DC.getSoundboard(SoundboardId).getSoundByTitle(Titles.get(info.position)).getID()+"");
-			refreshListView();
+			listener.onSoundRemoveCall(soundboard.getSoundByTitle(Titles.get(info.position)).getID()+"");
 		}
 		return true;
 	}//onContextItemSelected
 	
 	
-	public void refreshListView()
+	public void refreshListView(Soundboard s)
 	{
-		SBC.setSoundboard(DC.getSoundboard(SoundboardId));
-		Titles = DC.getSoundboard(SoundboardId).getTitlesOfSounds();
+		this.soundboard =s;
+		SBC.setSoundboard(soundboard);
+		Titles = soundboard.getTitlesOfSounds();
 		Collections.sort(Titles);
 		lv.setAdapter(new ArrayAdapter<String>(getActivity(),R.layout.list_item,Titles));
 	}
 	
 	
-	public void setSoundboardId(String id){
-		this.SoundboardId = id;
+	public void setSoundboard(Soundboard s){
+		this.soundboard = s;
 	}
 	
 	private class ListViewClickListener implements OnItemClickListener{
