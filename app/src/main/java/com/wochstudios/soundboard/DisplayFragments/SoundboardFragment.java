@@ -102,10 +102,6 @@ public class SoundboardFragment extends Fragment
 	}
 	
 	
-	public void setSoundboard(Soundboard s){
-		this.soundboard = s;
-	}
-	
 	private class ListViewClickListener implements OnItemClickListener{
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {	
 			SBC.playSound(Titles.get(position));
