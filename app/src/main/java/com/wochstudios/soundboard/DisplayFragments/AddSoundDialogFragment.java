@@ -8,12 +8,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.util.Log;
 
 import com.wochstudios.soundboard.Controllers.DatabaseController;
 import com.wochstudios.soundboard.Interfaces.IDialogListener;
@@ -80,7 +80,7 @@ public class AddSoundDialogFragment extends DialogFragment
 			public void onClick(View v){
 				Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
 				intent.addCategory(Intent.CATEGORY_OPENABLE);
-				intent.setType("*/*");
+				intent.setType("audio/*");
 				startActivityForResult(intent,42);
 			}
 		});

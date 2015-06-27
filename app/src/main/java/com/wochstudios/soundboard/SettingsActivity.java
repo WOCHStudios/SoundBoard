@@ -1,7 +1,7 @@
 package com.wochstudios.soundboard;
 
 import android.app.Activity;
-import android.os.*;
+import android.os.Bundle;
 
 import com.wochstudios.soundboard.DisplayFragments.SettingsFragment;
 
