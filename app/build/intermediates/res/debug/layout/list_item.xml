@@ -4,7 +4,8 @@
 	android:layout_height="fill_parent"
 	android:background="@color/Transparent"
 	android:padding="10dp"
-	android:textColor="@color/GOLD"
-	android:textSize="30sp"
-	android:textStyle="bold" >
-</TextView><!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/src/main/res/layout/list_item.xml -->
+	android:textColor="@color/Black"
+	android:textSize="30sp" 
+	android:id="@+id/listItemTxt">
+</TextView>
+<!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/src/main/res/layout/list_item.xml -->
