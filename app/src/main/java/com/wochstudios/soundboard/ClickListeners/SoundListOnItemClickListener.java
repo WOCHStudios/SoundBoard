@@ -1,7 +1,8 @@
 package com.wochstudios.soundboard.ClickListeners;
-import android.widget.AdapterView.*;
-import android.widget.*;
-import android.view.*;
+
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class SoundListOnItemClickListener implements OnItemClickListener
 {

@@ -2,6 +2,9 @@
 <resources>
     <!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/src/main/res/values/strings.xml -->
     <eat-comment/>
+    <string-array name="drawerMenuItems">
+		<item>Remove Soundboard</item>
+	</string-array>
     <string-array name="menuItems">
 		<item>Set as Ringtone</item>
 		<item>Remove Sound</item>

@@ -1,25 +1,27 @@
 package com.wochstudios.soundboard.DisplayFragments;
 
+import android.app.Activity;
 import android.app.Fragment;
-import android.app.DialogFragment;
-import android.view.*;
-import android.view.ContextMenu.*;
-import android.os.*;
-import android.widget.ListView;
+import android.os.Bundle;
+import android.view.ContextMenu;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-
-import com.wochstudios.soundboard.Controllers.*;
+import com.wochstudios.soundboard.Controllers.SoundboardController;
+import com.wochstudios.soundboard.Interfaces.ISoundboardFragmentListener;
+import com.wochstudios.soundboard.Models.Soundboard;
 import com.wochstudios.soundboard.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import android.widget.*;
-import com.wochstudios.soundboard.Interfaces.*;
-import android.app.*;
-import android.content.*;
-import android.preference.*;
-import com.wochstudios.soundboard.Models.*;
 
 public class SoundboardFragment extends Fragment
 {

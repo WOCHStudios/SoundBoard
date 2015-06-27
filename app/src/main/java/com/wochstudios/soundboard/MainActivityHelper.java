@@ -1,16 +1,19 @@
 package com.wochstudios.soundboard;
 
 import android.app.Activity;
+import android.app.DialogFragment;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.SharedPreferences;
-import android.app.*;
-import android.preference.*;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.widget.ListView;
 
-import com.wochstudios.soundboard.Controllers.*;
-import com.wochstudios.soundboard.DisplayFragments.*;
-
+import com.wochstudios.soundboard.Controllers.DatabaseController;
+import com.wochstudios.soundboard.Controllers.DrawerController;
+import com.wochstudios.soundboard.DisplayFragments.AddSoundDialogFragment;
+import com.wochstudios.soundboard.DisplayFragments.CreateSoundboardFragment;
+import com.wochstudios.soundboard.DisplayFragments.SoundboardFragment;
 
 
 public class MainActivityHelper
@@ -28,6 +31,7 @@ public class MainActivityHelper
 	
 	public MainActivityHelper(Activity activity){
 		databaseController = new DatabaseController(activity);
+		drawerController = new DrawerController();
 		fragmentManager = activity.getFragmentManager();
 		preferences = PreferenceManager.getDefaultSharedPreferences(activity);
 	}
@@ -51,6 +55,10 @@ public class MainActivityHelper
 			);
 		replaceFragment(fragment);	
 	}
+
+	public void  updateDrawerList(ListView view){
+		drawerController.refreshDrawerList(view, databaseController.getSoundboardNames());
+	}
 	
 	
 	public void showDialogFragment(int fragment_cd){
@@ -71,6 +79,10 @@ public class MainActivityHelper
 		Intent intent = new Intent();
 		intent.setClass(activity, SettingsActivity.class);
 		activity.startActivityForResult(intent,0);
+	}
+
+	public void removeSoundboard(String id){
+		databaseController.removeSoundboardFromDatabase(id);
 	}
 		
 }

@@ -1,7 +1,7 @@
 package com.wochstudios.soundboard.DisplayFragments;
 
+import android.os.Bundle;
 import android.preference.PreferenceFragment;
-import android.os.*;
 
 import com.wochstudios.soundboard.R;
 

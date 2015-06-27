@@ -1,35 +1,28 @@
 package com.wochstudios.soundboard;
 
-import android.app.DialogFragment;
-import android.os.Bundle;
 import android.app.Activity;
-import android.content.Intent;
+import android.app.DialogFragment;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.ContextMenu;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.wochstudios.soundboard.ClickListeners.DrawerOnItemClickListener;
 import com.wochstudios.soundboard.Controllers.DatabaseController;
-import com.wochstudios.soundboard.Controllers.SoundboardController;
+import com.wochstudios.soundboard.Controllers.DrawerController;
+import com.wochstudios.soundboard.DisplayFragments.AddSoundDialogFragment;
+import com.wochstudios.soundboard.DisplayFragments.CreateSoundboardFragment;
+import com.wochstudios.soundboard.DisplayFragments.SoundboardFragment;
 import com.wochstudios.soundboard.Interfaces.IDialogListener;
-import com.wochstudios.soundboard.DisplayFragments.*;
-
-import java.util.ArrayList;
-import java.util.Collections;
-import android.content.*;
-import android.preference.*;
-import android.widget.*;
-import android.support.v4.widget.*;
-import android.support.v7.app.*;
-import com.wochstudios.soundboard.Controllers.*;
-import org.w3c.dom.*;
-import com.wochstudios.soundboard.Interfaces.*;
-import com.wochstudios.soundboard.ClickListeners.*;
+import com.wochstudios.soundboard.Interfaces.ISoundboardFragmentListener;
 
 public class MainActivity extends Activity implements IDialogListener, ISoundboardFragmentListener{
 
@@ -54,14 +47,15 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		PreferenceManager.setDefaultValues(this,R.xml.preferences,false);
+		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
+		mainHelper = new MainActivityHelper(this);
 		
 		databaseController = new DatabaseController(this);
 		checkForSoundboards();
 		preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		preferences.edit().putString("currentSoundboard",preferences.getString("defaultSoundboard","")).commit();		
 		
-		mainHelper = new MainActivityHelper(this);
+
 		
 		drawerController = new DrawerController();
 		drawerLayout = (DrawerLayout)findViewById(R.id.container);
@@ -95,9 +89,28 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	
 	private void setupDrawerList(ListView lv){
 		lv.setAdapter(new ArrayAdapter<String>(lv.getContext(),R.layout.drawer_item,R.id.DrawerItemTxt,databaseController.getSoundboardNames()));
-		lv.setOnItemClickListener(new DrawerOnItemClickListener(drawerLayout,mainHelper));
+		lv.setOnItemClickListener(new DrawerOnItemClickListener(drawerLayout, mainHelper));
+		registerForContextMenu(lv);
 	}
-	
+
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v,ContextMenu.ContextMenuInfo menuInfo) {
+		if (v.getId()==R.id.left_drawer) {
+			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
+			String[] menuItems = getResources().getStringArray(R.array.drawerMenuItems);
+			for (int i = 0; i<menuItems.length; i++) {
+				menu.add(Menu.NONE, i, i, menuItems[i]);
+			}
+		}
+	}//onCreateContextMenu
+
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
+		mainHelper.removeSoundboard(info.position+"");
+		mainHelper.updateDrawerList(drawerList);
+		return true;
+	}
 	 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -128,8 +141,11 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	public void onDialogPositiveClick(DialogFragment dialog)
 	{
 		//soundboardFragment.refreshListView(databaseController.getSoundboard(preferences.getString("currentSoundboard","")));
-		mainHelper.loadSoundBoardFragment(preferences.getString("currentSoundboard",""));
-		drawerController.refreshDrawerList(drawerList, databaseController.getSoundboardNames());
+		if(CreateSoundboardFragment.class.isInstance(dialog)){
+			drawerController.refreshDrawerList(drawerList, databaseController.getSoundboardNames());
+		}else if(AddSoundDialogFragment.class.isInstance(dialog)){
+			mainHelper.loadSoundBoardFragment(preferences.getString("currentSoundboard",""));
+		}
 	}
 
 	@Override

@@ -1,14 +1,18 @@
 package com.wochstudios.soundboard.DisplayFragments;
 
-import android.app.*;
-import android.view.*;
-import android.os.*;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.EditText;
 
+import com.wochstudios.soundboard.Controllers.DatabaseController;
+import com.wochstudios.soundboard.Interfaces.IDialogListener;
 import com.wochstudios.soundboard.R;
-import com.wochstudios.soundboard.Controllers.*;
-import android.widget.*;
-import com.wochstudios.soundboard.Interfaces.*;
 
 public class CreateSoundboardFragment extends DialogFragment
 {

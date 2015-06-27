@@ -1,10 +1,11 @@
 package com.wochstudios.soundboard.Controllers;
 
-import android.view.*;
-import android.widget.*;
-import android.widget.AdapterView.*;
-import com.wochstudios.soundboard.*;
-import java.util.*;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.wochstudios.soundboard.R;
+
+import java.util.ArrayList;
 
 public class DrawerController
 {
@@ -14,6 +15,6 @@ public class DrawerController
 	}
 		
 	public void refreshDrawerList(ListView lv,ArrayList<String> l){
-		lv.setAdapter(new ArrayAdapter<String>(lv.getContext(), R.layout.list_item, l));
+		lv.setAdapter(new ArrayAdapter<String>(lv.getContext(), R.layout.drawer_item, l));
 	}
 }

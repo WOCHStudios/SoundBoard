@@ -8,6 +8,9 @@
 		<item>Set as Ringtone</item>
 		<item>Remove Sound</item>
 	</string-array>
+	<string-array name="drawerMenuItems">
+		<item>Remove Soundboard</item>
+	</string-array>
 	<color name="WHITE">#FFFFFF</color>
 	<color name="GOLD">#f5d626</color>
 	<string name="add_sound">Add</string>
