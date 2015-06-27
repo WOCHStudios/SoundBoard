@@ -20,7 +20,6 @@ import com.wochstudios.soundboard.Controllers.DatabaseController;
 import com.wochstudios.soundboard.Controllers.DrawerController;
 import com.wochstudios.soundboard.DisplayFragments.AddSoundDialogFragment;
 import com.wochstudios.soundboard.DisplayFragments.CreateSoundboardFragment;
-import com.wochstudios.soundboard.DisplayFragments.SoundboardFragment;
 import com.wochstudios.soundboard.Interfaces.IDialogListener;
 import com.wochstudios.soundboard.Interfaces.ISoundboardFragmentListener;
 
@@ -28,8 +27,6 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 
 	private DatabaseController databaseController;
 	private DrawerController drawerController;
-	private DialogFragment dialogFragment;
-	private SoundboardFragment soundboardFragment;
 	private SharedPreferences preferences;
 	
 	
@@ -39,8 +36,7 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	private ListView drawerList;
 	private ActionBarDrawerToggle toggle;
 	
-	private final static String CREATE_SOUNDBOARD_NAME = "CreateSoundboardFragment";
-	private final static String ADD_SOUND_NAME = "AddSoundDialogFragment";
+
 	
 	/** Called when the activity is first created. */
 	@Override
