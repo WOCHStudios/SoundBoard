@@ -9,7 +9,8 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:layout_alignParentTop="true"
-		android:background="@color/Transparent"
-		android:cacheColorHint="#00000000" >
+		android:background="#00FFFFFF"
+		android:cacheColorHint="#00000000" 
+		android:drawSelectorOnTop="true">
 	</ListView>
 </RelativeLayout>

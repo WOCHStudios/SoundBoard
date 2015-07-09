@@ -1452,9 +1452,9 @@ containing a value of this type.
     }
     public static final class color {
         public static final int Black=0x7f080032;
-        public static final int GOLD=0x7f080034;
-        public static final int Transparent=0x7f080031;
-        public static final int WHITE=0x7f080033;
+        public static final int Checked_tint=0x7f080034;
+        public static final int Transparent=0x7f080033;
+        public static final int White=0x7f080031;
         public static final int abc_background_cache_hint_selector_material_dark=0x7f080035;
         public static final int abc_background_cache_hint_selector_material_light=0x7f080036;
         public static final int abc_input_method_navigation_guard=0x7f080000;
@@ -1611,9 +1611,12 @@ containing a value of this type.
         public static final int abc_textfield_search_activated_mtrl_alpha=0x7f020030;
         public static final int abc_textfield_search_default_mtrl_alpha=0x7f020031;
         public static final int abc_textfield_search_material=0x7f020032;
-        public static final int ic_action_new=0x7f020033;
-        public static final int ic_drawer=0x7f020034;
-        public static final int ic_launcher=0x7f020035;
+        public static final int ic_action_discard=0x7f020033;
+        public static final int ic_action_new=0x7f020034;
+        public static final int ic_drawer=0x7f020035;
+        public static final int ic_launcher=0x7f020036;
+        public static final int list_item_bg_selector=0x7f020037;
+        public static final int list_item_checked_state=0x7f020038;
     }
     public static final class id {
         public static final int BrowseBtn=0x7f0a0043;
@@ -1773,11 +1776,6 @@ containing a value of this type.
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
 		
-
-        Base application theme for API 11+. This theme completely replaces
-        AppBaseTheme from res/values/styles.xml on API 11+ devices.
-	
- API 11 theme customizations can go here. 
          */
         public static final int AppBaseTheme=0x7f0d00eb;
         /**  Application theme. 
