@@ -14,6 +14,8 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
+
 
 import com.wochstudios.soundboard.Controllers.SoundboardController;
 import com.wochstudios.soundboard.Interfaces.ISoundboardFragmentListener;
@@ -40,7 +42,7 @@ public class SoundboardFragment extends Fragment
 	{
 		init();
 		View rootView = inflater.inflate(R.layout.fragment_main,container,false);
-		setupListView(rootView.findViewById(R.id.listView1));
+		setupListView(rootView.findViewById(R.id.listSound));
 		return rootView;
 	}
 	
@@ -72,22 +74,25 @@ public class SoundboardFragment extends Fragment
 	
 	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,ContextMenuInfo menuInfo) {
-	   	if (v.getId()==R.id.listView1) {
+	   	if (v.getId()==R.id.listSound) {
 	     	AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
 	     	menu.setHeaderTitle(Titles.get(info.position));
-	     	String[] menuItems = getResources().getStringArray(R.array.menuItems);
+	     	/*String[] menuItems = getResources().getStringArray(R.array.menuItems);
 	     	for (int i = 0; i<menuItems.length; i++) {
 	       		menu.add(Menu.NONE, i, i, menuItems[i]);
-	     	}
+	     	}*/
+			getActivity().getMenuInflater().inflate(R.menu.soundboard_action_menu,menu);
 	   	}
+		Toast.makeText(getActivity(),"ContextMenuCreated",Toast.LENGTH_LONG).show();
 	}//onCreateContextMenu
 	
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
+		Toast.makeText(getActivity(),"ItemSelected",Toast.LENGTH_LONG).show();
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
-		if(item.getItemId() == 0){
+		if(item.getItemId() == R.id.set_rington_menu_item){
 			SBC.downloadRingtone(Titles.get(info.position));
-		}else if(item.getItemId() == 1){
+		}else if(item.getItemId() == R.id.remove_sound_menu_item){
 			listener.onSoundRemoveCall(soundboard.getSoundByTitle(Titles.get(info.position)).getID()+"");
 		}
 		return true;

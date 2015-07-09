@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.wochstudios.soundboard.ClickListeners.DrawerOnItemClickListener;
 import com.wochstudios.soundboard.Controllers.DatabaseController;
@@ -102,6 +103,7 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 
 	@Override
 	public boolean onContextItemSelected(MenuItem item) {
+		Toast.makeText(this,"ItemActivitySelected",Toast.LENGTH_LONG).show();
 		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)item.getMenuInfo();
 		mainHelper.removeSoundboard(info.position+"");
 		mainHelper.updateDrawerList(drawerList);

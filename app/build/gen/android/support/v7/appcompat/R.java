@@ -17,6 +17,7 @@ public final class R {
         public static final int abc_slide_out_top=0x7f040005;
     }
     public static final class array {
+        public static final int drawerMenuItems=0x7f0e0001;
         public static final int menuItems=0x7f0e0000;
     }
     public static final class attr {
@@ -1659,7 +1660,7 @@ containing a value of this type.
         public static final int left_drawer=0x7f0a004a;
         public static final int listItemTxt=0x7f0a0047;
         public static final int listMode=0x7f0a0009;
-        public static final int listView1=0x7f0a0046;
+        public static final int listSound=0x7f0a0046;
         public static final int list_item=0x7f0a0025;
         public static final int middle=0x7f0a0015;
         public static final int never=0x7f0a0019;
@@ -1669,6 +1670,7 @@ containing a value of this type.
         public static final int progress_circular=0x7f0a0005;
         public static final int progress_horizontal=0x7f0a0006;
         public static final int radio=0x7f0a002b;
+        public static final int remove_sound_menu_item=0x7f0a004d;
         public static final int search_badge=0x7f0a0035;
         public static final int search_bar=0x7f0a0034;
         public static final int search_button=0x7f0a0036;
@@ -1679,6 +1681,7 @@ containing a value of this type.
         public static final int search_plate=0x7f0a0039;
         public static final int search_src_text=0x7f0a003a;
         public static final int search_voice_btn=0x7f0a003e;
+        public static final int set_rington_menu_item=0x7f0a004e;
         public static final int settings=0x7f0a004c;
         public static final int shortcut=0x7f0a002a;
         public static final int showCustom=0x7f0a000f;
@@ -1730,6 +1733,7 @@ containing a value of this type.
     }
     public static final class menu {
         public static final int activity_main=0x7f0f0000;
+        public static final int soundboard_action_menu=0x7f0f0001;
     }
     public static final class raw {
         public static final int filemap=0x7f060000;
@@ -1756,6 +1760,8 @@ containing a value of this type.
         public static final int drawer_close=0x7f0c0014;
         public static final int drawer_open=0x7f0c0013;
         public static final int menu_settings=0x7f0c0011;
+        public static final int remove_sound_menu_item=0x7f0c0015;
+        public static final int set_ringtone_menu_item=0x7f0c0016;
     }
     public static final class style {
         /** 
