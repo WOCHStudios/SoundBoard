@@ -62,11 +62,6 @@ public class AddSoundDialogFragment extends DialogFragment
 						mListener.onDialogPositiveClick(AddSoundDialogFragment.this);
 					}
 				})
-				.setNegativeButton("Cancel", new Dialog.OnClickListener(){
-					public void onClick(DialogInterface dialog, int id){
-						mListener.onDialogNegativeClick(AddSoundDialogFragment.this);
-					}
-				})
 				.setTitle("Add Sound");
 		setupFileBrowserButton(layout);
 				
