@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-	<selector xmlns:android="http://schemes.android.com/apk/res/android">
-		<item android:state_checked="true"
-			android:drawable="drawable/list_item_checked_state"/>
-	</selector>

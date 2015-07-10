@@ -48,7 +48,7 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 		mainHelper = new MainActivityHelper(this);
 		
 		databaseController = new DatabaseController(this);
-		checkForSoundboards();
+		mainHelper.checkForSoundboards();
 		preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		preferences.edit().putString("currentSoundboard",preferences.getString("defaultSoundboard","")).commit();		
 		
@@ -77,13 +77,7 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 		
 			
 	}//onCreate
-	
-	private void checkForSoundboards(){
-		if(!databaseController.checkForSoundboards()){
-			mainHelper.showDialogFragment(mainHelper.CREATE_SOUNDBOARD_FRAGEMENT_CD);
-		}
-	}
-	
+
 	private void setupDrawerList(ListView lv){
 		lv.setAdapter(new ArrayAdapter<String>(lv.getContext(),R.layout.drawer_item,R.id.DrawerItemTxt,databaseController.getSoundboardNames()));
 		lv.setOnItemClickListener(new DrawerOnItemClickListener(drawerLayout, mainHelper));
@@ -146,14 +140,11 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 		}
 	}
 
-	@Override
-	public void onDialogNegativeClick(DialogFragment dialog)
-	{}
 
 	@Override
 	public void onSoundRemoveCall(String soundID)
 	{
-		databaseController.removeSoundFromSoundboard(soundID);
+		mainHelper.removeSound(soundID);
 		mainHelper.loadSoundBoardFragment(preferences.getString("currentSoundboard",""));	
 	}	
 	
