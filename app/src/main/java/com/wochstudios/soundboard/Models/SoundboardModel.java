@@ -11,11 +11,11 @@ public abstract class SoundboardModel
         this.Title = t;
     }
 
-    public int get_ID() {
+    public int getID() {
         return _ID;
     }
 
-    public void set_ID(int _ID) {
+    public void setID(int _ID) {
         this._ID = _ID;
     }
 

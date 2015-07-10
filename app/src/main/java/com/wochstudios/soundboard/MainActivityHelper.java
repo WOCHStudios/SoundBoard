@@ -15,6 +15,7 @@ import com.wochstudios.soundboard.DisplayFragments.AddSoundDialogFragment;
 import com.wochstudios.soundboard.DisplayFragments.CreateSoundboardFragment;
 import com.wochstudios.soundboard.DisplayFragments.SoundboardFragment;
 
+import java.util.ArrayList;
 
 public class MainActivityHelper
 {
@@ -33,6 +34,7 @@ public class MainActivityHelper
 		databaseController = new DatabaseController(activity);
 		drawerController = new DrawerController();
 		fragmentManager = activity.getFragmentManager();
+		PreferenceManager.setDefaultValues(activity, R.xml.preferences, false);
 		preferences = PreferenceManager.getDefaultSharedPreferences(activity);
 	}
 	
@@ -53,6 +55,13 @@ public class MainActivityHelper
 		fragment = new SoundboardFragment(
 			databaseController.getSoundboard(soundboard_id)
 			);
+		replaceFragment(fragment);	
+	}
+	
+	public void loadSoundBoardFragment(){
+		fragment = new SoundboardFragment(
+			databaseController.getSoundboard(preferences.getString("currentSoundboard",""))
+		);
 		replaceFragment(fragment);	
 	}
 
@@ -86,4 +95,7 @@ public class MainActivityHelper
 	}
 	public void removeSound(String id){databaseController.removeSoundFromSoundboard(id);}
 		
-}
+	public ArrayList<String> getSoundboardNames(){
+		return databaseController.getSoundboardNames();
+	}
+	}

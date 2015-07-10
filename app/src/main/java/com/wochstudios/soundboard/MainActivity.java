@@ -26,11 +26,7 @@ import com.wochstudios.soundboard.Interfaces.ISoundboardFragmentListener;
 
 public class MainActivity extends Activity implements IDialogListener, ISoundboardFragmentListener{
 
-	private DatabaseController databaseController;
-	private DrawerController drawerController;
-	private SharedPreferences preferences;
-	
-	
+	private DrawerController drawerController;	
 	private MainActivityHelper mainHelper;
 	
 	private DrawerLayout drawerLayout;
@@ -44,14 +40,8 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 		mainHelper = new MainActivityHelper(this);
-		
-		databaseController = new DatabaseController(this);
 		mainHelper.checkForSoundboards();
-		preferences = PreferenceManager.getDefaultSharedPreferences(this);
-		preferences.edit().putString("currentSoundboard",preferences.getString("defaultSoundboard","")).commit();		
-		
 
 		
 		drawerController = new DrawerController();
@@ -60,26 +50,20 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 		setupDrawerList(drawerList);
 		
 		if(savedInstanceState == null){
-			mainHelper.loadSoundBoardFragment(preferences.getString("defaultSoundboard",""));
-			//updateFragment(R.id.content_frame,preferences.getString("defaultSoundboard",""));
+			mainHelper.loadSoundBoardFragment();
 		}
 		
 		getActionBar().setHomeButtonEnabled(true);
 		getActionBar().setIcon(R.drawable.ic_drawer);
 		
-		toggle = new ActionBarDrawerToggle(
-			this,
-			drawerLayout,
-			null,
-			R.string.drawer_open,
-			R.string.drawer_close);
+		toggle = drawerController.getToggle(this,drawerLayout,R.string.drawer_open,R.string.drawer_close);
 		
 		
 			
 	}//onCreate
 
 	private void setupDrawerList(ListView lv){
-		lv.setAdapter(new ArrayAdapter<String>(lv.getContext(),R.layout.drawer_item,R.id.DrawerItemTxt,databaseController.getSoundboardNames()));
+		lv.setAdapter(new ArrayAdapter<String>(lv.getContext(),R.layout.drawer_item,R.id.DrawerItemTxt,mainHelper.getSoundboardNames()));
 		lv.setOnItemClickListener(new DrawerOnItemClickListener(drawerLayout, mainHelper));
 		registerForContextMenu(lv);
 	}
@@ -132,11 +116,10 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	@Override
 	public void onDialogPositiveClick(DialogFragment dialog)
 	{
-		//soundboardFragment.refreshListView(databaseController.getSoundboard(preferences.getString("currentSoundboard","")));
 		if(CreateSoundboardFragment.class.isInstance(dialog)){
-			drawerController.refreshDrawerList(drawerList, databaseController.getSoundboardNames());
+			drawerController.refreshDrawerList(drawerList, mainHelper.getSoundboardNames());
 		}else if(AddSoundDialogFragment.class.isInstance(dialog)){
-			mainHelper.loadSoundBoardFragment(preferences.getString("currentSoundboard",""));
+			mainHelper.loadSoundBoardFragment();
 		}
 	}
 
@@ -145,7 +128,7 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	public void onSoundRemoveCall(String soundID)
 	{
 		mainHelper.removeSound(soundID);
-		mainHelper.loadSoundBoardFragment(preferences.getString("currentSoundboard",""));	
+		mainHelper.loadSoundBoardFragment();	
 	}	
 	
 }

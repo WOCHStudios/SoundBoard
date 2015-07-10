@@ -21,6 +21,8 @@ import com.wochstudios.soundboard.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import android.widget.*;
+import android.widget.Toast;
 
 public class SoundboardFragment extends Fragment
 {
@@ -97,9 +99,11 @@ public class SoundboardFragment extends Fragment
 	
 	private class ListViewClickListener implements OnItemClickListener{
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {	
+			Toast.makeText(view.getContext(),"LV Checked: "+lv.getCheckedItemPosition()+" LV Selected: "+lv.getSelectedItemPosition(),Toast.LENGTH_LONG).show();
 			if(actionMode == null) {
 				SBC.playSound(Titles.get(position));
 			}
+			lv.setItemChecked(position,false);
 		} 
 	}
 	
