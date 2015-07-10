@@ -84,5 +84,6 @@ public class MainActivityHelper
 	public void removeSoundboard(String id){
 		databaseController.removeSoundboardFromDatabase(id);
 	}
+	public void removeSound(String id){databaseController.removeSoundFromSoundboard(id);}
 		
 }

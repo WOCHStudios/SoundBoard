@@ -2,8 +2,6 @@
 <resources>
 	<string name="app_name">MySounds</string>
 	<string name="menu_settings">Settings</string>
-	<color name="Transparent">#00FFFFFF</color>
-	<color name="Black">#000</color>
 	<string-array name="menuItems">
 		<item>Set as Ringtone</item>
 		<item>Remove Sound</item>
@@ -11,9 +9,15 @@
 	<string-array name="drawerMenuItems">
 		<item>Remove Soundboard</item>
 	</string-array>
-	<color name="WHITE">#FFFFFF</color>
-	<color name="GOLD">#f5d626</color>
 	<string name="add_sound">Add</string>
 	<string name="drawer_open">open</string>
 	<string name="drawer_close">close</string>
+	<string name="remove_sound_menu_item">Remove Sound</string>
+	<string name="set_ringtone_menu_item">Set Ringtone</string>
+	
+	<color name="White">#FFFFFF</color>
+	<color name="Black">#000000</color>
+	<color name="Transparent">#00FFFFFF</color>
+	<color name="Checked_tint">#E2E2E2</color>
+	
 </resources>

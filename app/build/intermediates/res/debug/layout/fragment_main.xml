@@ -5,12 +5,13 @@
 	android:layout_height="fill_parent"
 	android:orientation="vertical">
 	<ListView
-		android:id="@+id/listView1"
+		android:id="@+id/listSound"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:layout_alignParentTop="true"
-		android:background="@color/Transparent"
-		android:cacheColorHint="#00000000" >
+		android:background="@color/White"
+		android:cacheColorHint="#00000000" 
+		android:drawSelectorOnTop="true">
 	</ListView>
 </RelativeLayout>
 <!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/src/main/res/layout/fragment_main.xml -->
