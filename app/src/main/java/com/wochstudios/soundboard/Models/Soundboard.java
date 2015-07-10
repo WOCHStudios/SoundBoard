@@ -2,47 +2,25 @@ package com.wochstudios.soundboard.Models;
 
 import java.util.ArrayList;
 
-public class Soundboard implements ISoundboardModel
+public class Soundboard extends SoundboardModel
 {
 	private int _ID;
-	private String name;
+	private String Title;
 	private String date_created;
 	private ArrayList<Sound> sounds;
 	
 	public Soundboard(){}
 	
-	public Soundboard(int id, String n, String dc){
-		this._ID = id;
-		this.name = n;
+	public Soundboard(int id, String t, String dc){
+		super(id, t);
 		this.date_created = dc;
 		this.sounds = new ArrayList<Sound>();
 	}
 	
-	public Soundboard(int id, String n, String dc, ArrayList<Sound> s){
-		this._ID = id;
-		this.name = n;
+	public Soundboard(int id, String t, String dc, ArrayList<Sound> s){
+		super(id,t);
 		this.date_created = dc;
 		this.sounds = s;
-	}
-
-	public void setID(int iD)
-	{
-		_ID = iD;
-	}
-
-	public int getID()
-	{
-		return _ID;
-	}
-
-	public void setName(String name)
-	{
-		this.name = name;
-	}
-
-	public String getName()
-	{
-		return name;
 	}
 
 	public void setDate_created(String date_created)

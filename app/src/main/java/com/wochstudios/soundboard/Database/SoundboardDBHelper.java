@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-import com.wochstudios.soundboard.Database.DAO.ISoundboardDAO;
+import com.wochstudios.soundboard.Interfaces.ISoundboardDAO;
 import com.wochstudios.soundboard.Database.DAO.SoundboardDAO;
 import com.wochstudios.soundboard.Database.SounboardContract.SoundboardsTable;
 import com.wochstudios.soundboard.Database.SounboardContract.SoundsTable;
@@ -65,7 +65,7 @@ public class SoundboardDBHelper extends SQLiteOpenHelper
 		c = sbDAO.read(this.getReadableDatabase(),SoundboardsTable.TABLE_NAME, null, SoundboardsTable._ID+" = ?", new String[]{id}, null);
 		while(c.moveToNext()){
 			sb.setID(Integer.parseInt(c.getString(c.getColumnIndex(SoundboardsTable._ID))));
-			sb.setName(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_NAME)));
+			sb.setTitle(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_NAME)));
 			sb.setDate_created(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_DATE_CREATED)));
 		}
 		c.close();
