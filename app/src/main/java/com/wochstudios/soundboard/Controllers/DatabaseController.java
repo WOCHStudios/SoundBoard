@@ -2,6 +2,7 @@ package com.wochstudios.soundboard.Controllers;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.util.Log;
 
 import com.wochstudios.soundboard.Database.SounboardContract.SoundboardsTable;
 import com.wochstudios.soundboard.Database.SounboardContract.SoundsTable;
@@ -32,6 +33,7 @@ public class DatabaseController
 	
 	
 	public void addSoundToSoundboard(String title, String uri, String sbid){
+		Log.i("DatabaseController", "Adding Song:"+title+"to Soundboard: "+sbid);
 		ContentValues v = new ContentValues();
 		v.put(SoundsTable.COLUMN_TITLE, title);
 		v.put(SoundsTable.COLUMN_URI, uri);
@@ -50,6 +52,11 @@ public class DatabaseController
 		
 	public Soundboard getSoundboard(String id){
 		Soundboard s = mDbHelper.findSoundboard(id);
+		return s;
+	}
+	
+	public Soundboard getSoundboardFromTitle(String title){
+		Soundboard s = mDbHelper.findSoundboardFromTitle(title);
 		return s;
 	}
 	

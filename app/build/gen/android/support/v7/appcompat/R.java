@@ -1678,6 +1678,7 @@ containing a value of this type.
         public static final int progress_horizontal=0x7f0a0006;
         public static final int radio=0x7f0a002b;
         public static final int remove_sound_menu_item=0x7f0a004d;
+        public static final int remove_soundboard=0x7f0a004f;
         public static final int search_badge=0x7f0a0035;
         public static final int search_bar=0x7f0a0034;
         public static final int search_button=0x7f0a0036;
@@ -1741,6 +1742,7 @@ containing a value of this type.
     public static final class menu {
         public static final int activity_main=0x7f0f0000;
         public static final int soundboard_action_menu=0x7f0f0001;
+        public static final int soundboard_popup_menu=0x7f0f0002;
     }
     public static final class raw {
         public static final int filemap=0x7f060000;

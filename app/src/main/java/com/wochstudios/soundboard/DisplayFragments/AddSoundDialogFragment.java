@@ -34,6 +34,10 @@ public class AddSoundDialogFragment extends DialogFragment
 		this.soundboard_id = soundboard_id;
 	}
 	
+	public String getSoundboardID(){
+		return this.soundboard_id;
+	}
+	
 	@Override
 	public void onAttach(Activity activity)
 	{

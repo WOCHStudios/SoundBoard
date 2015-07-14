@@ -93,7 +93,10 @@ public class SoundboardFragment extends Fragment
 		SBC.setSoundboard(soundboard);
 		Titles = soundboard.getTitlesOfSounds();
 		Collections.sort(Titles);
-		lv.setAdapter(new ArrayAdapter<String>(getActivity(),R.layout.list_item,Titles));
+		((ArrayAdapter<String>)lv.getAdapter()).clear();
+		((ArrayAdapter<String>)lv.getAdapter()).addAll(Titles);
+		((ArrayAdapter<String>)lv.getAdapter()).notifyDataSetChanged();		
+		
 	}
 	
 	

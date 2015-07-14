@@ -19,7 +19,9 @@ public class DrawerController
 	}
 		
 	public void refreshDrawerList(ListView lv,ArrayList<String> l){
-		lv.setAdapter(new ArrayAdapter<String>(lv.getContext(), R.layout.drawer_item, l));
+		((ArrayAdapter<String>)lv.getAdapter()).clear();
+		((ArrayAdapter<String>)lv.getAdapter()).addAll(l);	
+		((ArrayAdapter<String>)lv.getAdapter()).notifyDataSetChanged();
 	}
 	
 	public ActionBarDrawerToggle getToggle(Activity con, DrawerLayout dl, int open, int close){

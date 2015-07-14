@@ -73,6 +73,20 @@ public class SoundboardDBHelper extends SQLiteOpenHelper
 		return sb;
 	}
 	
+	
+	public Soundboard findSoundboardFromTitle(String title){
+		Soundboard sb = new Soundboard();
+		c = sbDAO.read(this.getReadableDatabase(),SoundboardsTable.TABLE_NAME, null, SoundboardsTable.COLUMN_NAME+" = ?", new String[]{title}, null);
+		while(c.moveToNext()){
+			sb.setID(Integer.parseInt(c.getString(c.getColumnIndex(SoundboardsTable._ID))));
+			sb.setTitle(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_NAME)));
+			sb.setDate_created(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_DATE_CREATED)));
+		}
+		c.close();
+		sb.setSounds(getSoundsForSoundboard(sb));
+		return sb;
+	}
+	
 	public Sound findSound(){
 		Sound s = new Sound();
 		c = sbDAO.read(this.getReadableDatabase(), SoundsTable.TABLE_NAME,null,SoundsTable._ID+" =?", new String[]{"1"},null);
@@ -112,8 +126,7 @@ public class SoundboardDBHelper extends SQLiteOpenHelper
 		c = sbDAO.read(this.getReadableDatabase(), SoundboardsTable.TABLE_NAME,new String[]{SoundboardsTable.COLUMN_NAME, SoundboardsTable._ID}, null, null,null);
 		ArrayList<String> list = new ArrayList<String>();
 		while(c.moveToNext()){
-			list.add(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_NAME))+" "+ 
-						c.getString(c.getColumnIndex(SoundboardsTable._ID)));
+			list.add(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_NAME)));
 		}
 		return list;
 	}
