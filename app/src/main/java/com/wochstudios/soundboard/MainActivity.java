@@ -26,7 +26,7 @@ import com.wochstudios.soundboard.Interfaces.ISoundboardFragmentListener;
 
 public class MainActivity extends Activity implements IDialogListener, ISoundboardFragmentListener{
 
-	private MainActivityController mainHelper;
+	public MainActivityController mainHelper;
 	
 	private DrawerLayout drawerLayout;
 	private ListView drawerList;
@@ -109,6 +109,9 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	{
 		mainHelper.removeSound(soundID);
 		mainHelper.updateSoundboardFragment(mainHelper.getCurrentSoundboardId());	
-	}	
+	}
+
+
+	
 	
 }
