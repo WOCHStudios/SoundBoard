@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">MySounds</string>
+	<string name="app_name">Infinite Sounds</string>
 	<string name="menu_settings">Settings</string>
 	<string-array name="menuItems">
 		<item>Set as Ringtone</item>
@@ -19,6 +19,6 @@
 	<color name="Black">#000000</color>
 	<color name="Transparent">#00FFFFFF</color>
 	<color name="Checked_tint">#E2E2E2</color>
-	<color name="actionbar_bg">#555553</color>
+	<color name="actionbar_bg">#33B5E5</color>
 	
 </resources>

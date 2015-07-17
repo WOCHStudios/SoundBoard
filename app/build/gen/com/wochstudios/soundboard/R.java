@@ -1553,6 +1553,10 @@ containing a value of this type.
         public static final int abc_text_size_subtitle_material_toolbar=0x7f090022;
         public static final int abc_text_size_title_material=0x7f090023;
         public static final int abc_text_size_title_material_toolbar=0x7f090024;
+        public static final int add_button_diameter=0x7f09002b;
+        public static final int add_button_elevation_high=0x7f09002d;
+        public static final int add_button_elevation_low=0x7f09002c;
+        public static final int add_button_margin=0x7f09002e;
         public static final int dialog_fixed_height_major=0x7f090025;
         public static final int dialog_fixed_height_minor=0x7f090026;
         public static final int dialog_fixed_width_major=0x7f090027;
@@ -1621,6 +1625,8 @@ containing a value of this type.
         public static final int list_item_checked=0x7f020039;
         public static final int list_item_selector=0x7f02003a;
         public static final int list_item_unchecked=0x7f02003b;
+        public static final int oval=0x7f02003c;
+        public static final int oval_ripple=0x7f02003d;
     }
     public static final class id {
         public static final int BrowseBtn=0x7f0a0043;
@@ -1642,13 +1648,14 @@ containing a value of this type.
         public static final int action_mode_bar_stub=0x7f0a002d;
         public static final int action_mode_close_button=0x7f0a0020;
         public static final int activity_chooser_view_content=0x7f0a0021;
-        public static final int add_sound=0x7f0a004b;
+        public static final int add_button=0x7f0a0047;
+        public static final int add_sound=0x7f0a004c;
         public static final int always=0x7f0a0016;
         public static final int beginning=0x7f0a0013;
         public static final int checkbox=0x7f0a0029;
         public static final int collapseActionView=0x7f0a0017;
-        public static final int container=0x7f0a0048;
-        public static final int content_frame=0x7f0a0049;
+        public static final int container=0x7f0a0049;
+        public static final int content_frame=0x7f0a004a;
         public static final int decor_content_parent=0x7f0a002f;
         public static final int default_activity_button=0x7f0a0024;
         public static final int dialog=0x7f0a001b;
@@ -1664,8 +1671,8 @@ containing a value of this type.
         public static final int icon=0x7f0a0026;
         public static final int ifRoom=0x7f0a0018;
         public static final int image=0x7f0a0023;
-        public static final int left_drawer=0x7f0a004a;
-        public static final int listItemTxt=0x7f0a0047;
+        public static final int left_drawer=0x7f0a004b;
+        public static final int listItemTxt=0x7f0a0048;
         public static final int listMode=0x7f0a0009;
         public static final int listSound=0x7f0a0046;
         public static final int list_item=0x7f0a0025;
@@ -1677,8 +1684,8 @@ containing a value of this type.
         public static final int progress_circular=0x7f0a0005;
         public static final int progress_horizontal=0x7f0a0006;
         public static final int radio=0x7f0a002b;
-        public static final int remove_sound_menu_item=0x7f0a004d;
-        public static final int remove_soundboard=0x7f0a004f;
+        public static final int remove_sound_menu_item=0x7f0a004e;
+        public static final int remove_soundboard=0x7f0a0050;
         public static final int search_badge=0x7f0a0035;
         public static final int search_bar=0x7f0a0034;
         public static final int search_button=0x7f0a0036;
@@ -1689,8 +1696,8 @@ containing a value of this type.
         public static final int search_plate=0x7f0a0039;
         public static final int search_src_text=0x7f0a003a;
         public static final int search_voice_btn=0x7f0a003e;
-        public static final int set_rington_menu_item=0x7f0a004e;
-        public static final int settings=0x7f0a004c;
+        public static final int set_rington_menu_item=0x7f0a004f;
+        public static final int settings=0x7f0a004d;
         public static final int shortcut=0x7f0a002a;
         public static final int showCustom=0x7f0a000f;
         public static final int showHome=0x7f0a0010;
@@ -1898,7 +1905,7 @@ containing a value of this type.
         public static final int Base_Widget_AppCompat_Toolbar=0x7f0d005f;
         public static final int Base_Widget_AppCompat_Toolbar_Button_Navigation=0x7f0d0060;
         public static final int MyActionBar=0x7f0d00ed;
-        public static final int OverFlow=0x7f0d00ef;
+        public static final int Overflow=0x7f0d00ef;
         public static final int Platform_AppCompat=0x7f0d0061;
         public static final int Platform_AppCompat_Dialog=0x7f0d0062;
         public static final int Platform_AppCompat_Light=0x7f0d0063;

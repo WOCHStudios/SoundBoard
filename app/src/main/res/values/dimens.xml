@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>	
+	<dimen name="add_button_diameter">48dp</dimen>
+	<dimen name="add_button_elevation_low">1dp</dimen>
+	<dimen name="add_button_elevation_high">4dp</dimen>
+	<dimen name="add_button_margin">16dp</dimen>
+</resources>
+
