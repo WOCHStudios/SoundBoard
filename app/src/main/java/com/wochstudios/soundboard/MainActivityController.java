@@ -75,7 +75,9 @@ public class MainActivityController
 	
 
 	public void  updateDrawerList(){
-		drawerController.refreshDrawerList(drawerList, databaseController.getSoundboardNames());
+		ArrayList<String> temp = databaseController.getSoundboardNames();
+		temp.add(0,"Add Soundboard..");
+		drawerController.refreshDrawerList(drawerList, temp);
 	}
 	
 	
@@ -97,6 +99,8 @@ public class MainActivityController
 	
 	public void startSettingsActivity(Activity activity){
 		Intent intent = new Intent();
+		intent.putStringArrayListExtra("SOUNDBOARD_NAMES",getSoundboardNames());
+		intent.putStringArrayListExtra("SOUNDBOARD_IDS", databaseController.getSoundboardIds());
 		intent.setClass(activity, SettingsActivity.class);
 		activity.startActivityForResult(intent,0);
 	}
@@ -121,6 +125,8 @@ public class MainActivityController
 	public ArrayList<String> getSoundboardNames(){
 		return databaseController.getSoundboardNames();
 	}
+	
+	
 	
 	
 	public String getSoundboardIdFromTitle(String title){

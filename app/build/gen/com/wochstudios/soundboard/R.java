@@ -1686,6 +1686,7 @@ containing a value of this type.
         public static final int radio=0x7f0a002b;
         public static final int remove_sound_menu_item=0x7f0a004e;
         public static final int remove_soundboard=0x7f0a0050;
+        public static final int rename_soundboard=0x7f0a0051;
         public static final int search_badge=0x7f0a0035;
         public static final int search_bar=0x7f0a0034;
         public static final int search_button=0x7f0a0036;

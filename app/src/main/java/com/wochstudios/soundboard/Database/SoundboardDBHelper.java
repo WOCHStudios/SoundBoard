@@ -131,4 +131,16 @@ public class SoundboardDBHelper extends SQLiteOpenHelper
 		return list;
 	}
 	
+	public ArrayList<String> getSoundboardIds(){
+		c =sbDAO.read(this.getReadableDatabase(),SoundboardsTable.TABLE_NAME,new String[]{SoundboardsTable._ID},null,null,null);
+		ArrayList<String> list = new ArrayList<>();
+		while (c.moveToNext()){
+			list.add(c.getString(c.getColumnIndex(SoundboardsTable._ID)));
+		}
+		return list;
+	}
+	
+	public void renameSoundboard(String newName, String soundboardid){
+		
+	}
 }

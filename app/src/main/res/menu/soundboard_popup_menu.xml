@@ -3,5 +3,8 @@
     <item
         android:id="@+id/remove_soundboard"
         android:title="Remove"/>
+	<item 
+		android:id="@+id/rename_soundboard"
+		android:title="Rename" />
     
 </menu>

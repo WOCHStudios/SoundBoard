@@ -67,8 +67,11 @@ public class DatabaseController
 	
 	public ArrayList<String> getSoundboardNames(){
 		ArrayList<String> temp = mDbHelper.getSoundboardNames();
-		temp.add(0,"Add Soundboard..");
 		return temp;
+	}
+	
+	public ArrayList<String> getSoundboardIds(){
+		return mDbHelper.getSoundboardIds();
 	}
 	
 	private void createTestSoundboard(){

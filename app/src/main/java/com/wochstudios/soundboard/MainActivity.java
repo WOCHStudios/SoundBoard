@@ -23,6 +23,7 @@ import com.wochstudios.soundboard.DisplayFragments.AddSoundDialogFragment;
 import com.wochstudios.soundboard.DisplayFragments.CreateSoundboardFragment;
 import com.wochstudios.soundboard.Interfaces.IDialogListener;
 import com.wochstudios.soundboard.Interfaces.ISoundboardFragmentListener;
+import java.util.*;
 
 public class MainActivity extends Activity implements IDialogListener, ISoundboardFragmentListener{
 
@@ -59,7 +60,9 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	}
 
 	private void setupDrawerList(ListView lv){
-		lv.setAdapter(new ArrayAdapter<String>(lv.getContext(),R.layout.drawer_item,R.id.DrawerItemTxt,mainHelper.getSoundboardNames()));
+		ArrayList<String> temp = mainHelper.getSoundboardNames();
+		temp.add(0,"Add Soundboard..");
+		lv.setAdapter(new ArrayAdapter<String>(lv.getContext(),R.layout.drawer_item,R.id.DrawerItemTxt,temp));
 		DrawerOnItemClickListener listener = new DrawerOnItemClickListener(drawerLayout, mainHelper);
 		lv.setOnItemClickListener(listener);
 		lv.setOnItemLongClickListener(listener);

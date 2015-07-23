@@ -62,8 +62,9 @@ public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLon
 	{
 		switch(item.getItemId()){
 			case R.id.remove_soundboard:
-				Log.i("DrawerClickListener","remove clicked");
 				helper.removeSoundboard(soundboardId);
+				return true;
+			case R.id.rename_soundboard:
 				return true;
 			default:
 				return false;

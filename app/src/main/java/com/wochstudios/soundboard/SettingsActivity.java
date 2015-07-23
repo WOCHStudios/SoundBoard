@@ -12,8 +12,10 @@ public class SettingsActivity extends Activity
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+		SettingsFragment settingsFrag = new SettingsFragment();
+		settingsFrag.setArguments(getIntent().getExtras());
 		getFragmentManager().beginTransaction()
-			.replace(android.R.id.content, new SettingsFragment())
+			.replace(android.R.id.content, settingsFrag)
 			.commit();
 	}
 	
