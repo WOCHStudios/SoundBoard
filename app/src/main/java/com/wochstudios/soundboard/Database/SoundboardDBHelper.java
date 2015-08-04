@@ -9,10 +9,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-import com.wochstudios.soundboard.Interfaces.ISoundboardDAO;
 import com.wochstudios.soundboard.Database.DAO.SoundboardDAO;
 import com.wochstudios.soundboard.Database.SounboardContract.SoundboardsTable;
 import com.wochstudios.soundboard.Database.SounboardContract.SoundsTable;
+import com.wochstudios.soundboard.Interfaces.ISoundboardDAO;
 import com.wochstudios.soundboard.Models.Sound;
 import com.wochstudios.soundboard.Models.Soundboard;
 
@@ -141,6 +141,8 @@ public class SoundboardDBHelper extends SQLiteOpenHelper
 	}
 	
 	public void renameSoundboard(String newName, String soundboardid){
-		
-	}
+        ContentValues values = new ContentValues();
+        values.put(SoundboardsTable.COLUMN_NAME, newName);
+        sbDAO.update(getWritableDatabase(), values, SoundboardsTable.TABLE_NAME, SoundboardsTable._ID + "=?", new String[]{soundboardid});
+    }
 }

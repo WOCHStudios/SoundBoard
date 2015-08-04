@@ -7,46 +7,46 @@ import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.widget.ListView;
-import android.util.Log;
+import android.widget.Toast;
 
 import com.wochstudios.soundboard.Controllers.DatabaseController;
 import com.wochstudios.soundboard.Controllers.DrawerController;
 import com.wochstudios.soundboard.DisplayFragments.AddSoundDialogFragment;
 import com.wochstudios.soundboard.DisplayFragments.CreateSoundboardFragment;
 import com.wochstudios.soundboard.DisplayFragments.SoundboardFragment;
+import com.wochstudios.soundboard.Models.Sound;
+import com.wochstudios.soundboard.Models.Soundboard;
 
 import java.util.ArrayList;
-import com.wochstudios.soundboard.Models.*;
-import android.text.format.*;
-import android.support.v7.app.*;
-import android.support.v4.widget.*;
 
 public class MainActivityController
 {
-	private DatabaseController databaseController;
+    public static final int CREATE_SOUNDBOARD_FRAGEMENT_CD = 1;
+    public static final int ADD_SOUND_FRAGMENT_CD = 2;
+    private static final String FRAGMENT_TAG = "current_fragment";
+    private static final String CURRENT_SOUNDBOARD = "currentSoundboard";
+    private static final String DEFAULT_SOUNDBOARD = "defaultSoundboard";
+    private DatabaseController databaseController;
 	private DrawerController drawerController;
 	private Fragment fragment;
 	private DialogFragment dialogFragment;
 	private SharedPreferences preferences;
 	private FragmentManager fragmentManager;
 	private ListView drawerList;
-	
-	private static final String FRAGMENT_TAG = "current_fragment";
-	private static final String CURRENT_SOUNDBOARD ="currentSoundboard";
-	private static final String DEFAULT_SOUNDBOARD ="defaultSoundboard";
-	
-	public static final int CREATE_SOUNDBOARD_FRAGEMENT_CD = 1;
-	public static final int ADD_SOUND_FRAGMENT_CD = 2;
-	
-	public MainActivityController(Activity activity){
+    private MainActivity mainActivity;
+
+    public MainActivityController(Activity activity){
 		databaseController = new DatabaseController(activity);
 		drawerController = new DrawerController();
 		fragmentManager = activity.getFragmentManager();
 		PreferenceManager.setDefaultValues(activity, R.xml.preferences, false);
 		preferences = PreferenceManager.getDefaultSharedPreferences(activity);
 		drawerList = (ListView)activity.findViewById(R.id.left_drawer);
-	}
+        mainActivity = (MainActivity) activity;
+    }
 	
 	
 	public void checkForSoundboards(){
@@ -76,8 +76,8 @@ public class MainActivityController
 
 	public void  updateDrawerList(){
 		ArrayList<String> temp = databaseController.getSoundboardNames();
-		temp.add(0,"Add Soundboard..");
-		drawerController.refreshDrawerList(drawerList, temp);
+        temp.add(0, "Add Soundboard..");
+        drawerController.refreshDrawerList(drawerList, temp);
 	}
 	
 	
@@ -87,10 +87,14 @@ public class MainActivityController
 				dialogFragment = new CreateSoundboardFragment(databaseController);
 				break;
 			case ADD_SOUND_FRAGMENT_CD:
-				String id = (preferences.getString(CURRENT_SOUNDBOARD,"").isEmpty())? 
-					preferences.getString(DEFAULT_SOUNDBOARD,""):preferences.getString(CURRENT_SOUNDBOARD,"");
-				dialogFragment = new AddSoundDialogFragment(databaseController,id);
-				break;
+                if (databaseController.checkForSoundboards()) {
+                    String id = (preferences.getString(CURRENT_SOUNDBOARD, "").isEmpty()) ?
+                            preferences.getString(DEFAULT_SOUNDBOARD, "") : preferences.getString(CURRENT_SOUNDBOARD, "");
+                    dialogFragment = new AddSoundDialogFragment(databaseController, id);
+                } else {
+                    Toast.makeText(mainActivity, "Please create a soundboard first", Toast.LENGTH_SHORT).show();
+                }
+                break;
 			default:
 				return;
 		}
@@ -102,8 +106,8 @@ public class MainActivityController
 		intent.putStringArrayListExtra("SOUNDBOARD_NAMES",getSoundboardNames());
 		intent.putStringArrayListExtra("SOUNDBOARD_IDS", databaseController.getSoundboardIds());
 		intent.setClass(activity, SettingsActivity.class);
-		activity.startActivityForResult(intent,0);
-	}
+        activity.startActivityForResult(intent, 0);
+    }
 
 	public void removeSoundboard(String id){
 		Soundboard s = databaseController.getSoundboard(id);
@@ -125,11 +129,13 @@ public class MainActivityController
 	public ArrayList<String> getSoundboardNames(){
 		return databaseController.getSoundboardNames();
 	}
-	
-	
-	
-	
-	public String getSoundboardIdFromTitle(String title){
+
+    public void renameSoundboard(String newName, String soundboardId) {
+        databaseController.renameSoundboard(newName, soundboardId);
+    }
+
+
+    public String getSoundboardIdFromTitle(String title){
 		return databaseController.getSoundboardFromTitle(title).getID()+"";
 	}
 	

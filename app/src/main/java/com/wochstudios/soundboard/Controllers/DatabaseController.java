@@ -42,8 +42,8 @@ public class DatabaseController
 	}
 	
 	public void removeSoundFromSoundboard(String id){
-		mDbHelper.removeFromDatabase(SoundsTable.TABLE_NAME,id);
-	}
+        mDbHelper.removeFromDatabase(SoundsTable.TABLE_NAME, id);
+    }
 	
 	public void removeSoundboardFromDatabase(String id){
 		mDbHelper.removeFromDatabase(SoundboardsTable.TABLE_NAME,id);
@@ -73,21 +73,8 @@ public class DatabaseController
 	public ArrayList<String> getSoundboardIds(){
 		return mDbHelper.getSoundboardIds();
 	}
-	
-	private void createTestSoundboard(){
-		ContentValues sb = new ContentValues();
-		sb.put(SoundboardsTable.COLUMN_NAME,"TestDatabase2");
-		sb.put(SoundboardsTable.COLUMN_DATE_CREATED,
-			  new SimpleDateFormat("mm/dd/yyyy").format(new Date()).toString());
-			  
-		ContentValues s = new ContentValues();
-		s.put(SoundsTable.COLUMN_TITLE, "Test Sound");
-		s.put(SoundsTable.COLUMN_URI, "TestUri");
-		s.put(SoundsTable.COLUMN_SOUNDBOARD_ID, "2");	  
-		
-		
-		mDbHelper.insertIntoDatabase(SoundboardsTable.TABLE_NAME, sb);
-		mDbHelper.insertIntoDatabase(SoundsTable.TABLE_NAME, s);
-		
-	}
+
+    public void renameSoundboard(String newName, String soundboardId) {
+        mDbHelper.renameSoundboard(newName, soundboardId);
+    }
 }

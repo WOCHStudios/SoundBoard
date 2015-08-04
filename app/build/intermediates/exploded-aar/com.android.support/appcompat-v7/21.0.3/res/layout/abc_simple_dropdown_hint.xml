@@ -14,10 +14,11 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@android:id/text1"
-          android:textAppearance="?android:attr/dropDownHintAppearance"
-          android:singleLine="true"
-          android:layout_margin="3dip"
+<TextView
+    android:id="@android:id/text1"
+    xmlns:android="http://schemas.android.com/apk/res/android"
           android:layout_width="match_parent"
-          android:layout_height="wrap_content" />
+    android:layout_height="wrap_content"
+    android:layout_margin="3dip"
+    android:singleLine="true"
+    android:textAppearance="?android:attr/dropDownHintAppearance"/>

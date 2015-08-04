@@ -18,6 +18,6 @@
               android:layout_width="wrap_content"
               android:layout_height="match_parent"
               android:background="?attr/actionBarItemBackground"
-              android:gravity="center_vertical"
-              android:enabled="false">
+              android:enabled="false"
+              android:gravity="center_vertical">
 </LinearLayout>

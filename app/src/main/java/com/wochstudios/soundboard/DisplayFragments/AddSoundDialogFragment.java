@@ -8,7 +8,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -61,7 +60,6 @@ public class AddSoundDialogFragment extends DialogFragment
 				.setPositiveButton("Add", new Dialog.OnClickListener(){
 					public void onClick(DialogInterface dialog, int id){
 						EditText title = (EditText) layout.findViewById(R.id.SoundTitle);
-						Log.d("","");
 						DC.addSoundToSoundboard(title.getText().toString(),fileUri.toString(),soundboard_id);
 						mListener.onDialogPositiveClick(AddSoundDialogFragment.this);
 					}
