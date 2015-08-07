@@ -1,7 +1,6 @@
 package com.wochstudios.soundboard.ClickListeners;
 
 import android.support.v4.widget.DrawerLayout;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,6 +10,7 @@ import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 
 import com.wochstudios.soundboard.MainActivityController;
+import com.wochstudios.soundboard.Models.Soundboard;
 import com.wochstudios.soundboard.R;
 
 public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLongClickListener, OnMenuItemClickListener
@@ -20,6 +20,7 @@ public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLon
     private DrawerLayout drawer;
     private MainActivityController activityController;
     private String soundboardId;
+    private Soundboard selectedSoundboard;
 	
 	public DrawerOnItemClickListener(DrawerLayout dl, MainActivityController mh){
 		drawer = dl;
@@ -30,24 +31,14 @@ public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLon
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 	{
-        Log.i("DrawerClickListener", "Title being searched for: " + parent.getItemAtPosition(position));
-        soundboardId = activityController.getSoundboardIdFromTitle((String) parent.getItemAtPosition(position));
-
-        switch(position) {
-			case 0:
-                activityController.showDialogFragment(MainActivityController.CREATE_SOUNDBOARD_FRAGEMENT_CD);
-                break;
-			default:
-                activityController.updateSoundboardFragment("" + soundboardId);
-                break;
-		}
-			
+        selectedSoundboard = (Soundboard) parent.getItemAtPosition(position);
+        activityController.updateSoundboardFragment(selectedSoundboard.getID() + "");
 	}
 	
 	@Override
 	public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
 	{
-        soundboardId = activityController.getSoundboardIdFromTitle((String) parent.getItemAtPosition(position));
+        selectedSoundboard = (Soundboard)parent.getItemAtPosition(position);
         PopupMenu popup = new PopupMenu(view.getContext(),view);
 		popup.setOnMenuItemClickListener(this);
 		popup.inflate(R.menu.soundboard_popup_menu);
@@ -60,10 +51,10 @@ public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLon
 	{
 		switch(item.getItemId()){
 			case R.id.remove_soundboard:
-                activityController.removeSoundboard(soundboardId);
+                activityController.removeSoundboard(selectedSoundboard.getID()+"");
                 return true;
 			case R.id.rename_soundboard:
-                activityController.renameSoundboard("TestRenameFunction", soundboardId);
+                activityController.renameSoundboard("TestRenameFunction", selectedSoundboard.getID()+"");
                 return true;
 			default:
 				return false;

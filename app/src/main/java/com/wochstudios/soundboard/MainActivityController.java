@@ -75,9 +75,9 @@ public class MainActivityController
 	
 
 	public void  updateDrawerList(){
-		ArrayList<String> temp = databaseController.getSoundboardNames();
-        temp.add(0, "Add Soundboard..");
-        drawerController.refreshDrawerList(drawerList, temp);
+/*		ArrayList<String> temp = databaseController.getSoundboardNames();
+        temp.add(0, "Add Soundboard..");*/
+        drawerController.refreshDrawerList(drawerList, databaseController.getSoundboards());
 	}
 	
 	
@@ -147,5 +147,9 @@ public class MainActivityController
 	public ActionBarDrawerToggle getToggle(Activity act, DrawerLayout dl, int open, int close){
 		return drawerController.getToggle(act, dl, open, close);
 	}
-	
+
+    public DatabaseController getDatabaseController(){
+        return databaseController;
+    }
+
 	}

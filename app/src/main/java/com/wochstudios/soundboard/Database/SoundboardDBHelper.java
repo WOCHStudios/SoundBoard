@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import android.provider.BaseColumns;
+import android.util.Log;
 
 import com.wochstudios.soundboard.Database.DAO.SoundboardDAO;
 import com.wochstudios.soundboard.Database.SounboardContract.SoundboardsTable;
@@ -25,7 +26,6 @@ public class SoundboardDBHelper extends SQLiteOpenHelper
 	
 	
 	private ISoundboardDAO sbDAO;
-	private Cursor c;
 	
 	public SoundboardDBHelper (Context con){
 		super(con,DATABASE_NAME, null, DATABASE_VERSION); 
@@ -52,23 +52,39 @@ public class SoundboardDBHelper extends SQLiteOpenHelper
 	
 	
 	public void insertIntoDatabase(String table, ContentValues values ){
-		sbDAO.insert(this.getWritableDatabase(),table, values);
-	}
+        boolean result = sbDAO.insert(this.getWritableDatabase(), table, values);
+        Log.i(getClass().getSimpleName(), result+"");
+    }
 	
 	public void removeFromDatabase(String table,String id){
-		sbDAO.delete(this.getWritableDatabase(),table,BaseColumns._ID+" =?",new String[]{id});
+		sbDAO.delete(this.getWritableDatabase(), table, BaseColumns._ID + " =?", new String[]{id});
 	}
+
+    public ArrayList<Soundboard> getAllSoundboards(){
+        ArrayList<Soundboard> soundboards = new ArrayList<Soundboard>();
+        Cursor cursor = sbDAO.read(this.getReadableDatabase(), SoundboardsTable.TABLE_NAME,new String[]{SoundboardsTable._ID, SoundboardsTable.COLUMN_NAME,SoundboardsTable.COLUMN_DATE_CREATED},null,null,null);
+        while(cursor.moveToNext()){
+            int id = Integer.parseInt(cursor.getString(cursor.getColumnIndex(SoundboardsTable._ID)));
+            String title = cursor.getString(cursor.getColumnIndex(SoundboardsTable.COLUMN_NAME));
+            String date =  cursor.getString(cursor.getColumnIndex(SoundboardsTable.COLUMN_DATE_CREATED));
+            Soundboard temp = new Soundboard(id,title,date);
+            getSoundsForSoundboard(temp);
+            soundboards.add(temp);
+        }
+        cursor.close();
+        return soundboards;
+    }
 	
 
 	public Soundboard findSoundboard(String id){
 		Soundboard sb = new Soundboard();
-		c = sbDAO.read(this.getReadableDatabase(),SoundboardsTable.TABLE_NAME, null, SoundboardsTable._ID+" = ?", new String[]{id}, null);
-		while(c.moveToNext()){
-			sb.setID(Integer.parseInt(c.getString(c.getColumnIndex(SoundboardsTable._ID))));
-			sb.setTitle(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_NAME)));
-			sb.setDate_created(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_DATE_CREATED)));
+		Cursor cursor = sbDAO.read(this.getReadableDatabase(),SoundboardsTable.TABLE_NAME, null, SoundboardsTable._ID+" = ?", new String[]{id}, null);
+		while(cursor.moveToNext()){
+			sb.setID(Integer.parseInt(cursor.getString(cursor.getColumnIndex(SoundboardsTable._ID))));
+			sb.setTitle(cursor.getString(cursor.getColumnIndex(SoundboardsTable.COLUMN_NAME)));
+			sb.setDate_created(cursor.getString(cursor.getColumnIndex(SoundboardsTable.COLUMN_DATE_CREATED)));
 		}
-		c.close();
+		cursor.close();
 		sb.setSounds(getSoundsForSoundboard(sb));
 		return sb;
 	}
@@ -76,66 +92,66 @@ public class SoundboardDBHelper extends SQLiteOpenHelper
 	
 	public Soundboard findSoundboardFromTitle(String title){
 		Soundboard sb = new Soundboard();
-		c = sbDAO.read(this.getReadableDatabase(),SoundboardsTable.TABLE_NAME, null, SoundboardsTable.COLUMN_NAME+" = ?", new String[]{title}, null);
-		while(c.moveToNext()){
-			sb.setID(Integer.parseInt(c.getString(c.getColumnIndex(SoundboardsTable._ID))));
-			sb.setTitle(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_NAME)));
-			sb.setDate_created(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_DATE_CREATED)));
+		Cursor cursor = sbDAO.read(this.getReadableDatabase(),SoundboardsTable.TABLE_NAME, null, SoundboardsTable.COLUMN_NAME+" = ?", new String[]{title}, null);
+		while(cursor.moveToNext()){
+			sb.setID(Integer.parseInt(cursor.getString(cursor.getColumnIndex(SoundboardsTable._ID))));
+			sb.setTitle(cursor.getString(cursor.getColumnIndex(SoundboardsTable.COLUMN_NAME)));
+			sb.setDate_created(cursor.getString(cursor.getColumnIndex(SoundboardsTable.COLUMN_DATE_CREATED)));
 		}
-		c.close();
+		cursor.close();
 		sb.setSounds(getSoundsForSoundboard(sb));
 		return sb;
 	}
 	
 	public Sound findSound(){
 		Sound s = new Sound();
-		c = sbDAO.read(this.getReadableDatabase(), SoundsTable.TABLE_NAME,null,SoundsTable._ID+" =?", new String[]{"1"},null);
-		while(c.moveToNext()){
-			s.setID(Integer.parseInt(c.getString(c.getColumnIndex(SoundsTable._ID))));
-			s.setTitle(c.getString(c.getColumnIndex(SoundsTable.COLUMN_TITLE)));
-			s.setUri(Uri.parse(c.getString(c.getColumnIndex(SoundsTable.COLUMN_URI))));
-			s.setSoundboardId(c.getString(c.getColumnIndex(SoundsTable.COLUMN_SOUNDBOARD_ID)));
+		Cursor cursor = sbDAO.read(this.getReadableDatabase(), SoundsTable.TABLE_NAME,null,SoundsTable._ID+" =?", new String[]{"1"},null);
+		while(cursor.moveToNext()){
+			s.setID(Integer.parseInt(cursor.getString(cursor.getColumnIndex(SoundsTable._ID))));
+			s.setTitle(cursor.getString(cursor.getColumnIndex(SoundsTable.COLUMN_TITLE)));
+			s.setUri(Uri.parse(cursor.getString(cursor.getColumnIndex(SoundsTable.COLUMN_URI))));
+			s.setSoundboardId(cursor.getString(cursor.getColumnIndex(SoundsTable.COLUMN_SOUNDBOARD_ID)));
 		}
-		c.close();
+		cursor.close();
 		return s;
 	}
 	
 	private ArrayList<Sound>getSoundsForSoundboard(Soundboard sb){
 		ArrayList<Sound> sounds = new ArrayList<Sound>();
-		c = sbDAO.read(this.getReadableDatabase(), SoundsTable.TABLE_NAME,null, SoundsTable.COLUMN_SOUNDBOARD_ID+" =?",new String[]{sb.getID()+""},null);
-		while(c.moveToNext()){
+		Cursor cursor = sbDAO.read(this.getReadableDatabase(), SoundsTable.TABLE_NAME,null, SoundsTable.COLUMN_SOUNDBOARD_ID+" =?",new String[]{sb.getID()+""},null);
+		while(cursor.moveToNext()){
 			Sound s = new Sound();
-			s.setID(Integer.parseInt(c.getString(c.getColumnIndex(SoundsTable._ID))));
-			s.setTitle(c.getString(c.getColumnIndex(SoundsTable.COLUMN_TITLE)));
-			s.setUri(Uri.parse(c.getString(c.getColumnIndex(SoundsTable.COLUMN_URI))));
+			s.setID(Integer.parseInt(cursor.getString(cursor.getColumnIndex(SoundsTable._ID))));
+			s.setTitle(cursor.getString(cursor.getColumnIndex(SoundsTable.COLUMN_TITLE)));
+			s.setUri(Uri.parse(cursor.getString(cursor.getColumnIndex(SoundsTable.COLUMN_URI))));
 			s.setSoundboardId(sb.getID()+"");
 			sounds.add(s);
 		}
-		c.close();
+		cursor.close();
 		return sounds;
 	}
 	
 	public int getCountOfSoundboards(){
-		c  = sbDAO.read(this.getReadableDatabase(),SoundboardsTable.TABLE_NAME,null,null,null,null);
-		int count = c.getCount();
-		c.close();
+		Cursor cursor  = sbDAO.read(this.getReadableDatabase(),SoundboardsTable.TABLE_NAME,null,null,null,null);
+		int count = cursor.getCount();
+		cursor.close();
 		return count;
 	}
 	
 	public ArrayList<String> getSoundboardNames(){
-		c = sbDAO.read(this.getReadableDatabase(), SoundboardsTable.TABLE_NAME,new String[]{SoundboardsTable.COLUMN_NAME, SoundboardsTable._ID}, null, null,null);
+		Cursor cursor = sbDAO.read(this.getReadableDatabase(), SoundboardsTable.TABLE_NAME,new String[]{SoundboardsTable.COLUMN_NAME, SoundboardsTable._ID}, null, null,null);
 		ArrayList<String> list = new ArrayList<String>();
-		while(c.moveToNext()){
-			list.add(c.getString(c.getColumnIndex(SoundboardsTable.COLUMN_NAME)));
+		while(cursor.moveToNext()){
+			list.add(cursor.getString(cursor.getColumnIndex(SoundboardsTable.COLUMN_NAME)));
 		}
 		return list;
 	}
 	
 	public ArrayList<String> getSoundboardIds(){
-		c =sbDAO.read(this.getReadableDatabase(),SoundboardsTable.TABLE_NAME,new String[]{SoundboardsTable._ID},null,null,null);
+		Cursor cursor =sbDAO.read(this.getReadableDatabase(),SoundboardsTable.TABLE_NAME,new String[]{SoundboardsTable._ID},null,null,null);
 		ArrayList<String> list = new ArrayList<>();
-		while (c.moveToNext()){
-			list.add(c.getString(c.getColumnIndex(SoundboardsTable._ID)));
+		while (cursor.moveToNext()){
+			list.add(cursor.getString(cursor.getColumnIndex(SoundboardsTable._ID)));
 		}
 		return list;
 	}

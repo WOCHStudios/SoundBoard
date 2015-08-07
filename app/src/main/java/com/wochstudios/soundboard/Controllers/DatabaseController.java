@@ -24,6 +24,7 @@ public class DatabaseController
 	}
 	
 	public void addSoundboardToDatabase(String name){
+        Log.i("DatabaseController", "Adding Sounboard:"+name);
 		ContentValues v = new ContentValues();
 		v.put(SoundboardsTable.COLUMN_NAME,name);
 		v.put(SoundboardsTable.COLUMN_DATE_CREATED,
@@ -54,6 +55,10 @@ public class DatabaseController
 		Soundboard s = mDbHelper.findSoundboard(id);
 		return s;
 	}
+
+    public ArrayList<Soundboard> getSoundboards(){
+        return  mDbHelper.getAllSoundboards();
+    }
 	
 	public Soundboard getSoundboardFromTitle(String title){
 		Soundboard s = mDbHelper.findSoundboardFromTitle(title);

@@ -1343,7 +1343,7 @@ containing a value of this type.
         public static final int action_mode_close_button=0x7f0e0020;
         public static final int activity_chooser_view_content=0x7f0e0021;
         public static final int add_button=0x7f0e0047;
-        public static final int add_sound=0x7f0e004c;
+        public static final int add_new_soundboard=0x7f0e004c;
         public static final int always=0x7f0e0016;
         public static final int beginning=0x7f0e0013;
         public static final int checkbox=0x7f0e0029;
@@ -1471,8 +1471,9 @@ containing a value of this type.
         public static final int drawer_close=0x7f070012;
         public static final int drawer_open=0x7f070013;
         public static final int menu_settings=0x7f070014;
-        public static final int remove_sound_menu_item=0x7f070015;
-        public static final int set_ringtone_menu_item=0x7f070016;
+        public static final int new_soundboard=0x7f070015;
+        public static final int remove_sound_menu_item=0x7f070016;
+        public static final int set_ringtone_menu_item=0x7f070017;
     }
     public static final class style {
         /** 

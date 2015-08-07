@@ -2,28 +2,23 @@ package com.wochstudios.soundboard;
 
 import android.app.Activity;
 import android.app.DialogFragment;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.view.ContextMenu;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import com.wochstudios.soundboard.Adapters.SoundboardAdapter;
 import com.wochstudios.soundboard.ClickListeners.DrawerOnItemClickListener;
-import com.wochstudios.soundboard.Controllers.DatabaseController;
-import com.wochstudios.soundboard.Controllers.DrawerController;
 import com.wochstudios.soundboard.DisplayFragments.AddSoundDialogFragment;
 import com.wochstudios.soundboard.DisplayFragments.CreateSoundboardFragment;
 import com.wochstudios.soundboard.Interfaces.IDialogListener;
 import com.wochstudios.soundboard.Interfaces.ISoundboardFragmentListener;
-import java.util.*;
+
+import java.util.ArrayList;
 
 public class MainActivity extends Activity implements IDialogListener, ISoundboardFragmentListener{
 
@@ -60,9 +55,14 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	}
 
 	private void setupDrawerList(ListView lv){
+        SoundboardAdapter soundboardAdapter = new SoundboardAdapter(this,mainHelper.getDatabaseController().getSoundboards());
+
+
+
 		ArrayList<String> temp = mainHelper.getSoundboardNames();
-		temp.add(0,"Add Soundboard..");
-		lv.setAdapter(new ArrayAdapter<String>(lv.getContext(),R.layout.drawer_item,R.id.DrawerItemTxt,temp));
+		temp.add(0, "Add Soundboard..");
+        //lv.setAdapter(new ArrayAdapter<String>(lv.getContext(), R.layout.drawer_item, R.id.DrawerItemTxt, temp));
+        lv.setAdapter(soundboardAdapter);
 		DrawerOnItemClickListener listener = new DrawerOnItemClickListener(drawerLayout, mainHelper);
 		lv.setOnItemClickListener(listener);
 		lv.setOnItemLongClickListener(listener);
@@ -83,8 +83,8 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 			return true;
 		}
 		switch (item.getItemId()){
-			case R.id.add_sound:
-				mainHelper.showDialogFragment(mainHelper.ADD_SOUND_FRAGMENT_CD);
+			case R.id.add_new_soundboard:
+				mainHelper.showDialogFragment(mainHelper.CREATE_SOUNDBOARD_FRAGEMENT_CD);
 				return true;
 			case R.id.settings:
 				mainHelper.startSettingsActivity(this);
@@ -99,6 +99,7 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	public void onDialogPositiveClick(DialogFragment dialog)
 	{
 		if(CreateSoundboardFragment.class.isInstance(dialog)){
+            Log.i(getClass().getSimpleName(),mainHelper.getDatabaseController().getSoundboards().size()+" number of Soundboards");
 			mainHelper.updateDrawerList();
 			//drawerController.refreshDrawerList(drawerList, mainHelper.getSoundboardNames());
 		}else if(AddSoundDialogFragment.class.isInstance(dialog)){

@@ -373,7 +373,7 @@ int id action_mode_bar_stub 0x7f0e002d
 int id action_mode_close_button 0x7f0e0020
 int id activity_chooser_view_content 0x7f0e0021
 int id add_button 0x7f0e0047
-int id add_sound 0x7f0e004c
+int id add_new_soundboard 0x7f0e004c
 int id always 0x7f0e0016
 int id beginning 0x7f0e0013
 int id checkbox 0x7f0e0029
@@ -491,8 +491,9 @@ int string app_name 0x7f070011
 int string drawer_close 0x7f070012
 int string drawer_open 0x7f070013
 int string menu_settings 0x7f070014
-int string remove_sound_menu_item 0x7f070015
-int string set_ringtone_menu_item 0x7f070016
+int string new_soundboard 0x7f070015
+int string remove_sound_menu_item 0x7f070016
+int string set_ringtone_menu_item 0x7f070017
 int style AppBaseTheme 0x7f0b0065
 int style AppTheme 0x7f0b0066
 int style AppTheme_MyActionBar_TitleTextStyle 0x7f0b0067

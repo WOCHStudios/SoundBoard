@@ -14,22 +14,21 @@
      limitations under the License.
 -->
 
-<LinearLayout
-    style="@style/RtlOverlay.Widget.AppCompat.ActionBar.TitleItem"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-    android:orientation="vertical">
+              android:orientation="vertical"
+              style="@style/RtlOverlay.Widget.AppCompat.ActionBar.TitleItem">
     <TextView android:id="@+id/action_bar_title"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:ellipsize="end"
-              android:singleLine="true"/>
+              android:singleLine="true"
+              android:ellipsize="end" />
     <TextView android:id="@+id/action_bar_subtitle"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:layout_marginTop="@dimen/abc_action_bar_subtitle_top_margin_material"
-              android:ellipsize="end"
               android:singleLine="true"
+              android:ellipsize="end"
               android:visibility="gone" />
 </LinearLayout>

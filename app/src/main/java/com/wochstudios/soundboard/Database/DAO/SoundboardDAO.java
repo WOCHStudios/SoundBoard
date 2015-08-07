@@ -14,8 +14,7 @@ public class SoundboardDAO implements ISoundboardDAO
 	@Override
 	public boolean insert(SQLiteDatabase db, String table,ContentValues v)
 	{
-		//long result = 0;
-		long result = db.insert(table, null,v);		
+		long result = db.insertOrThrow(table, null,v);
 		return (result < 0);
 	}
 

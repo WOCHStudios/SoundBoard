@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 	<item
-        android:id="@+id/add_sound"
-        android:title="@string/add_sound"
+        android:id="@+id/add_new_soundboard"
+        android:title="@string/new_soundboard"
 		android:showAsAction="never"/>
 	<item
 		android:id="@+id/settings"
