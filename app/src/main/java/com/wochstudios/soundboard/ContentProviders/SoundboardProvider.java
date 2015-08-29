@@ -150,16 +150,47 @@ public class SoundboardProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
+        switch (matcher.match(uri)) {
+            case SOUNDBOARD:
+                return insertSoundboard(uri, values);
+            case SOUNDS:
+                return insertSound(uri, values);
+            default:
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
+        }
+    }
+
+    private Uri insertSoundboard(Uri uri, ContentValues values) {
+        return null;
+    }
+
+    private Uri insertSound(Uri uri, ContentValues values) {
         return null;
     }
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
+        switch (matcher.match(uri)) {
+            case SOUNDBOARD:
+                break;
+            case SOUNDS:
+                break;
+            default:
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
+        }
         return 0;
     }
 
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+        switch (matcher.match(uri)) {
+            case SOUNDBOARD:
+                break;
+            case SOUNDS:
+                break;
+            default:
+                throw new UnsupportedOperationException("Unknown uri: " + uri);
+        }
         return 0;
     }
 }

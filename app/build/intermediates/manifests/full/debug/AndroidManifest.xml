@@ -30,6 +30,10 @@
             android:name="com.wochstudios.soundboard.SettingsActivity"
             android:label="Settings" >
         </activity>
+
+        <provider
+            android:name="com.wochstudios.soundboard.ContentProviders.SoundboardProvider"
+            android:authorities="com.wochstudios.soundboard" />
     </application>
 
 </manifest>
