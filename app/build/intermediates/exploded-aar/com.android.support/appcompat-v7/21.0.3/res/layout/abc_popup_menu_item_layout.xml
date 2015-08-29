@@ -15,44 +15,44 @@
 -->
 
 <android.support.v7.internal.view.menu.ListMenuItemView
+    style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem"
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="?attr/dropdownListPreferredItemHeight"
-        android:minWidth="196dip"
-        style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem">
+    android:minWidth="196dip">
 
     <!-- Icon will be inserted here. -->
 
     <!-- The title and summary have some gap between them, and this 'group' should be centered vertically. -->
     <RelativeLayout
+        style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem.InternalGroup"
             android:layout_width="0dip"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:duplicateParentState="true"
-            style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem.InternalGroup">
+        android:layout_weight="1"
+        android:duplicateParentState="true">
 
         <TextView
                 android:id="@+id/title"
+                style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem.Text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:textAppearance="?attr/textAppearanceLargePopupMenu"
-                android:singleLine="true"
                 android:duplicateParentState="true"
                 android:ellipsize="marquee"
                 android:fadingEdge="horizontal"
-                style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem.Text" />
+                android:singleLine="true"
+                android:textAppearance="?attr/textAppearanceLargePopupMenu"/>
 
         <TextView
                 android:id="@+id/shortcut"
+                style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem.Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/title"
-                android:textAppearance="?attr/textAppearanceSmallPopupMenu"
-                android:singleLine="true"
                 android:duplicateParentState="true"
-                style="@style/RtlOverlay.Widget.AppCompat.PopupMenuItem.Text" />
+                android:singleLine="true"
+                android:textAppearance="?attr/textAppearanceSmallPopupMenu"/>
 
     </RelativeLayout>
 

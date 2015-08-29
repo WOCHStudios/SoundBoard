@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="com.wochstudios.soundboard"
+<manifest
+    package="com.wochstudios.soundboard"
+    xmlns:android="http://schemas.android.com/apk/res/android"
 	android:versionCode="3"
 	android:versionName="1.02" >
 	<uses-sdk
@@ -26,5 +27,9 @@
 			android:name=".SettingsActivity"
 			android:label="Settings">
 		</activity>
+
+        <provider
+            android:name=".ContentProviders.SoundboardProvider"
+            android:authorities="com.wochstudios.soundboard"/>
 		</application>
 </manifest>
