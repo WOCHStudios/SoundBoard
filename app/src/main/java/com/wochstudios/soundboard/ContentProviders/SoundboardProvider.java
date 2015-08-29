@@ -2,13 +2,33 @@ package com.wochstudios.soundboard.ContentProviders;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
+
+import com.wochstudios.soundboard.Database.SounboardContract;
 
 /**
  * Created by dave on 8/6/2015.
  */
 public class SoundboardProvider extends ContentProvider {
+
+    static final int SOUNDBOARD = 100;
+    static final int SOUNDS = 200;
+    static final int SOUNDS_FROM_SOUNBOARD = 201;
+    private UriMatcher matcher = buildMatcher();
+
+    private static UriMatcher buildMatcher() {
+        final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
+        final String authority = SounboardContract.CONTENT_AUTHORITY;
+
+        matcher.addURI(authority, SounboardContract.PATH_SOUNDBOARDS, SOUNDBOARD);
+        matcher.addURI(authority, SounboardContract.PATH_SOUNDS, SOUNDS);
+        matcher.addURI(authority, SounboardContract.PATH_SOUNDBOARDS + "/#/sounds", SOUNDS_FROM_SOUNBOARD);
+
+        return matcher;
+    }
+
     @Override
     public boolean onCreate() {
         return false;
