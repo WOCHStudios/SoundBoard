@@ -10,8 +10,23 @@
 		android:layout_height="wrap_content"
 		android:layout_alignParentTop="true"
 		android:background="@color/White"
-		android:cacheColorHint="#00000000" 
+		android:cacheColorHint="@color/Black" 
 		android:drawSelectorOnTop="true">
 	</ListView>
+	
+	<ImageButton
+		android:id="@+id/add_button"
+		android:layout_width="@dimen/add_button_diameter"
+		android:layout_height="@dimen/add_button_diameter"
+		android:layout_gravity="end|bottom"
+		android:layout_marginBottom="@dimen/add_button_margin"
+		android:layout_marginEnd="@dimen/add_button_margin"
+		android:src="@android:drawable/ic_input_add"
+		android:tint="@android:color/white"
+		android:elevation="@dimen/add_button_elevation_low"
+		android:layout_alignParentBottom="true"
+		android:layout_alignParentEnd="true"
+		android:background="@drawable/oval_ripple"
+		/>
 </RelativeLayout>
 <!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/src/main/res/layout/fragment_main.xml -->
