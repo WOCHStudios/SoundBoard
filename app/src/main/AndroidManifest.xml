@@ -29,7 +29,11 @@
 		</activity>
 
         <provider
-            android:name=".ContentProviders.SoundboardProvider"
-            android:authorities="com.wochstudios.soundboard"/>
+            android:authorities="com.wochstudios.soundboard"
+            android:name=".ContentProviders.SoundboardProvider">
+        </provider>
+
+        <instrumentation android:name="android.test.InstrumentationTestRunner"
+                         android:targetPackage="com.wochstudios.soundboard" android:label="Tests for My App" />
 		</application>
 </manifest>

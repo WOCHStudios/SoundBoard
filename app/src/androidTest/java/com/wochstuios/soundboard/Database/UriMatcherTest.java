@@ -3,7 +3,6 @@ package com.wochstuios.soundboard.Database;
 import android.content.UriMatcher;
 import android.net.Uri;
 import android.test.AndroidTestCase;
-import android.test.suitebuilder.annotation.SmallTest;
 
 import com.wochstudios.soundboard.ContentProviders.SoundboardProvider;
 import com.wochstudios.soundboard.Database.SounboardContract;
@@ -23,8 +22,12 @@ public class UriMatcherTest extends AndroidTestCase {
     private static final Uri TEST_SOUNDS_FOR_SOUNDBOARD_URI = SounboardContract.SoundsTable.buildSoundsFromSoundboardUri(SOUNDBOARD_ID + "");
 
 
-    @SmallTest
-    public void testUriMatcher() {
+    public UriMatcherTest(){
+        super();
+    }
+
+
+    public void testUriMatcher() throws Throwable{
         UriMatcher testMatcher = SoundboardProvider.buildMatcher();
 
         assertEquals("Error: Sound URI matched incorrectly", testMatcher.match(TEST_SOUND_URI), SoundboardProvider.SOUNDS);

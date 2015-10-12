@@ -6,6 +6,7 @@ import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
 import android.net.Uri;
+import android.util.Log;
 
 import com.wochstudios.soundboard.Database.SounboardContract;
 import com.wochstudios.soundboard.Database.SoundboardContentDBHelper;
@@ -47,9 +48,11 @@ public class SoundboardProvider extends ContentProvider {
     public String getType(Uri uri) {
         int match = matcher.match(uri);
         switch (match) {
-            case SOUNDS:
+            case SOUNDS :
+            case SOUNDS_WITH_ID:
                 return SounboardContract.SoundsTable.CONTENT_TYPE;
             case SOUNDBOARD:
+            case SOUNDBOARD_WITH_ID:
                 return SounboardContract.SoundboardsTable.CONTENT_TYPE;
             default:
                 throw new UnsupportedOperationException("Unknown URI:" + uri);
@@ -150,47 +153,103 @@ public class SoundboardProvider extends ContentProvider {
 
     @Override
     public Uri insert(Uri uri, ContentValues values) {
+        Uri returnUri;
         switch (matcher.match(uri)) {
             case SOUNDBOARD:
-                return insertSoundboard(uri, values);
+                returnUri = insertSoundboard(uri, values);
+                break;
             case SOUNDS:
-                return insertSound(uri, values);
+                returnUri = insertSound(uri, values);
+                break;
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
+        getContext().getContentResolver().notifyChange(uri,null);
+        return returnUri;
     }
 
     private Uri insertSoundboard(Uri uri, ContentValues values) {
-        return null;
+        long _id = database.getWritableDatabase().insert(
+                SounboardContract.SoundboardsTable.TABLE_NAME,
+                null,
+                values
+                );
+        if(_id > 0){
+            return SounboardContract.SoundboardsTable.buildSounboardUri(_id);
+        }else{
+            throw new android.database.SQLException("Failed to insert into" + uri);
+        }
     }
 
     private Uri insertSound(Uri uri, ContentValues values) {
-        return null;
+        long _id = database.getWritableDatabase().insert(
+                SounboardContract.SoundsTable.TABLE_NAME,
+                null,
+                values
+        );
+        if(_id > 0){
+            return SounboardContract.SoundsTable.buildSoundUri(_id);
+        }else{
+            throw new android.database.SQLException("Failed to insert into" + uri);
+        }
     }
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
+        int rowsDeleted;
+        if(selection == null) selection = "1";
+        Log.d(this.getClass().getSimpleName(),"Matcher result: "+matcher.match(uri));
         switch (matcher.match(uri)) {
             case SOUNDBOARD:
+                rowsDeleted = database.getWritableDatabase().delete(
+                        SounboardContract.SoundboardsTable.TABLE_NAME,
+                        selection,
+                        selectionArgs);
                 break;
             case SOUNDS:
+                rowsDeleted = database.getWritableDatabase().delete(
+                        SounboardContract.SoundsTable.TABLE_NAME,
+                        selection,
+                        selectionArgs);
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
-        return 0;
+        if(rowsDeleted != 0){
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+        return rowsDeleted;
     }
 
     @Override
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
+        int rowsUpdated;
+        Log.d(this.getClass().getSimpleName(),"Matcher result: "+matcher.match(uri));
         switch (matcher.match(uri)) {
             case SOUNDBOARD:
+                rowsUpdated = database.getWritableDatabase().update(
+                        SounboardContract.SoundboardsTable.TABLE_NAME,
+                        values,
+                        selection,
+                        selectionArgs
+                );
                 break;
             case SOUNDS:
+                rowsUpdated = database.getWritableDatabase().update(
+                        SounboardContract.SoundsTable.TABLE_NAME,
+                        values,
+                        selection,
+                        selectionArgs
+                );
                 break;
             default:
                 throw new UnsupportedOperationException("Unknown uri: " + uri);
         }
-        return 0;
+        if (rowsUpdated != 0) {
+            getContext().getContentResolver().notifyChange(uri, null);
+        }
+        return rowsUpdated;
     }
+
+
 }

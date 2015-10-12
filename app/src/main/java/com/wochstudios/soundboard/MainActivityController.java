@@ -75,8 +75,6 @@ public class MainActivityController
 	
 
 	public void  updateDrawerList(){
-/*		ArrayList<String> temp = databaseController.getSoundboardNames();
-        temp.add(0, "Add Soundboard..");*/
         drawerController.refreshDrawerList(drawerList, databaseController.getSoundboards());
 	}
 	
@@ -134,10 +132,6 @@ public class MainActivityController
         databaseController.renameSoundboard(newName, soundboardId);
     }
 
-
-    public String getSoundboardIdFromTitle(String title){
-		return databaseController.getSoundboardFromTitle(title).getID()+"";
-	}
 	
 	public String getCurrentSoundboardId(){
 		return preferences.getString(CURRENT_SOUNDBOARD,"");

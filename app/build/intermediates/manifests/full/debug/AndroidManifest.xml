@@ -33,7 +33,13 @@
 
         <provider
             android:name="com.wochstudios.soundboard.ContentProviders.SoundboardProvider"
-            android:authorities="com.wochstudios.soundboard" />
+            android:authorities="com.wochstudios.soundboard" >
+        </provider>
+
+        <instrumentation
+            android:name="android.test.InstrumentationTestRunner"
+            android:label="Tests for My App"
+            android:targetPackage="com.wochstudios.soundboard" />
     </application>
 
 </manifest>

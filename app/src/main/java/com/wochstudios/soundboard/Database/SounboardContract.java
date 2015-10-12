@@ -7,7 +7,7 @@ import android.provider.BaseColumns;
 
 public final class SounboardContract
 {
-    public static final String CONTENT_AUTHORITY = "com.wochstudios.soundboard.app";
+    public static final String CONTENT_AUTHORITY = "com.wochstudios.soundboard";
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     public static final String PATH_SOUNDBOARDS = "sounboards";
     public static final String PATH_SOUNDS = "sounds";

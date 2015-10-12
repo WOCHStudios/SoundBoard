@@ -1,4 +1,4 @@
-package androidTest.com.wochstuios.soundboard;
+package com.wochstuios.soundboard;
 
 import android.test.suitebuilder.TestSuiteBuilder;
 
@@ -8,16 +8,12 @@ import junit.framework.TestSuite;
 /**
  * Created by dave on 8/29/2015.
  */
-public class FullTestSuite extends TestSuite {
+public class FullTestSuite extends TestSuite{
+    public static Test suite(){
+        return new TestSuiteBuilder(FullTestSuite.class).includeAllPackagesUnderHere().build();
+    }
 
-    public FullTestSuite() {
+    public FullTestSuite(){
         super();
     }
-
-    public static Test suite() {
-        return new TestSuiteBuilder(FullTestSuite.class)
-                .includeAllPackagesUnderHere().build();
-    }
-
 }
-

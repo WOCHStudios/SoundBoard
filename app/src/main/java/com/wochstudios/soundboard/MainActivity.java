@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
@@ -17,8 +16,6 @@ import com.wochstudios.soundboard.DisplayFragments.AddSoundDialogFragment;
 import com.wochstudios.soundboard.DisplayFragments.CreateSoundboardFragment;
 import com.wochstudios.soundboard.Interfaces.IDialogListener;
 import com.wochstudios.soundboard.Interfaces.ISoundboardFragmentListener;
-
-import java.util.ArrayList;
 
 public class MainActivity extends Activity implements IDialogListener, ISoundboardFragmentListener{
 
@@ -56,12 +53,6 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 
 	private void setupDrawerList(ListView lv){
         SoundboardAdapter soundboardAdapter = new SoundboardAdapter(this,mainHelper.getDatabaseController().getSoundboards());
-
-
-
-		ArrayList<String> temp = mainHelper.getSoundboardNames();
-		temp.add(0, "Add Soundboard..");
-        //lv.setAdapter(new ArrayAdapter<String>(lv.getContext(), R.layout.drawer_item, R.id.DrawerItemTxt, temp));
         lv.setAdapter(soundboardAdapter);
 		DrawerOnItemClickListener listener = new DrawerOnItemClickListener(drawerLayout, mainHelper);
 		lv.setOnItemClickListener(listener);
@@ -99,9 +90,7 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	public void onDialogPositiveClick(DialogFragment dialog)
 	{
 		if(CreateSoundboardFragment.class.isInstance(dialog)){
-            Log.i(getClass().getSimpleName(),mainHelper.getDatabaseController().getSoundboards().size()+" number of Soundboards");
 			mainHelper.updateDrawerList();
-			//drawerController.refreshDrawerList(drawerList, mainHelper.getSoundboardNames());
 		}else if(AddSoundDialogFragment.class.isInstance(dialog)){
 			mainHelper.updateSoundboardFragment(((AddSoundDialogFragment)dialog).getSoundboardID());
 		}

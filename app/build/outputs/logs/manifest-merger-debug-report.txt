@@ -76,6 +76,14 @@ ADDED from AndroidManifest.xml:26:3
 provider#com.wochstudios.soundboard.ContentProviders.SoundboardProvider
 ADDED from AndroidManifest.xml:31:9
 	android:authorities
-		ADDED from AndroidManifest.xml:33:13
-	android:name
 		ADDED from AndroidManifest.xml:32:13
+	android:name
+		ADDED from AndroidManifest.xml:33:13
+instrumentation#android.test.InstrumentationTestRunner
+ADDED from AndroidManifest.xml:36:9
+	android:label
+		ADDED from AndroidManifest.xml:37:77
+	android:targetPackage
+		ADDED from AndroidManifest.xml:37:26
+	android:name
+		ADDED from AndroidManifest.xml:36:26
