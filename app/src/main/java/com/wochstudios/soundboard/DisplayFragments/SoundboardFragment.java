@@ -15,12 +15,13 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.wochstudios.soundboard.Controllers.SoundboardController;
-import com.wochstudios.soundboard.Interfaces.ISoundboardFragmentListener;
+import com.wochstudios.soundboard.Listeners.ISoundboardFragmentListener;
 import com.wochstudios.soundboard.MainActivity;
-import com.wochstudios.soundboard.MainActivityController;
+import com.wochstudios.soundboard.MainActivityHelper;
 import com.wochstudios.soundboard.Models.Soundboard;
 import com.wochstudios.soundboard.R;
 
@@ -53,6 +54,9 @@ public class SoundboardFragment extends Fragment
 	{
 		init();
 		View rootView = inflater.inflate(R.layout.fragment_main,container,false);
+        AdView ad = (AdView) rootView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        ad.loadAd(adRequest);
 		setupListView(rootView.findViewById(R.id.listSound));
 		setupAddButton(rootView.findViewById(R.id.add_button));
 		return rootView;
@@ -70,7 +74,7 @@ public class SoundboardFragment extends Fragment
 				@Override
 				public void onClick(View p1)
 				{
-					((MainActivity)getActivity()).mainHelper.showDialogFragment(MainActivityController.ADD_SOUND_FRAGMENT_CD);
+					((MainActivity)getActivity()).mainHelper.showDialogFragment(MainActivityHelper.ADD_SOUND_FRAGMENT_CD);
 				}
 		});
 	}
@@ -111,7 +115,7 @@ public class SoundboardFragment extends Fragment
 
 	public void refreshListView(Soundboard s)
 	{
-		this.soundboard =s;
+        this.soundboard =s;
 		SBC.setSoundboard(soundboard);
 		Titles = soundboard.getTitlesOfSounds();
 		Collections.sort(Titles);
@@ -120,11 +124,14 @@ public class SoundboardFragment extends Fragment
 		((ArrayAdapter<String>)soundListView.getAdapter()).notifyDataSetChanged();		
 		
 	}
+
+    public Soundboard getCurrentSoundboard(){
+        return soundboard;
+    }
 	
 	
 	private class ListViewClickListener implements OnItemClickListener{
-		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {	
-			Toast.makeText(view.getContext(),"LV Checked: "+soundListView.getCheckedItemPosition()+" LV Selected: "+soundListView.getSelectedItemPosition(),Toast.LENGTH_LONG).show();
+		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			if(actionMode == null) {
 				SBC.playSound(Titles.get(position));
 			}
@@ -158,10 +165,10 @@ public class SoundboardFragment extends Fragment
 					listener.onSoundRemoveCall(soundboard.getSoundByTitle(Titles.get(soundListView.getCheckedItemPosition())).getID()+"");
 					mode.finish();
 					return true;
-				case R.id.set_rington_menu_item:
+				/*case R.id.set_rington_menu_item:
 					SBC.downloadRingtone(Titles.get(soundListView.getCheckedItemPosition()));
 					mode.finish();
-					return true;
+					return true;*/
 				default:
 					return false;
 			}

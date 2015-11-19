@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
 	android:id="@+id/fragment_main"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
@@ -11,22 +12,38 @@
 		android:layout_alignParentTop="true"
 		android:background="@color/White"
 		android:cacheColorHint="@color/Black" 
-		android:drawSelectorOnTop="true">
+		android:drawSelectorOnTop="true"
+        android:divider="@android:drawable/divider_horizontal_textfield">
 	</ListView>
 	
-	<ImageButton
-		android:id="@+id/add_button"
-		android:layout_width="@dimen/add_button_diameter"
-		android:layout_height="@dimen/add_button_diameter"
-		android:layout_gravity="end|bottom"
-		android:layout_marginBottom="@dimen/add_button_margin"
-		android:layout_marginEnd="@dimen/add_button_margin"
-		android:src="@android:drawable/ic_input_add"
-		android:tint="@android:color/white"
-		android:elevation="@dimen/add_button_elevation_low"
-		android:layout_alignParentBottom="true"
-		android:layout_alignParentEnd="true"
-		android:background="@drawable/oval_ripple"
-		/>
+
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
+    </com.google.android.gms.ads.AdView>
+
+    <ImageButton
+        android:id="@+id/add_button"
+        android:layout_width="@dimen/add_button_diameter"
+        android:layout_height="@dimen/add_button_diameter"
+        android:layout_gravity="end|bottom"
+        android:layout_marginBottom="@dimen/add_button_margin"
+        android:layout_marginEnd="@dimen/add_button_margin"
+        android:layout_above="@id/adView"
+        android:src="@android:drawable/ic_input_add"
+        android:tint="@android:color/white"
+        android:elevation="@dimen/add_button_elevation_low"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/oval_ripple"
+        />
+
+
+
 </RelativeLayout>
 <!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/src/main/res/layout/fragment_main.xml -->

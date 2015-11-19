@@ -4,8 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.wochstudios.soundboard.Interfaces.ISoundboardDAO;
-
 public class SoundboardDAO implements ISoundboardDAO
 {
 

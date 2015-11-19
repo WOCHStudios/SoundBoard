@@ -28,8 +28,8 @@ public class SoundboardAdapter extends ArrayAdapter<Soundboard>
 
         if(convertView == null){
             viewHolder = new ViewHolder();
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
-            viewHolder.soundboardTitle = (TextView) convertView.findViewById(R.id.listItemTxt);
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.drawer_item, parent, false);
+            viewHolder.soundboardTitle = (TextView) convertView.findViewById(R.id.DrawerItemTxt);
             convertView.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder)convertView.getTag();

@@ -2,11 +2,214 @@
 <items version="2" >
 
     <item
-        jar="C:\Program Files (x86)\Android\android-sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\8.3.0\jars\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0-03d2a791fc6935636cde8425c513df13c348b3d3.jar" />
+        sha1="0af4f577b4a21eb9be2a7f52e33b077b67e6d9f8">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-2a7b8a026c37fbc8368f880be1e98e9f52ff7b9e.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9aedc597d74c6d77258ce5236e9abff0c3cc65e3">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-fe5b0dd912a391e80f506273c1abbdefbf47f52e.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-17613a1d5e175c9f1a8beaa9aeb5471eccef9b4c.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="dcf8c83c3dead00a6c4fe313e95f7aaca20dc641">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-b59f11cd0ee51a28a80eac374ce0239ea6138197.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="345a1b5cf5b144ce18ba6962bc66a7e2f26c1c1b">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-1ee44f8954ea40c8c27a65ab00a9f4bec5f899be.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="697679619b00837e3d09e9988a2e1e2a9009d502">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-b18927b6a27080db5378971220c75c993059050b.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9f825dc52fb0f1e80e1aef436ce8c04905f8e993">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-f88a1fb9d4600256e4f8387f23254b6ebe5b114c.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="cb4af597d079ffdc0984a3ec2c03cbf6a1b9f869">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-2fd0a848c9c30ecff0a65e684ef81b8aa16ace27.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-measurement\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b000ecceb9877fefcdc7ab1959ff03df91551656">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-3dd11df49dc7532bd8fb998920c9f1ebb537783d.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="744c49c02a27569cc4cc049685d3649e4ef439f2">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-14353da18f52984de33399d657fe81739efea035.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.android.support\mediarouter-v7\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0632f06970823b7e3436f649bfa65b47035c91d0">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-b73b3664ec508a3dc46d5158ae0903c083efee1c.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="6d9ed9a288364688e7fcf6704776284dac1eb42e">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-59e479769ae8bf56e7ca0ea2e7ff7c3a8e296dd5.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="af6ee25641df3142059c0828517aa7ee6eba08d6">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-f494f4c0bbf59edf5293e56189af94ff826d82c3.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-d49d678d551ebbe2e20fd64c4eceb0f606ab0022.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="77f9593d979f4347344be233bd0d888315f79517">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-582932944e81b21fe37f0e8d2a07c1855888f247.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appinvite\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="58adcfbe2c8393765e84c5489d01bba6a5159eb2">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-f4427e4d987ab51f62418a23d64e6b6f2f0626d2.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ea34579b1be157cd792376362157e9c54ebb4cd7">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-264b3f3809831af25d21062707749de16d7e8045.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-b9ab48e7b3b482a4dc81ac87345f2c026b989e8e.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0a1897426566e408a5c20a3d931f77d89771d07f">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-9e9f6cca30c12a506b4ea18f0248b4f9fc961fc4.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4b8df1b1e51fe14b0e89b3845dc2e215a024a09f">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-de8221fc4565af9201103dbe4f878f5f519e0543.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-auth\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="fd76d95678a6b2b8a49bb8a9fb5bcef7aedb70e7">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-1386b25654f269e485d1c36bd5bea5782d213499.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c6fcd6267cbac6509a2e72a61127534a1d616cf">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-2f499e1cb365e5caf268d37947afd5c56b8aa4ea.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="eb576427887e497cd958a475475f9206e38dc314">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-255a8e67689502144eb544717eac91e00a03f68f.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9c9bdb4b2497465a6cf7d5e8f57c5298f828a380">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-efa9174f8a21e83c8b099b0c778e406b7f8fa06d.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-bd7bb82b283666b0bf16afa7b158f50eadf9ade6.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01a90bbb9495a8bbf6f3cfdf12f1b35caaa9524b">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-64fd32a2e2b7c9a0c5af863e1815d2ea0c9a7a0b.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="27775d59b16610ac76f1b83693fedd9520396332">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-166d8c4040f02b1f66a7e196b1456d46aeaeae96.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="71eda10e33212e44245524b5087366ff8d805825">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-919e6a5cd2e8d734903e8eb2bd09c04e9d3724b5.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="0c3e81d3eb86b86d194b5cdb6a4de78203f6f7fd">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-726983c8b18892ee7a9fc1889b9db25e295c370e.jar" />
+    </item>
+    <item
+        jar="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\8.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="724ce977487ab3a215d4d2eb47d8dccd9f30013f">
+        <dex dex="C:\Users\dave\AndroidStudioProjects\SoundBoard\app\build\intermediates\pre-dexed\debug\classes-8730c53b2b4d5db294e365269a087387c4a5f6ab.jar" />
     </item>
 
 </items>

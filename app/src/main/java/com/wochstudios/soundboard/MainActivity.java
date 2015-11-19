@@ -8,18 +8,19 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ListView;
 
 import com.wochstudios.soundboard.Adapters.SoundboardAdapter;
-import com.wochstudios.soundboard.ClickListeners.DrawerOnItemClickListener;
 import com.wochstudios.soundboard.DisplayFragments.AddSoundDialogFragment;
 import com.wochstudios.soundboard.DisplayFragments.CreateSoundboardFragment;
-import com.wochstudios.soundboard.Interfaces.IDialogListener;
-import com.wochstudios.soundboard.Interfaces.ISoundboardFragmentListener;
+import com.wochstudios.soundboard.Listeners.DrawerOnItemClickListener;
+import com.wochstudios.soundboard.Listeners.IDialogListener;
+import com.wochstudios.soundboard.Listeners.ISoundboardFragmentListener;
 
 public class MainActivity extends Activity implements IDialogListener, ISoundboardFragmentListener{
 
-	public MainActivityController mainHelper;
+	public MainActivityHelper mainHelper;
 	
 	private DrawerLayout drawerLayout;
 	private ListView drawerList;
@@ -33,19 +34,24 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-		mainHelper = new MainActivityController(this);
-		mainHelper.checkForSoundboards();
+		mainHelper = new MainActivityHelper(this);
+		//mainHelper.checkForSoundboards();
 		drawerLayout = (DrawerLayout)findViewById(R.id.container);
+        setupDrawerLayoutListener(drawerLayout);
 		drawerList = (ListView) findViewById(R.id.left_drawer);
 		setupDrawerList(drawerList);
-		setupActionBar();
 		if(savedInstanceState == null){
 			mainHelper.initSoundboardFragment();
-		}	
+		}
+        setupActionBar();
+
+
+
 	}//onCreate
 	
 	
 	private void setupActionBar(){
+        getActionBar().setTitle(mainHelper.getCurrentSoundboardTitle());
 		getActionBar().setHomeButtonEnabled(true);
 		getActionBar().setIcon(R.drawable.ic_drawer);
 		toggle = mainHelper.getToggle(this,drawerLayout,R.string.drawer_open,R.string.drawer_close);
@@ -58,6 +64,33 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 		lv.setOnItemClickListener(listener);
 		lv.setOnItemLongClickListener(listener);
 	}
+
+    private void setupDrawerLayoutListener(DrawerLayout layout){
+        layout.setDrawerListener(new DrawerLayout.DrawerListener() {
+
+            //Soundboard current = mainHelper.getCurrentSoundboard();
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+               getActionBar().setTitle(getResources().getString(R.string.app_name));
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                getActionBar().setTitle(mainHelper.getCurrentSoundboardTitle());
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+
+            }
+        });
+    }
 
 	
 	 

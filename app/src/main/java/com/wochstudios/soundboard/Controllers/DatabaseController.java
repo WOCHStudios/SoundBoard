@@ -67,7 +67,8 @@ public class DatabaseController
 	
 	
 	public boolean checkForSoundboards(){
-		return mDbHelper.getCountOfSoundboards() > 0;
+		Log.d("DatabaseController", "Number of Soundboards: "+mDbHelper.getCountOfSoundboards());
+        return mDbHelper.getCountOfSoundboards() > 0;
 	}
 	
 	public ArrayList<String> getSoundboardNames(){

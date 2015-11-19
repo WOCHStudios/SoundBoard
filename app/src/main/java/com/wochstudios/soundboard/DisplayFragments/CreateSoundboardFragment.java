@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 
 import com.wochstudios.soundboard.Controllers.DatabaseController;
-import com.wochstudios.soundboard.Interfaces.IDialogListener;
+import com.wochstudios.soundboard.Listeners.IDialogListener;
 import com.wochstudios.soundboard.R;
 
 public class CreateSoundboardFragment extends DialogFragment
@@ -23,6 +23,7 @@ public class CreateSoundboardFragment extends DialogFragment
 	public CreateSoundboardFragment(DatabaseController dc)
 	{
 		this.DC = dc;
+        this.setRetainInstance(true);
 	}
 	
 	@Override

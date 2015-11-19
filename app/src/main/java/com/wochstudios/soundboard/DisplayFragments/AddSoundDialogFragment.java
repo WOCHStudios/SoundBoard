@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.wochstudios.soundboard.Controllers.DatabaseController;
-import com.wochstudios.soundboard.Interfaces.IDialogListener;
+import com.wochstudios.soundboard.Listeners.IDialogListener;
 import com.wochstudios.soundboard.R;
 
 public class AddSoundDialogFragment extends DialogFragment
@@ -53,7 +53,8 @@ public class AddSoundDialogFragment extends DialogFragment
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState)
 	{
-		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        this.setRetainInstance(true);
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		layout = inflater.inflate(R.layout.dialog_layout,null);
 		builder.setView(layout)

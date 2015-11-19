@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class DrawerController
 {
-	
+	private DrawerLayout drawerLayout;
 	
 	public DrawerController(){
 	}
@@ -26,4 +26,6 @@ public class DrawerController
 	public ActionBarDrawerToggle getToggle(Activity con, DrawerLayout dl, int open, int close){
 		return new ActionBarDrawerToggle(con, dl, null, open, close);
 	}
+
+
 }

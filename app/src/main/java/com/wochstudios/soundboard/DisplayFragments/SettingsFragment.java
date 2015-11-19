@@ -1,12 +1,15 @@
 package com.wochstudios.soundboard.DisplayFragments;
 
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.PreferenceFragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import com.wochstudios.soundboard.R;
-import android.preference.*;
-import java.util.*;
-import android.view.*;
+
+import java.util.ArrayList;
 
 public class SettingsFragment extends PreferenceFragment{
 	
@@ -35,6 +38,7 @@ public class SettingsFragment extends PreferenceFragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 	{
+        this.setRetainInstance(true);
 		// TODO: Implement this method
 		ListPreference listPref = (ListPreference) findPreference("defaultSoundboard");
 		listPref.setEntries(soundboardEntries.toArray(new CharSequence[soundboardEntries.size()]));
