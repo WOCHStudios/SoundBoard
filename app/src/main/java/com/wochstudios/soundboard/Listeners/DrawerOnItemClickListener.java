@@ -9,6 +9,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 
+import com.wochstudios.soundboard.DisplayFragments.RenameDialogFragment;
 import com.wochstudios.soundboard.MainActivityHelper;
 import com.wochstudios.soundboard.Models.Soundboard;
 import com.wochstudios.soundboard.R;
@@ -54,7 +55,12 @@ public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLon
                 activityController.removeSoundboard(selectedSoundboard.getID()+"");
                 return true;
 			case R.id.rename_soundboard:
-                activityController.renameSoundboard("TestRenameFunction", selectedSoundboard.getID()+"");
+                //activityController.renameSoundboard("TestRenameFunction", selectedSoundboard.getID()+"");
+                //activityController.showDialogFragment(activityController.RENAME_SOUNDBOARD_FRAGMENT_CD, selectedSoundboard.getTitle());
+                RenameDialogFragment renameDialogFragment = new RenameDialogFragment();
+                renameDialogFragment.setArguments(selectedSoundboard,activityController);
+                renameDialogFragment.show(activityController.getFragmentManager(),renameDialogFragment.getClass().getSimpleName());
+
                 return true;
 			default:
 				return false;

@@ -74,7 +74,7 @@ public class SoundboardFragment extends Fragment
 				@Override
 				public void onClick(View p1)
 				{
-					((MainActivity)getActivity()).mainHelper.showDialogFragment(MainActivityHelper.ADD_SOUND_FRAGMENT_CD);
+					((MainActivity)getActivity()).mainHelper.showDialogFragment(MainActivityHelper.ADD_SOUND_FRAGMENT_CD,"");
 				}
 		});
 	}

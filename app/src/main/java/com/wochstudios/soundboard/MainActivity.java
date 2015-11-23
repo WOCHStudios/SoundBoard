@@ -10,10 +10,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.wochstudios.soundboard.Adapters.SoundboardAdapter;
 import com.wochstudios.soundboard.DisplayFragments.AddSoundDialogFragment;
 import com.wochstudios.soundboard.DisplayFragments.CreateSoundboardFragment;
+import com.wochstudios.soundboard.DisplayFragments.RenameDialogFragment;
 import com.wochstudios.soundboard.Listeners.DrawerOnItemClickListener;
 import com.wochstudios.soundboard.Listeners.IDialogListener;
 import com.wochstudios.soundboard.Listeners.ISoundboardFragmentListener;
@@ -108,7 +110,7 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 		}
 		switch (item.getItemId()){
 			case R.id.add_new_soundboard:
-				mainHelper.showDialogFragment(mainHelper.CREATE_SOUNDBOARD_FRAGEMENT_CD);
+				mainHelper.showDialogFragment(mainHelper.CREATE_SOUNDBOARD_FRAGEMENT_CD,"");
 				return true;
 			case R.id.settings:
 				mainHelper.startSettingsActivity(this);
@@ -126,7 +128,9 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 			mainHelper.updateDrawerList();
 		}else if(AddSoundDialogFragment.class.isInstance(dialog)){
 			mainHelper.updateSoundboardFragment(((AddSoundDialogFragment)dialog).getSoundboardID());
-		}
+		}else if(RenameDialogFragment.class.isInstance(dialog)){
+            Toast.makeText(this,"Rename Button Clicked",Toast.LENGTH_SHORT).show();
+        }
 	}
 
 

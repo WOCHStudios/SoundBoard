@@ -26,9 +26,12 @@ public class MainActivityHelper
 {
     public static final int CREATE_SOUNDBOARD_FRAGEMENT_CD = 1;
     public static final int ADD_SOUND_FRAGMENT_CD = 2;
+    public static final int RENAME_SOUNDBOARD_FRAGMENT_CD =3;
+
     private static final String FRAGMENT_TAG = "current_fragment";
     private static final String CURRENT_SOUNDBOARD = "currentSoundboard";
     private static final String DEFAULT_SOUNDBOARD = "defaultSoundboard";
+
     private DatabaseController databaseController;
 	private DrawerController drawerController;
 	private Fragment fragment;
@@ -51,7 +54,7 @@ public class MainActivityHelper
 	
 	public void checkForSoundboards(){
 		if(!databaseController.checkForSoundboards()){
-			showDialogFragment(CREATE_SOUNDBOARD_FRAGEMENT_CD);
+			showDialogFragment(CREATE_SOUNDBOARD_FRAGEMENT_CD,"");
 		}
 	}
 	
@@ -79,7 +82,7 @@ public class MainActivityHelper
 	}
 	
 	
-	public void showDialogFragment(int fragment_cd){
+	public void showDialogFragment(int fragment_cd, String name){
 		switch (fragment_cd){
 			case CREATE_SOUNDBOARD_FRAGEMENT_CD:
 				dialogFragment = new CreateSoundboardFragment(databaseController);
@@ -94,6 +97,10 @@ public class MainActivityHelper
                     Toast.makeText(mainActivity, "Please create a soundboard first", Toast.LENGTH_SHORT).show();
                 }
                 break;
+/*            case RENAME_SOUNDBOARD_FRAGMENT_CD:
+                dialogFragment = new RenameDialogFragment();
+                ((RenameDialogFragment)dialogFragment).setArguments(name,this);
+                break;*/
 			default:
 				return;
 		}
@@ -154,5 +161,7 @@ public class MainActivityHelper
     public DatabaseController getDatabaseController(){
         return databaseController;
     }
+    public FragmentManager getFragmentManager(){return fragmentManager;}
+
 
 	}
