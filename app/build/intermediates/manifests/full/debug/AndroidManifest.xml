@@ -39,8 +39,8 @@
         </activity>
         <activity
             android:name="com.wochstudios.soundboard.SettingsActivity"
-            android:icon="@drawable/ic_setting_dark"
-            android:label="Settings"
+            android:icon="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+            android:label="Preferences"
             android:screenOrientation="portrait" >
         </activity>
 

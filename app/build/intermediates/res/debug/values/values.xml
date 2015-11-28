@@ -356,7 +356,7 @@
     <eat-comment/>
     <string name="drawer_close">close</string>
     <string name="drawer_open">open</string>
-    <string name="menu_settings">Settings</string>
+    <string name="menu_settings">Preferences</string>
     <!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/build/intermediates/exploded-aar/com.android.support/mediarouter-v7/22.2.0/res/values/values.xml -->
     <eat-comment/>
     <string name="mr_media_route_button_content_description">Cast</string>
@@ -392,7 +392,7 @@
     <style name="Animation.AppCompat.DropDownUp" parent="Base.Animation.AppCompat.DropDownUp"/>
     <!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/src/main/res/values/styles.xml -->
     <eat-comment/>
-    <style name="AppBaseTheme" parent="android:Theme.Holo">		<!--
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light">		<!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.

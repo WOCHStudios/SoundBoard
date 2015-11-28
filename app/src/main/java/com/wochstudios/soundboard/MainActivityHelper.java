@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -52,11 +53,11 @@ public class MainActivityHelper
     }
 	
 	
-	public void checkForSoundboards(){
+/*	public void checkForSoundboards(){
 		if(!databaseController.checkForSoundboards()){
 			showDialogFragment(CREATE_SOUNDBOARD_FRAGEMENT_CD,"");
 		}
-	}
+	}*/
 	
 	private void replaceContentFrameWithFragment(Fragment frag){
 		fragmentManager.beginTransaction()
@@ -65,7 +66,8 @@ public class MainActivityHelper
 	}
 	
 	public void initSoundboardFragment(){
-		fragment = new SoundboardFragment(databaseController.getSoundboard(preferences.getString(DEFAULT_SOUNDBOARD,"")));
+        Log.d(this.getClass().getSimpleName(),preferences.getString(DEFAULT_SOUNDBOARD,""));
+        fragment = new SoundboardFragment(databaseController.getSoundboard(preferences.getString(DEFAULT_SOUNDBOARD,"")));
 		replaceContentFrameWithFragment(fragment);
 	}
 	
@@ -107,12 +109,12 @@ public class MainActivityHelper
 		dialogFragment.show(fragmentManager, dialogFragment.getClass().getSimpleName());
 	}
 	
-	public void startSettingsActivity(Activity activity){
+	public void startSettingsActivity(){
 		Intent intent = new Intent();
 		intent.putStringArrayListExtra("SOUNDBOARD_NAMES",getSoundboardNames());
 		intent.putStringArrayListExtra("SOUNDBOARD_IDS", databaseController.getSoundboardIds());
-		intent.setClass(activity, SettingsActivity.class);
-        activity.startActivityForResult(intent, 0);
+		intent.setClass(mainActivity, SettingsActivity.class);
+        mainActivity.startActivityForResult(intent, 0);
     }
 
 	public void removeSoundboard(String id){

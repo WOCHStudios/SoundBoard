@@ -2,10 +2,6 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_checked="true" android:drawable="@drawable/list_item_checked"/>
    <item android:state_checked="false" android:drawable="@drawable/list_item_unchecked"/>
-   <!-- <item android:state_selected="false" android:drawable="@drawable/list_item_unchecked"/>
-	<item android:state_selected="true" android:drawable="@drawable/list_item_unchecked"/>
-	<item android:state_focused="false" android:drawable="@drawable/list_item_unchecked" />
-	<item android:state_pressed="true" android:drawable="@drawable/list_item_unchecked" />	-->
     <item android:drawable="@drawable/list_item_unchecked"/>
 </selector>
 <!-- From: file:/C:/Users/dave/AndroidStudioProjects/SoundBoard/app/src/main/res/drawable/list_item_selector.xml -->

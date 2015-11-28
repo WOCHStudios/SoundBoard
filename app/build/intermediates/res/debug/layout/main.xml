@@ -22,6 +22,13 @@
             android:orientation="vertical"
             android:background="#FFFFFF">
 
+            <TextView
+                android:id="@+id/drawer_header"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/Black"
+                android:text="Soundboards"/>
+
             <ListView
                 android:id="@+id/left_drawer"
                 android:layout_width="match_parent"
@@ -30,20 +37,32 @@
                 android:background="#FFFFFF"
                 android:divider="@android:drawable/divider_horizontal_textfield"
             />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/actionbar_bg" />
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/new_soundboard"
+                android:clickable="true"
+                android:background="@android:drawable/list_selector_background">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/add_icon"/>
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/add_icon"
+                    android:src="@android:drawable/ic_menu_add"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/new_soundboard"
+
                     android:text="@string/new_soundboard"
                     android:padding="10dp"
                     android:textColor="#000000"
@@ -52,27 +71,42 @@
             </LinearLayout>
 
             <!--Testing new git ownership structuer-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/Checked_tint" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/open_settings"
+                android:clickable="true"
+                android:background="@android:drawable/list_selector_background">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/settings_icon"/>
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/settings_icon"
+                    android:src="@android:drawable/ic_menu_preferences"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/open_settings"
                     android:text="@string/menu_settings"
                     android:padding="10dp"
                     android:textColor="#000000"
                     android:textSize="20sp"
                     />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/Checked_tint" />
+
+
 
         </LinearLayout>
 	

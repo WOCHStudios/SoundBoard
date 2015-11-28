@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="app_name">Infinite Soundboard</string>
-	<string name="menu_settings">Settings</string>
+	<string name="menu_settings">Preferences</string>
 	<string-array name="menuItems">
 		<item>Set as Ringtone</item>
 		<item>Remove Sound</item>

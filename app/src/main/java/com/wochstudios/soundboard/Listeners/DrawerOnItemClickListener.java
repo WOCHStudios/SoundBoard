@@ -1,6 +1,7 @@
 package com.wochstudios.soundboard.Listeners;
 
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,10 +15,9 @@ import com.wochstudios.soundboard.MainActivityHelper;
 import com.wochstudios.soundboard.Models.Soundboard;
 import com.wochstudios.soundboard.R;
 
-public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLongClickListener, OnMenuItemClickListener
+public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLongClickListener, OnMenuItemClickListener, View.OnClickListener
 {
 
-    private static final String CURRENT_SOUNDBOARD = "currentSoundboard";
     private DrawerLayout drawer;
     private MainActivityHelper activityController;
     private Soundboard selectedSoundboard;
@@ -52,7 +52,7 @@ public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLon
 	{
 		switch(item.getItemId()){
 			case R.id.remove_soundboard:
-                activityController.removeSoundboard(selectedSoundboard.getID()+"");
+                activityController.removeSoundboard(selectedSoundboard.getID() + "");
                 return true;
 			case R.id.rename_soundboard:
                 //activityController.renameSoundboard("TestRenameFunction", selectedSoundboard.getID()+"");
@@ -66,9 +66,21 @@ public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLon
 				return false;
 		}
 	}
-	
-	
-	
 
-	
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.open_settings:
+                Log.d(this.getClass().getSimpleName(),"Open Settings Clicked");
+                activityController.startSettingsActivity();
+                break;
+            case R.id.new_soundboard:
+                Log.d(this.getClass().getSimpleName(),"Open New Soundboard clicked");
+                activityController.showDialogFragment(MainActivityHelper.CREATE_SOUNDBOARD_FRAGEMENT_CD,"");
+                break;
+            default:
+                break;
+        }
+    }
 }

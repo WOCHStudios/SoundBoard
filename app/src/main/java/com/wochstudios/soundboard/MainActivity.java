@@ -9,6 +9,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	private DrawerLayout drawerLayout;
 	private ListView drawerList;
 	private ActionBarDrawerToggle toggle;
+    private DrawerOnItemClickListener listener;
 	
 
 	
@@ -39,9 +41,11 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 		mainHelper = new MainActivityHelper(this);
 		//mainHelper.checkForSoundboards();
 		drawerLayout = (DrawerLayout)findViewById(R.id.container);
+        listener = new DrawerOnItemClickListener(drawerLayout, mainHelper);
         setupDrawerLayoutListener(drawerLayout);
 		drawerList = (ListView) findViewById(R.id.left_drawer);
 		setupDrawerList(drawerList);
+        setupDrawerButtons();
 		if(savedInstanceState == null){
 			mainHelper.initSoundboardFragment();
 		}
@@ -62,16 +66,21 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	private void setupDrawerList(ListView lv){
         SoundboardAdapter soundboardAdapter = new SoundboardAdapter(this,mainHelper.getDatabaseController().getSoundboards());
         lv.setAdapter(soundboardAdapter);
-		DrawerOnItemClickListener listener = new DrawerOnItemClickListener(drawerLayout, mainHelper);
 		lv.setOnItemClickListener(listener);
 		lv.setOnItemLongClickListener(listener);
 	}
 
+
+    private void setupDrawerButtons(){
+        LinearLayout addSoundboardBtn = (LinearLayout) findViewById(R.id.new_soundboard);
+        LinearLayout settingsBtn = (LinearLayout) findViewById(R.id.open_settings);
+
+        addSoundboardBtn.setOnClickListener(listener);
+        settingsBtn.setOnClickListener(listener);
+    }
+
     private void setupDrawerLayoutListener(DrawerLayout layout){
         layout.setDrawerListener(new DrawerLayout.DrawerListener() {
-
-            //Soundboard current = mainHelper.getCurrentSoundboard();
-
             @Override
             public void onDrawerSlide(View drawerView, float slideOffset) {
 
@@ -98,7 +107,7 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_main, menu);
+		//getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
 
@@ -113,7 +122,7 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 				mainHelper.showDialogFragment(mainHelper.CREATE_SOUNDBOARD_FRAGEMENT_CD,"");
 				return true;
 			case R.id.settings:
-				mainHelper.startSettingsActivity(this);
+				mainHelper.startSettingsActivity();
 				return true;
 			default:	
 				return super.onOptionsItemSelected(item);

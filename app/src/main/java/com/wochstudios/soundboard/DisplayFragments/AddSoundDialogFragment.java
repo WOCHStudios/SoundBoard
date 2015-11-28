@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.wochstudios.soundboard.Controllers.DatabaseController;
 import com.wochstudios.soundboard.Listeners.IDialogListener;
@@ -58,13 +59,17 @@ public class AddSoundDialogFragment extends DialogFragment
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		layout = inflater.inflate(R.layout.dialog_layout,null);
 		builder.setView(layout)
-				.setPositiveButton("Add", new Dialog.OnClickListener(){
-					public void onClick(DialogInterface dialog, int id){
-						EditText title = (EditText) layout.findViewById(R.id.SoundTitle);
-						DC.addSoundToSoundboard(title.getText().toString(),fileUri.toString(),soundboard_id);
-						mListener.onDialogPositiveClick(AddSoundDialogFragment.this);
-					}
-				})
+				.setPositiveButton("Add", new Dialog.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        EditText title = (EditText) layout.findViewById(R.id.SoundTitle);
+                        if (fileUri != null) {
+                            DC.addSoundToSoundboard(title.getText().toString(), fileUri.toString(), soundboard_id);
+                            mListener.onDialogPositiveClick(AddSoundDialogFragment.this);
+                        } else {
+                            Toast.makeText(getActivity(),"Cannot add sound without file",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                })
 				.setTitle("Add Sound");
 		setupFileBrowserButton(layout);
 				
