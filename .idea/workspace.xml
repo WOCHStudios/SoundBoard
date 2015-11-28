@@ -10,18 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="74d3e73a-83a3-488f-9c1f-4206c92772fd" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.gradle\2.2.1\taskArtifacts\cache.properties" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.gradle\2.2.1\taskArtifacts\cache.properties.lock" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.gradle\2.2.1\taskArtifacts\fileHashes.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.gradle\2.2.1\taskArtifacts\fileSnapshots.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.gradle\2.2.1\taskArtifacts\outputFileStates.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.gradle\2.2.1\taskArtifacts\taskArtifacts.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.gradle\2.4\taskArtifacts\cache.properties" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.gradle\2.4\taskArtifacts\cache.properties.lock" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.gradle\2.4\taskArtifacts\fileHashes.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.gradle\2.4\taskArtifacts\fileSnapshots.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.gradle\2.4\taskArtifacts\outputFileStates.bin" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\dave\AndroidStudioProjects\SoundBoard\.gradle\2.4\taskArtifacts\taskArtifacts.bin" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="fa1e88f1-837b-400d-a017-9afc8fce3b93" name="Failed commit: Default" comment="refactoring&#10;design changes&#10;bug fixes" />
@@ -1825,7 +1814,7 @@
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator currentView="AndroidView" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -1843,16 +1832,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="SoundBoard" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SoundBoard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SoundBoard" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2146,7 +2125,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
