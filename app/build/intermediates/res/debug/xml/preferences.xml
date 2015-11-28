@@ -3,6 +3,7 @@
 	>
 	<ListPreference android:title="Default Soundboard"
 		android:key="defaultSoundboard"
+        android:defaultValue="1"
 		android:summary="Please select a default Soundboard"
 		>
 	</ListPreference>

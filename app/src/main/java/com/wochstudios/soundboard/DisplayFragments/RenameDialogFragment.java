@@ -54,8 +54,10 @@ public class RenameDialogFragment extends DialogFragment {
             .setPositiveButton("Rename", new Dialog.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    helper.renameSoundboard(rename_edittext.getText().toString(),soundboard.getID()+"");
-                    helper.updateDrawerList();
+                    if(!rename_edittext.getText().toString().isEmpty()){
+                        helper.renameSoundboard(rename_edittext.getText().toString(), soundboard.getID() + "");
+                        helper.updateDrawerList();
+                    }
                 }
             })
             .setNegativeButton("Cancel", new Dialog.OnClickListener() {

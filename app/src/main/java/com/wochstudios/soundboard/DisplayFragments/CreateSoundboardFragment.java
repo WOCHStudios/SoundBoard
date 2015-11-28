@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.wochstudios.soundboard.Controllers.DatabaseController;
 import com.wochstudios.soundboard.Listeners.IDialogListener;
@@ -47,8 +48,12 @@ public class CreateSoundboardFragment extends DialogFragment
 			.setPositiveButton("Create Soundboard", new Dialog.OnClickListener(){
 				public void onClick(DialogInterface dialog, int id){
 					EditText text = (EditText)layout.findViewById(R.id.SoundBoardTitle);
-					DC.addSoundboardToDatabase(text.getText().toString());
-					mListener.onDialogPositiveClick(CreateSoundboardFragment.this);
+                    if(text.getText().toString().isEmpty()){
+                        Toast.makeText(getActivity(),"Cannot create soundboard without name!",Toast.LENGTH_SHORT).show();
+                    }else {
+                        DC.addSoundboardToDatabase(text.getText().toString());
+                        mListener.onDialogPositiveClick(CreateSoundboardFragment.this);
+                    }
 				}
 			})
 			.setTitle("Create Soundboard");

@@ -59,11 +59,7 @@ public class DatabaseController
     public ArrayList<Soundboard> getSoundboards(){
         return  mDbHelper.getAllSoundboards();
     }
-	
-	public Soundboard getSoundboardFromTitle(String title){
-		Soundboard s = mDbHelper.findSoundboardFromTitle(title);
-		return s;
-	}
+
 	
 	
 	public boolean checkForSoundboards(){

@@ -88,20 +88,7 @@ public class SoundboardDBHelper extends SQLiteOpenHelper
 		sb.setSounds(getSoundsForSoundboard(sb));
 		return sb;
 	}
-	
-	
-	public Soundboard findSoundboardFromTitle(String title){
-		Soundboard sb = new Soundboard();
-		Cursor cursor = sbDAO.read(this.getReadableDatabase(),SoundboardsTable.TABLE_NAME, null, SoundboardsTable.COLUMN_NAME+" = ?", new String[]{title}, null);
-		while(cursor.moveToNext()){
-			sb.setID(Integer.parseInt(cursor.getString(cursor.getColumnIndex(SoundboardsTable._ID))));
-			sb.setTitle(cursor.getString(cursor.getColumnIndex(SoundboardsTable.COLUMN_NAME)));
-			sb.setDate_created(cursor.getString(cursor.getColumnIndex(SoundboardsTable.COLUMN_DATE_CREATED)));
-		}
-		cursor.close();
-		sb.setSounds(getSoundsForSoundboard(sb));
-		return sb;
-	}
+
 	
 	public Sound findSound(){
 		Sound s = new Sound();

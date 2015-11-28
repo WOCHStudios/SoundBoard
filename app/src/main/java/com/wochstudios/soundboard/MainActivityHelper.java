@@ -9,7 +9,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -66,9 +65,17 @@ public class MainActivityHelper
 	}
 	
 	public void initSoundboardFragment(){
-        Log.d(this.getClass().getSimpleName(),preferences.getString(DEFAULT_SOUNDBOARD,""));
-        fragment = new SoundboardFragment(databaseController.getSoundboard(preferences.getString(DEFAULT_SOUNDBOARD,"")));
-		replaceContentFrameWithFragment(fragment);
+        Soundboard soundboard =databaseController.getSoundboard(preferences.getString(DEFAULT_SOUNDBOARD,""));
+        if(soundboard.getTitle() == null){
+            if(!databaseController.getSoundboards().isEmpty()){
+               soundboard = databaseController.getSoundboards().get(0);
+            }
+        }
+        if(soundboard != null) {
+            fragment = new SoundboardFragment(soundboard);
+            replaceContentFrameWithFragment(fragment);
+        }
+
 	}
 	
 	
