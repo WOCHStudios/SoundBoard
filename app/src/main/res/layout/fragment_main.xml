@@ -5,16 +5,33 @@
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
 	android:orientation="vertical">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        >
+
 	<ListView
 		android:id="@+id/listSound"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
 		android:layout_alignParentTop="true"
 		android:background="@color/White"
 		android:cacheColorHint="@color/Black" 
 		android:drawSelectorOnTop="true"
         android:divider="@android:drawable/divider_horizontal_textfield">
 	</ListView>
+
+     <TextView
+         android:id="@+id/listSound_EmptyView"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+         android:padding="16dp"
+         android:layout_gravity="center_horizontal"
+         android:text="No sounds available, please add sounds or select a Soundboard."
+         />
+
+    </FrameLayout>
 	
 
 

@@ -57,7 +57,11 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	
 	
 	private void setupActionBar(){
-        getActionBar().setTitle(mainHelper.getCurrentSoundboardTitle());
+        if(mainHelper.getCurrentSoundboardTitle() == null){
+            getActionBar().setTitle(R.string.app_name);
+        }else {
+            getActionBar().setTitle(mainHelper.getCurrentSoundboardTitle());
+        }
 		getActionBar().setHomeButtonEnabled(true);
 		getActionBar().setIcon(R.drawable.ic_drawer);
 		toggle = mainHelper.getToggle(this,drawerLayout,R.string.drawer_open,R.string.drawer_close);
@@ -93,7 +97,11 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 
             @Override
             public void onDrawerClosed(View drawerView) {
-                getActionBar().setTitle(mainHelper.getCurrentSoundboardTitle());
+                if(mainHelper.getCurrentSoundboardTitle() != null) {
+                    getActionBar().setTitle(mainHelper.getCurrentSoundboardTitle());
+                }else{
+                    getActionBar().setTitle(R.string.app_name);
+                }
             }
 
             @Override

@@ -15,6 +15,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -33,6 +34,7 @@ public class SoundboardFragment extends Fragment
 	private ArrayList<String> Titles;
 	private SoundboardController SBC;
 	private ListView soundListView;
+    private TextView emptyView;
 	private ImageButton addSoundButton;
 	private Soundboard soundboard;
 	private ISoundboardFragmentListener listener;
@@ -54,10 +56,12 @@ public class SoundboardFragment extends Fragment
 	{
 		init();
 		View rootView = inflater.inflate(R.layout.fragment_main,container,false);
+
         AdView ad = (AdView) rootView.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         ad.loadAd(adRequest);
-		setupListView(rootView.findViewById(R.id.listSound));
+
+		setupListView(rootView.findViewById(R.id.listSound), rootView.findViewById(R.id.listSound_EmptyView));
 		setupAddButton(rootView.findViewById(R.id.add_button));
 		return rootView;
 	}
@@ -70,37 +74,55 @@ public class SoundboardFragment extends Fragment
 	
 	private void setupAddButton(View view){
 		addSoundButton = (ImageButton)view;
-		addSoundButton.setOnClickListener(new OnClickListener(){
-				@Override
-				public void onClick(View p1)
-				{
-					((MainActivity)getActivity()).mainHelper.showDialogFragment(MainActivityHelper.ADD_SOUND_FRAGMENT_CD,"");
-				}
-		});
+		addSoundButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View p1) {
+                ((MainActivity) getActivity()).mainHelper.showDialogFragment(MainActivityHelper.ADD_SOUND_FRAGMENT_CD, "");
+            }
+        });
 	}
 	
-	private void setupListView(View view){
-		soundListView = (ListView) view;
+	private void setupListView(View list, View empty){
+		soundListView = (ListView) list;
+        setupEmptyView(empty);
+        soundListView.setEmptyView(emptyView);
 		soundListView.setAdapter(new ArrayAdapter<String>(getActivity(), R.layout.list_item, R.id.listItemTxt, Titles));
 		soundListView.setTextFilterEnabled(true);
 		soundListView.setLongClickable(true);
 		soundListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
 		soundListView.setOnItemClickListener(new ListViewClickListener());
-		soundListView.setOnItemLongClickListener( new AdapterView.OnItemLongClickListener(){
-				@Override
-				public boolean onItemLongClick(AdapterView<?> p1, View view, int position, long p4)
-				{
-					if(actionMode != null){
-						return false;
-					}
-					soundListView.clearChoices();
-					soundListView.setItemChecked(position, true);
-					actionMode = getActivity().startActionMode(new SoundboardActionModeCallback());
-					
-					return true;
-				}
-		});
+		soundListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> p1, View view, int position, long p4) {
+                if (actionMode != null) {
+                    return false;
+                }
+                soundListView.clearChoices();
+                soundListView.setItemChecked(position, true);
+                actionMode = getActivity().startActionMode(new SoundboardActionModeCallback());
+
+                return true;
+            }
+        });
 	}
+
+
+    private void setupEmptyView(View empty){
+        emptyView = (TextView)empty;
+        if(soundboard.getTitle() == null){
+            emptyView.setText("Please select a Soundboard!");
+        }else{
+            emptyView.setText("Please add sounds to soundboard!");
+        }
+    }
+
+    private void updateEmptyView(){
+        if(soundboard.getTitle() == null){
+            emptyView.setText("Please select a Soundboard!");
+        }else{
+            emptyView.setText("Please add sounds to soundboard!");
+        }
+    }
 
 	@Override
 	public void onAttach(Activity activity)
@@ -116,6 +138,7 @@ public class SoundboardFragment extends Fragment
 	public void refreshListView(Soundboard s)
 	{
         this.soundboard =s;
+        updateEmptyView();
 		SBC.setSoundboard(soundboard);
 		Titles = soundboard.getTitlesOfSounds();
 		Collections.sort(Titles);
