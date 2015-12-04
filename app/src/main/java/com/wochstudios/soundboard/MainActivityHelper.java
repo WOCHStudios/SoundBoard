@@ -94,15 +94,18 @@ public class MainActivityHelper
 	public void showDialogFragment(int fragment_cd, String name){
 		switch (fragment_cd){
 			case CREATE_SOUNDBOARD_FRAGEMENT_CD:
-				dialogFragment = new CreateSoundboardFragment(databaseController);
+				dialogFragment = new CreateSoundboardFragment();
+                ((CreateSoundboardFragment)dialogFragment).setArguments(databaseController);
 				break;
 			case ADD_SOUND_FRAGMENT_CD:
                 if (databaseController.checkForSoundboards()) {
                     String id = (preferences.getString(CURRENT_SOUNDBOARD, "").isEmpty()) ?
                             preferences.getString(DEFAULT_SOUNDBOARD, "") : preferences.getString(CURRENT_SOUNDBOARD, "");
-                    dialogFragment = new AddSoundDialogFragment(databaseController, id);
+                    dialogFragment = new AddSoundDialogFragment();
+                    ((AddSoundDialogFragment)dialogFragment).setArguments(databaseController,id);
                 } else {
-                    dialogFragment = new CreateSoundboardFragment(databaseController);
+                    dialogFragment = new CreateSoundboardFragment();
+                    ((CreateSoundboardFragment)dialogFragment).setArguments(databaseController);
                     Toast.makeText(mainActivity, "Please create a soundboard first", Toast.LENGTH_SHORT).show();
                 }
                 break;
