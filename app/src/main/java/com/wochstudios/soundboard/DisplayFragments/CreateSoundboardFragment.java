@@ -20,12 +20,12 @@ public class CreateSoundboardFragment extends DialogFragment
 	private View layout;
 	private DatabaseController DC;
 	private IDialogListener mListener;
-	
-	public CreateSoundboardFragment(DatabaseController dc)
-	{
-		this.DC = dc;
-        this.setRetainInstance(true);
-	}
+
+    public CreateSoundboardFragment(){}
+    
+    public void setArguments(DatabaseController dc){
+        this.DC = dc;
+    }
 	
 	@Override
 	public void onAttach(Activity activity)

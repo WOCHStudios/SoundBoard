@@ -29,10 +29,12 @@ public class AddSoundDialogFragment extends DialogFragment
 	private Uri fileUri;
 	private String soundboard_id;
 
-	public AddSoundDialogFragment(DatabaseController dc, String soundboard_id){
-		this.DC = dc;
-		this.soundboard_id = soundboard_id;
-	}
+    public AddSoundDialogFragment(){}
+
+    public void setArguments(DatabaseController dc, String soundboard_id){
+        this.DC = dc;
+        this.soundboard_id = soundboard_id;
+    }
 	
 	public String getSoundboardID(){
 		return this.soundboard_id;

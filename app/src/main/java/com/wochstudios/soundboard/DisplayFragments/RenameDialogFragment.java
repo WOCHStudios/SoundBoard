@@ -26,6 +26,8 @@ public class RenameDialogFragment extends DialogFragment {
     private Soundboard soundboard;
     private MainActivityHelper helper;
 
+    public RenameDialogFragment(){}
+
 
     public void setArguments(Soundboard sb, MainActivityHelper help){
         this.helper = help;

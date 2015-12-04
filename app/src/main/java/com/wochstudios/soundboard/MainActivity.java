@@ -57,7 +57,8 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	
 	
 	private void setupActionBar(){
-        if(mainHelper.getCurrentSoundboardTitle() == null){
+        if(mainHelper.getCurrentSoundboardTitle() == null ||
+                !mainHelper.getCurrentSoundboardId().equals(PreferenceManager.getDefaultSharedPreferences(this).getString("defaultSoundboard", ""))){
             getActionBar().setTitle(R.string.app_name);
         }else {
             getActionBar().setTitle(mainHelper.getCurrentSoundboardTitle());
