@@ -146,8 +146,12 @@ MERGED from com.android.support:support-v4:22.2.0:20:5
 		ADDED from AndroidManifest.xml:8:3
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
+uses-permission#android.permission.MANAGE_DOCUMENTS
+ADDED from AndroidManifest.xml:10:5
+	android:name
+		ADDED from AndroidManifest.xml:10:22
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from AndroidManifest.xml:10:2
+ADDED from AndroidManifest.xml:11:2
 MERGED from com.google.android.gms:play-services-ads:8.3.0:21:5
 MERGED from com.google.android.gms:play-services-analytics:8.3.0:22:5
 MERGED from com.google.android.gms:play-services-maps:8.3.0:20:5
@@ -158,9 +162,9 @@ MERGED from com.google.android.gms:play-services-measurement:8.3.0:22:5
 MERGED from com.google.android.gms:play-services-nearby:8.3.0:19:5
 MERGED from com.google.android.gms:play-services-maps:8.3.0:20:5
 	android:name
-		ADDED from AndroidManifest.xml:10:19
+		ADDED from AndroidManifest.xml:11:19
 uses-permission#android.permission.INTERNET
-ADDED from AndroidManifest.xml:11:2
+ADDED from AndroidManifest.xml:12:2
 MERGED from com.google.android.gms:play-services-ads:8.3.0:20:5
 MERGED from com.google.android.gms:play-services-analytics:8.3.0:21:5
 MERGED from com.google.android.gms:play-services-appinvite:8.3.0:19:5
@@ -173,13 +177,17 @@ MERGED from com.google.android.gms:play-services-measurement:8.3.0:21:5
 MERGED from com.google.android.gms:play-services-wallet:8.3.0:20:5
 MERGED from com.google.android.gms:play-services-maps:8.3.0:21:5
 	android:name
-		ADDED from AndroidManifest.xml:11:19
-uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
-ADDED from AndroidManifest.xml:12:2
-	android:name
 		ADDED from AndroidManifest.xml:12:19
-application
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from AndroidManifest.xml:13:2
+	android:name
+		ADDED from AndroidManifest.xml:13:19
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from AndroidManifest.xml:14:5
+	android:name
+		ADDED from AndroidManifest.xml:14:22
+application
+ADDED from AndroidManifest.xml:15:2
 MERGED from com.android.support:appcompat-v7:22.2.0:22:5
 MERGED from com.android.support:support-v4:22.2.0:22:5
 MERGED from com.android.support:support-v4:22.2.0:22:5
@@ -278,55 +286,55 @@ MERGED from com.google.android.gms:play-services-wearable:8.3.0:19:5
 MERGED from com.google.android.gms:play-services-basement:8.3.0:20:5
 MERGED from com.android.support:support-v4:22.2.0:22:5
 	android:label
-		ADDED from AndroidManifest.xml:16:3
+		ADDED from AndroidManifest.xml:18:3
 	android:allowBackup
-		ADDED from AndroidManifest.xml:14:3
+		ADDED from AndroidManifest.xml:16:3
 	android:icon
-		ADDED from AndroidManifest.xml:15:3
-	android:theme
 		ADDED from AndroidManifest.xml:17:3
-activity#com.wochstudios.soundboard.MainActivity
-ADDED from AndroidManifest.xml:19:3
+	android:theme
+		ADDED from AndroidManifest.xml:19:3
+activity#com.wochstudios.InfiniteSoundboards.MainActivity
+ADDED from AndroidManifest.xml:21:3
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:22:13
-	android:label
-		ADDED from AndroidManifest.xml:21:4
-	android:name
-		ADDED from AndroidManifest.xml:20:4
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:23:4
-action#android.intent.action.MAIN
-ADDED from AndroidManifest.xml:24:5
-	android:name
 		ADDED from AndroidManifest.xml:24:13
+	android:label
+		ADDED from AndroidManifest.xml:23:4
+	android:name
+		ADDED from AndroidManifest.xml:22:4
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from AndroidManifest.xml:25:4
+action#android.intent.action.MAIN
+ADDED from AndroidManifest.xml:26:5
+	android:name
+		ADDED from AndroidManifest.xml:26:13
 category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:25:5
+ADDED from AndroidManifest.xml:27:5
 	android:name
-		ADDED from AndroidManifest.xml:25:15
-activity#com.wochstudios.soundboard.SettingsActivity
-ADDED from AndroidManifest.xml:28:3
+		ADDED from AndroidManifest.xml:27:15
+activity#com.wochstudios.InfiniteSoundboards.SettingsActivity
+ADDED from AndroidManifest.xml:30:3
 	android:screenOrientation
-		ADDED from AndroidManifest.xml:31:13
+		ADDED from AndroidManifest.xml:33:13
 	android:label
-		ADDED from AndroidManifest.xml:30:4
+		ADDED from AndroidManifest.xml:32:4
 	android:icon
-		ADDED from AndroidManifest.xml:32:13
+		ADDED from AndroidManifest.xml:34:13
 	android:name
-		ADDED from AndroidManifest.xml:29:4
-provider#com.wochstudios.soundboard.ContentProviders.SoundboardProvider
-ADDED from AndroidManifest.xml:35:9
+		ADDED from AndroidManifest.xml:31:4
+provider#com.wochstudios.InfiniteSoundboards.ContentProviders.SoundboardProvider
+ADDED from AndroidManifest.xml:37:9
 	android:authorities
-		ADDED from AndroidManifest.xml:36:13
+		ADDED from AndroidManifest.xml:38:13
 	android:name
-		ADDED from AndroidManifest.xml:37:13
+		ADDED from AndroidManifest.xml:39:13
 instrumentation#android.test.InstrumentationTestRunner
-ADDED from AndroidManifest.xml:40:9
+ADDED from AndroidManifest.xml:42:9
 	android:label
-		ADDED from AndroidManifest.xml:41:77
+		ADDED from AndroidManifest.xml:43:86
 	android:targetPackage
-		ADDED from AndroidManifest.xml:41:26
+		ADDED from AndroidManifest.xml:43:26
 	android:name
-		ADDED from AndroidManifest.xml:40:26
+		ADDED from AndroidManifest.xml:42:26
 activity#com.google.android.gms.ads.AdActivity
 ADDED from com.google.android.gms:play-services-ads:8.3.0:26:9
 	android:configChanges
