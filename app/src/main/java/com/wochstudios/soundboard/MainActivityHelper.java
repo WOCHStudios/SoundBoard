@@ -72,7 +72,8 @@ public class MainActivityHelper
             }
         }
         if(soundboard != null) {
-            fragment = new SoundboardFragment(soundboard);
+            fragment = new SoundboardFragment();
+            ((SoundboardFragment)fragment).setArguments(soundboard);
             replaceContentFrameWithFragment(fragment);
         }
 

@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
+import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +30,7 @@ public class AddSoundDialogFragment extends DialogFragment
 	private View layout;
 	private Uri fileUri;
 	private String soundboard_id;
+    private Intent intent;
 
     public AddSoundDialogFragment(){}
 
@@ -80,24 +83,26 @@ public class AddSoundDialogFragment extends DialogFragment
 	
 	private void setupFileBrowserButton(View v){
 		Button browse = (Button)v.findViewById(R.id.BrowseBtn);
-		browse.setOnClickListener(new OnClickListener(){
-			@Override
-			public void onClick(View v){
-				Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-				intent.addCategory(Intent.CATEGORY_OPENABLE);
-				intent.setType("audio/*");
-				startActivityForResult(intent,42);
-			}
-		});
+		browse.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launchFileBrowser();
+            }
+        });
 	}
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data)
 	{
-		if(requestCode == 42 && resultCode == Activity.RESULT_OK){
+		if(requestCode == 1002 && resultCode == Activity.RESULT_OK){
 			if(data != null){
+                final int takeFlags = data.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION;
 				fileUri = data.getData();
-				updateFilePathField(fileUri);
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                    ContentResolver resolver = getActivity().getContentResolver();
+                    resolver.takePersistableUriPermission(fileUri,takeFlags);
+                }
+                updateFilePathField(fileUri);
 			}
 		}
 	}
@@ -106,5 +111,20 @@ public class AddSoundDialogFragment extends DialogFragment
 		EditText filePathField = (EditText) layout.findViewById(R.id.SoundFile);
 		filePathField.setText(fileUri.getPath());
 	}
+
+    private void launchFileBrowser(){
+        final int KITKAT_VALUE =1002;
+        if (Build.VERSION.SDK_INT < 19){
+            intent = new Intent();
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+        } else {
+            intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.addCategory(Intent.CATEGORY_OPENABLE);
+            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+        }
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.setType("audio/*");
+        startActivityForResult(intent, KITKAT_VALUE);
+    }
 	
 }
