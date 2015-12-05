@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "com.wochstudios.soundboard"
-        minSdkVersion 21
-        targetSdkVersion 21
+        minSdkVersion 19
+        targetSdkVersion 19
     }
 
     buildTypes {

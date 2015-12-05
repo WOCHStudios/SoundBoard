@@ -41,9 +41,10 @@ public class SoundboardFragment extends Fragment
 	private ActionMode actionMode;
 	
 	public SoundboardFragment(){}
-	public SoundboardFragment(Soundboard s){
-		this.soundboard = s;
-	}
+
+    public void setArguments(Soundboard s){
+        this.soundboard =s;
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
