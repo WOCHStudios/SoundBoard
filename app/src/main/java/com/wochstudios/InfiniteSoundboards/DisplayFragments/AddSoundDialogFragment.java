@@ -96,9 +96,9 @@ public class AddSoundDialogFragment extends DialogFragment
 	{
 		if(requestCode == 1002 && resultCode == Activity.RESULT_OK){
 			if(data != null){
-                final int takeFlags = data.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION;
+                final int takeFlags = data.getFlags();
 				fileUri = data.getData();
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                if(Build.VERSION.SDK_INT >= 19) {
                     ContentResolver resolver = getActivity().getContentResolver();
                     resolver.takePersistableUriPermission(fileUri,takeFlags);
                 }
@@ -118,13 +118,12 @@ public class AddSoundDialogFragment extends DialogFragment
             intent = new Intent();
             intent.setAction(Intent.ACTION_GET_CONTENT);
         } else {
-            intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-            intent.addCategory(Intent.CATEGORY_OPENABLE);
-            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+
+
         }
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setType("audio/*");
-        startActivityForResult(intent, KITKAT_VALUE);
+        startActivityForResult(intent, 1002);
     }
 	
 }

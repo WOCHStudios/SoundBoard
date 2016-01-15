@@ -136,7 +136,7 @@ public class SoundboardDBHelper extends SQLiteOpenHelper
 	
 	public ArrayList<String> getSoundboardIds(){
 		Cursor cursor =sbDAO.read(this.getReadableDatabase(),SoundboardsTable.TABLE_NAME,new String[]{SoundboardsTable._ID},null,null,null);
-		ArrayList<String> list = new ArrayList<>();
+		ArrayList<String> list = new ArrayList<String>();
 		while (cursor.moveToNext()){
 			list.add(cursor.getString(cursor.getColumnIndex(SoundboardsTable._ID)));
 		}

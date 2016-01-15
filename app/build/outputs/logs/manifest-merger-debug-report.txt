@@ -15,8 +15,6 @@ ADDED from AndroidManifest.xml:2:1
 		INJECTED from AndroidManifest.xml:0:0
 uses-sdk
 ADDED from AndroidManifest.xml:7:2
-MERGED from com.android.support:appcompat-v7:22.2.0:20:5
-MERGED from com.android.support:support-v4:22.2.0:20:5
 MERGED from com.android.support:support-v4:22.2.0:20:5
 MERGED from com.google.android.gms:play-services:8.3.0:18:5
 MERGED from com.google.android.gms:play-services-ads:8.3.0:23:5
@@ -184,8 +182,6 @@ ADDED from AndroidManifest.xml:13:5
 		ADDED from AndroidManifest.xml:13:22
 application
 ADDED from AndroidManifest.xml:14:2
-MERGED from com.android.support:appcompat-v7:22.2.0:22:5
-MERGED from com.android.support:support-v4:22.2.0:22:5
 MERGED from com.android.support:support-v4:22.2.0:22:5
 MERGED from com.google.android.gms:play-services:8.3.0:19:5
 MERGED from com.google.android.gms:play-services-ads:8.3.0:24:5

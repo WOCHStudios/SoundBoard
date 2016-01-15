@@ -2,6 +2,7 @@ package com.wochstudios.InfiniteSoundboards;
 
 import android.app.Activity;
 import android.app.DialogFragment;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
@@ -35,6 +36,7 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+        Toast.makeText(this,""+ Build.VERSION.SDK_INT,Toast.LENGTH_SHORT).show();
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);

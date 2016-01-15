@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "com.wochstudios.InfiniteSoundboards"
-        minSdkVersion 19
-        targetSdkVersion 19
+        minSdkVersion 16
+        targetSdkVersion 16
     }
 
     buildTypes {
@@ -19,7 +19,6 @@ android {
 }
 
 dependencies {
-	compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:support-v4:21.0.3'
     compile 'com.google.android.gms:play-services:8.3.0'
 }
