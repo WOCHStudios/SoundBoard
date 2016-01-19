@@ -5,9 +5,9 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "com.wochstudios.soundboard"
-        minSdkVersion 19
-        targetSdkVersion 19
+        applicationId "com.wochstudios.InfiniteSoundboards"
+        minSdkVersion 16
+        targetSdkVersion 16
     }
 
     buildTypes {
@@ -19,7 +19,6 @@ android {
 }
 
 dependencies {
-	compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:support-v4:21.0.3'
     compile 'com.google.android.gms:play-services:8.3.0'
 }

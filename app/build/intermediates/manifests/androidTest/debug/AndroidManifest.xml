@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.wochstudios.soundboard.test">
+    package="com.wochstudios.InfiniteSoundboards.test">
 
-    <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="21" />
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="16" />
 
     <application>
         <uses-library android:name="android.test.runner" />
     </application>
 
     <instrumentation android:name="android.test.InstrumentationTestRunner"
-                     android:targetPackage="com.wochstudios.soundboard"
+                     android:targetPackage="com.wochstudios.InfiniteSoundboards"
                      android:handleProfiling="false"
                      android:functionalTest="false"
-                     android:label="Tests for com.wochstudios.soundboard"/>
+                     android:label="Tests for com.wochstudios.InfiniteSoundboards"/>
 </manifest>

@@ -57,7 +57,7 @@
         android:tint="@android:color/white"
         android:elevation="@dimen/add_button_elevation_low"
         android:layout_alignParentEnd="true"
-        android:background="@drawable/oval_ripple"
+        android:background="@drawable/oval"
         />
 
 

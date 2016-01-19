@@ -22,5 +22,6 @@
 	<color name="Transparent">#00FFFFFF</color>
 	<color name="Checked_tint">#E2E2E2</color>
 	<color name="actionbar_bg">#33B5E5</color>
+    <color name="button_color">#5cca81</color>
 	
 </resources>
