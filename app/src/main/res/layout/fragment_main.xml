@@ -60,6 +60,21 @@
         android:background="@drawable/oval"
         />
 
+    <android.support.design.widget.FloatingActionButton
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_margin="16dp"
+            android:src="@android:drawable/ic_input_add"
+            android:background="@drawable/oval"
+            android:id="@+id/fab"
+
+            ads:fabSize="normal"
+            ads:elevation="6dp"
+            android:layout_gravity="end"
+            ads:pressedTranslationZ="12dp"
+
+        />
+
 
 
 </RelativeLayout>
