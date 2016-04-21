@@ -2,11 +2,12 @@ package com.wochstudios.InfiniteSoundboards;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.wochstudios.InfiniteSoundboards.Fragments.SettingsFragment;
 
-public class SettingsActivity extends Activity
+public class SettingsActivity extends AppCompatActivity
 {
 
 	@Override
@@ -14,7 +15,7 @@ public class SettingsActivity extends Activity
 	{
 		super.onCreate(savedInstanceState);
 
-        getActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
 		SettingsFragment settingsFrag = new SettingsFragment();
 		settingsFrag.setArguments(getIntent().getExtras());
