@@ -36,11 +36,11 @@ public class SoundboardProviderTest extends AndroidTestCase {
         try {
             ProviderInfo providerInfo = pm.getProviderInfo(componentName, 0);
 
-            assertEquals("Error: WeatherProvider registered with authority: " + providerInfo.authority +
+            assertEquals("Error: SoundboardProvider registered with authority: " + providerInfo.authority +
                             " instead of authority: " + SounboardContract.CONTENT_AUTHORITY,
                     providerInfo.authority, SounboardContract.CONTENT_AUTHORITY);
         } catch (PackageManager.NameNotFoundException e) {
-            assertTrue("Error: WeatherProvider not registered at " + mContext.getPackageName()+"ComponentName: "+componentName.toString(),
+            assertTrue("Error: SoundboardProvider not registered at " + mContext.getPackageName()+"ComponentName: "+componentName.toString(),
                     false);
         }
     }

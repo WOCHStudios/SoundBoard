@@ -14,9 +14,9 @@ import android.widget.Toast;
 
 import com.wochstudios.InfiniteSoundboards.Controllers.DatabaseController;
 import com.wochstudios.InfiniteSoundboards.Controllers.DrawerController;
-import com.wochstudios.InfiniteSoundboards.DisplayFragments.AddSoundDialogFragment;
-import com.wochstudios.InfiniteSoundboards.DisplayFragments.CreateSoundboardFragment;
-import com.wochstudios.InfiniteSoundboards.DisplayFragments.SoundboardFragment;
+import com.wochstudios.InfiniteSoundboards.Fragments.AddSoundDialogFragment;
+import com.wochstudios.InfiniteSoundboards.Fragments.CreateSoundboardFragment;
+import com.wochstudios.InfiniteSoundboards.Fragments.SoundboardFragment;
 import com.wochstudios.InfiniteSoundboards.Models.Sound;
 import com.wochstudios.InfiniteSoundboards.Models.Soundboard;
 

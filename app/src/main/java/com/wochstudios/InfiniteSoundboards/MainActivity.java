@@ -1,11 +1,12 @@
 package com.wochstudios.InfiniteSoundboards;
 
-import android.app.Activity;
 import android.app.DialogFragment;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,14 +15,14 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.wochstudios.InfiniteSoundboards.Adapters.SoundboardAdapter;
-import com.wochstudios.InfiniteSoundboards.DisplayFragments.AddSoundDialogFragment;
-import com.wochstudios.InfiniteSoundboards.DisplayFragments.CreateSoundboardFragment;
-import com.wochstudios.InfiniteSoundboards.DisplayFragments.RenameDialogFragment;
+import com.wochstudios.InfiniteSoundboards.Fragments.AddSoundDialogFragment;
+import com.wochstudios.InfiniteSoundboards.Fragments.CreateSoundboardFragment;
+import com.wochstudios.InfiniteSoundboards.Fragments.RenameDialogFragment;
 import com.wochstudios.InfiniteSoundboards.Listeners.DrawerOnItemClickListener;
 import com.wochstudios.InfiniteSoundboards.Listeners.IDialogListener;
 import com.wochstudios.InfiniteSoundboards.Listeners.ISoundboardFragmentListener;
 
-public class MainActivity extends Activity implements IDialogListener, ISoundboardFragmentListener{
+public class MainActivity extends AppCompatActivity implements IDialogListener, ISoundboardFragmentListener{
 
 	public MainActivityHelper mainHelper;
 	
@@ -49,6 +50,7 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 		if(savedInstanceState == null){
 			mainHelper.initSoundboardFragment();
 		}
+		Log.d("ACTIONBAR IS NULL?", (getSupportActionBar() != null)+"");
         setupActionBar();
 
 
@@ -57,14 +59,16 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 	
 	
 	private void setupActionBar(){
+
         if(mainHelper.getCurrentSoundboardTitle() == null ||
                 !mainHelper.getCurrentSoundboardId().equals(PreferenceManager.getDefaultSharedPreferences(this).getString("defaultSoundboard", ""))){
-            getActionBar().setTitle(R.string.app_name);
+			getSupportActionBar().setTitle(R.string.app_name);
+
         }else {
-            getActionBar().setTitle(mainHelper.getCurrentSoundboardTitle());
+			getSupportActionBar().setTitle(mainHelper.getCurrentSoundboardTitle());
         }
-		getActionBar().setHomeButtonEnabled(true);
-		getActionBar().setIcon(R.drawable.ic_drawer);
+		getSupportActionBar().setHomeButtonEnabled(true);
+		getSupportActionBar().setIcon(R.drawable.ic_drawer);
 		toggle = mainHelper.getToggle(this,drawerLayout,R.string.drawer_open,R.string.drawer_close);
 	}
 
@@ -93,15 +97,15 @@ public class MainActivity extends Activity implements IDialogListener, ISoundboa
 
             @Override
             public void onDrawerOpened(View drawerView) {
-               getActionBar().setTitle(getResources().getString(R.string.app_name));
+               getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
             }
 
             @Override
             public void onDrawerClosed(View drawerView) {
                 if(mainHelper.getCurrentSoundboardTitle() != null) {
-                    getActionBar().setTitle(mainHelper.getCurrentSoundboardTitle());
+                    getSupportActionBar().setTitle(mainHelper.getCurrentSoundboardTitle());
                 }else{
-                    getActionBar().setTitle(R.string.app_name);
+                    getSupportActionBar().setTitle(R.string.app_name);
                 }
             }
 

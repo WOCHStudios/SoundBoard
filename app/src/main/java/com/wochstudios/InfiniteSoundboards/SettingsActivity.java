@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.wochstudios.InfiniteSoundboards.DisplayFragments.SettingsFragment;
+import com.wochstudios.InfiniteSoundboards.Fragments.SettingsFragment;
 
 public class SettingsActivity extends Activity
 {

@@ -10,7 +10,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 
-import com.wochstudios.InfiniteSoundboards.DisplayFragments.RenameDialogFragment;
+import com.wochstudios.InfiniteSoundboards.Fragments.RenameDialogFragment;
 import com.wochstudios.InfiniteSoundboards.MainActivityHelper;
 import com.wochstudios.InfiniteSoundboards.Models.Soundboard;
 import com.wochstudios.InfiniteSoundboards.R;

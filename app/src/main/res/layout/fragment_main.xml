@@ -1,51 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:ads="http://schemas.android.com/apk/res-auto"
-	android:id="@+id/fragment_main"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
-	android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        >
+        android:layout_alignParentTop="true">
 
-	<ListView
-		android:id="@+id/listSound"
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:layout_alignParentTop="true"
-		android:background="@color/White"
-		android:cacheColorHint="@color/Black" 
-		android:drawSelectorOnTop="true"
-        android:divider="@android:drawable/divider_horizontal_textfield">
-	</ListView>
+        <ListView
+            android:id="@+id/listSound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:background="@color/White"
+            android:cacheColorHint="@color/Black"
+            android:divider="@android:drawable/divider_horizontal_textfield"
+            android:drawSelectorOnTop="true"></ListView>
 
-     <TextView
-         android:id="@+id/listSound_EmptyView"
-         android:layout_width="match_parent"
-         android:layout_height="match_parent"
-         android:padding="16dp"
-         android:layout_gravity="center_horizontal"
-         android:text="No sounds available, please add sounds or select a Soundboard."
-         />
+        <TextView
+            android:id="@+id/listSound_EmptyView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:padding="16dp"
+            android:text="No sounds available, please add sounds or select a Soundboard." />
 
     </FrameLayout>
-	
 
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id">
-    </com.google.android.gms.ads.AdView>
+        android:layout_centerHorizontal="true"
+        app:adSize="BANNER"
+        app:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
 
-    <ImageButton
+    <!--<ImageButton
         android:id="@+id/add_button"
         android:layout_width="@dimen/add_button_diameter"
         android:layout_height="@dimen/add_button_diameter"
@@ -58,23 +54,24 @@
         android:elevation="@dimen/add_button_elevation_low"
         android:layout_alignParentEnd="true"
         android:background="@drawable/oval"
-        />
+        />-->
 
     <android.support.design.widget.FloatingActionButton
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_margin="16dp"
-            android:src="@android:drawable/ic_input_add"
-            android:background="@drawable/oval"
-            android:id="@+id/fab"
-
-            ads:fabSize="normal"
-            ads:elevation="6dp"
-            android:layout_gravity="end"
-            ads:pressedTranslationZ="12dp"
+        android:id="@+id/add_button"
+        android:layout_width="@dimen/add_button_diameter"
+        android:layout_height="@dimen/add_button_diameter"
+        android:layout_above="@id/adView"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:background="@drawable/oval"
+        android:src="@android:drawable/ic_input_add"
+        android:tint="@android:color/white"
+        app:elevation="6dp"
+        app:fabSize="normal"
+        app:pressedTranslationZ="12dp"
 
         />
-
 
 
 </RelativeLayout>
