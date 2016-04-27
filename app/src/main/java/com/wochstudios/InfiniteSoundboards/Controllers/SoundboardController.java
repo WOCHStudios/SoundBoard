@@ -20,23 +20,12 @@ public class SoundboardController {
 		this.soundboard = sb;
 	}
 	
-	public void playSound(String key){
-		for(Sound temp : soundboard.getSounds()){
-			if(key.equals(temp.getTitle())){
-				player.playSound(con, temp.getUri());
-			}
-		}
+	public void playSound(Sound sound){
+		player.playSound(con, sound.getUri());
 	}
 	
 	public void setSoundboard(Soundboard sb){
 		this.soundboard = sb;
 	}
-	
-/*	public void downloadRingtone(String key){
-		for(Sound temp : InfiniteSoundboards.getSounds()){
-			if(key.equals(temp.getTitle())){
-				ringtoneMaker.setRingtone(key,temp.getUri(), con);
-			}
-		}
-	}*/
+
 }

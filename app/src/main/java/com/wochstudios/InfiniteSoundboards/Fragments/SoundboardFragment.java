@@ -37,16 +37,19 @@ import java.util.Collections;
 
 public class SoundboardFragment extends Fragment
 {
-	private ArrayList<String> Titles;
 	private SoundboardController SBC;
 	private ListView soundListView;
+	private SoundCursorAdapter soundAdapter;
     private TextView emptyView;
 	private FloatingActionButton addSoundButton;
 	private Soundboard soundboard;
 	private ISoundboardFragmentListener listener;
 	private ActionMode actionMode;
+	private Uri soundsForSoundboardUri;
 	
-	public SoundboardFragment(){}
+	public SoundboardFragment(){
+
+	}
 
     public void setArguments(Soundboard s){
         this.soundboard =s;
@@ -75,9 +78,7 @@ public class SoundboardFragment extends Fragment
 	
 	private void init(){
 		SBC = new SoundboardController(getActivity(), soundboard);
-		Log.d("getTitlesOfSounds()","isEmpty(): "+soundboard.getTitlesOfSounds().isEmpty());
-		Titles = soundboard.getTitlesOfSounds();
-		Collections.sort(Titles);
+		soundsForSoundboardUri = SounboardContract.SoundsTable.buildSoundsFromSoundboardUri(soundboard.getID()+"");
 	}
 	
 	private void setupAddButton(View view){
@@ -94,14 +95,10 @@ public class SoundboardFragment extends Fragment
 		soundListView = (ListView) list;
         setupEmptyView(empty);
         soundListView.setEmptyView(emptyView);
-		//soundListView.setAdapter(new ArrayAdapter<String>(getActivity(), R.layout.list_item, R.id.listItemTxt, Titles));
-
-		Uri soundsForSoundboardUri = SounboardContract.SoundsTable.buildSoundsFromSoundboardUri(soundboard.getID()+"");
 		Cursor cur = getActivity().getContentResolver().query(soundsForSoundboardUri,null,null,null,null);
-		soundListView.setAdapter(new SoundCursorAdapter(getActivity(),cur,0));
-		soundListView.setTextFilterEnabled(true);
-		soundListView.setLongClickable(true);
-		soundListView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+		soundAdapter =new SoundCursorAdapter(getActivity(),cur,0);
+
+		soundListView.setAdapter(soundAdapter);
 		soundListView.setOnItemClickListener(new ListViewClickListener());
 		soundListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
@@ -152,11 +149,9 @@ public class SoundboardFragment extends Fragment
         this.soundboard =s;
         updateEmptyView();
 		SBC.setSoundboard(soundboard);
-		Titles = soundboard.getTitlesOfSounds();
-		Collections.sort(Titles);
-		((ArrayAdapter<String>)soundListView.getAdapter()).clear();
-		((ArrayAdapter<String>)soundListView.getAdapter()).addAll(Titles);
-		((ArrayAdapter<String>)soundListView.getAdapter()).notifyDataSetChanged();		
+		soundAdapter.changeCursor(getActivity().getContentResolver().query(soundsForSoundboardUri,null,null,null,null));
+		soundAdapter.notifyDataSetChanged();
+
 		
 	}
 
@@ -168,9 +163,7 @@ public class SoundboardFragment extends Fragment
 	private class ListViewClickListener implements OnItemClickListener{
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			if(actionMode == null) {
-				Log.d("Titles Size:",""+Titles.size());
-				Log.d("Titles isEmpty?:",""+Titles.isEmpty());
-				// /SBC.playSound(Titles.get(position));
+				SBC.playSound(soundAdapter.getSound(position));
 			}
 			soundListView.setItemChecked(position,false);
 		} 
@@ -182,7 +175,7 @@ public class SoundboardFragment extends Fragment
 		@Override
 		public boolean onCreateActionMode(ActionMode mode, Menu menu)
 		{
-			// TODO: Implement this method
+
 			mode.getMenuInflater().inflate(R.menu.soundboard_action_menu,menu);
 			return true;
 		}
@@ -190,7 +183,7 @@ public class SoundboardFragment extends Fragment
 		@Override
 		public boolean onPrepareActionMode(ActionMode p1, Menu p2)
 		{
-			// TODO: Implement this method
+
 			return false;
 		}
 
@@ -199,13 +192,9 @@ public class SoundboardFragment extends Fragment
 		{
 			switch(item.getItemId()){
 				case R.id.remove_sound_menu_item:
-					listener.onSoundRemoveCall(soundboard.getSoundByTitle(Titles.get(soundListView.getCheckedItemPosition())).getID()+"");
+					listener.onSoundRemoveCall(soundAdapter.getSound(soundListView.getCheckedItemPosition()).getID()+"");
 					mode.finish();
 					return true;
-				/*case R.id.set_rington_menu_item:
-					SBC.downloadRingtone(Titles.get(soundListView.getCheckedItemPosition()));
-					mode.finish();
-					return true;*/
 				default:
 					return false;
 			}
