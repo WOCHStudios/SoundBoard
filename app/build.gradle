@@ -10,10 +10,20 @@ android {
         targetSdkVersion 16
     }
 
+    signingConfigs{
+        release{
+            storeFile file("Sounboard_keystore.jks")
+            storePassword '$wiss@rmy'
+            keyAlias "soundboard"
+            keyPassword '$wiss@rmy'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+            signingConfig signingConfigs.release
         }
     }
 }

@@ -51,12 +51,7 @@ public class MainActivityHelper
         mainActivity = (MainActivity) activity;
     }
 	
-	
-/*	public void checkForSoundboards(){
-		if(!databaseController.checkForSoundboards()){
-			showDialogFragment(CREATE_SOUNDBOARD_FRAGEMENT_CD,"");
-		}
-	}*/
+
 	
 	private void replaceContentFrameWithFragment(Fragment frag){
 		fragmentManager.beginTransaction()
