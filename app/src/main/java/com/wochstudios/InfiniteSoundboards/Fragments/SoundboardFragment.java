@@ -1,4 +1,4 @@
-package com.wochstudios.InfiniteSoundboards.Fragments;
+package com.wochstudios.infinitesoundboards.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.util.Log;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -16,36 +15,35 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.wochstudios.InfiniteSoundboards.Adapters.SoundCursorAdapter;
-import com.wochstudios.InfiniteSoundboards.Controllers.SoundboardController;
-import com.wochstudios.InfiniteSoundboards.Database.SounboardContract;
-import com.wochstudios.InfiniteSoundboards.Listeners.ISoundboardFragmentListener;
-import com.wochstudios.InfiniteSoundboards.MainActivity;
-import com.wochstudios.InfiniteSoundboards.MainActivityHelper;
-import com.wochstudios.InfiniteSoundboards.Models.Soundboard;
-import com.wochstudios.InfiniteSoundboards.R;
-
-import java.util.ArrayList;
-import java.util.Collections;
+import com.wochstudios.infinitesoundboards.adapters.SoundCursorAdapter;
+import com.wochstudios.infinitesoundboards.controller.SoundboardController;
+import com.wochstudios.infinitesoundboards.database.SounboardContract;
+import com.wochstudios.infinitesoundboards.listeners.ISoundboardFragmentListener;
+import com.wochstudios.infinitesoundboards.MainActivity;
+import com.wochstudios.infinitesoundboards.MainActivityHelper;
+import com.wochstudios.infinitesoundboards.models.Soundboard;
+import com.wochstudios.infinitesoundboards.R;
 
 public class SoundboardFragment extends Fragment
 {
 	private SoundboardController SBC;
-	private ListView soundListView;
 	private SoundCursorAdapter soundAdapter;
-    private TextView emptyView;
-	private FloatingActionButton addSoundButton;
 	private Soundboard soundboard;
 	private ISoundboardFragmentListener listener;
 	private ActionMode actionMode;
 	private Uri soundsForSoundboardUri;
+
+	private ListView soundListView;
+    private TextView emptyView;
+	private FloatingActionButton addSoundButton;
+	private AdView ad;
+
+
 	
 	public SoundboardFragment(){
 
@@ -66,8 +64,8 @@ public class SoundboardFragment extends Fragment
 	{
 		init();
 		View rootView = inflater.inflate(R.layout.fragment_main,container,false);
-
-        AdView ad = (AdView) rootView.findViewById(R.id.adView);
+		//ButterKnife.bind(this, rootView);
+       	ad = (AdView) rootView.findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         ad.loadAd(adRequest);
 
@@ -121,7 +119,7 @@ public class SoundboardFragment extends Fragment
         if(soundboard.getTitle() == null){
             emptyView.setText("Please select a Soundboard!");
         }else{
-            emptyView.setText("Please add sounds to InfiniteSoundboards!");
+            emptyView.setText("Please add sounds to infinitesoundboards!");
         }
     }
 
@@ -129,7 +127,7 @@ public class SoundboardFragment extends Fragment
         if(soundboard.getTitle() == null){
             emptyView.setText("Please select a Soundboard!");
         }else{
-            emptyView.setText("Please add sounds to InfiniteSoundboards!");
+            emptyView.setText("Please add sounds to infinitesoundboards!");
         }
     }
 

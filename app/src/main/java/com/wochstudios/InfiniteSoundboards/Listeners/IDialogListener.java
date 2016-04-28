@@ -1,4 +1,4 @@
-package com.wochstudios.InfiniteSoundboards.Listeners;
+package com.wochstudios.infinitesoundboards.listeners;
 
 import android.app.DialogFragment;
 

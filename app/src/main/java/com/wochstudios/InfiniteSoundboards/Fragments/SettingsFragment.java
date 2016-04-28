@@ -1,4 +1,4 @@
-package com.wochstudios.InfiniteSoundboards.Fragments;
+package com.wochstudios.infinitesoundboards.fragments;
 
 import android.os.Bundle;
 import android.preference.ListPreference;
@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.wochstudios.InfiniteSoundboards.R;
+import com.wochstudios.infinitesoundboards.R;
 
 import java.util.ArrayList;
 
