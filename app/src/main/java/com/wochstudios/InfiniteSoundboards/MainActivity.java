@@ -1,4 +1,4 @@
-package com.wochstudios.InfiniteSoundboards;
+package com.wochstudios.infinitesoundboards;
 
 import android.app.DialogFragment;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,22 +13,25 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.wochstudios.InfiniteSoundboards.Adapters.SoundboardAdapter;
-import com.wochstudios.InfiniteSoundboards.Fragments.AddSoundDialogFragment;
-import com.wochstudios.InfiniteSoundboards.Fragments.CreateSoundboardFragment;
-import com.wochstudios.InfiniteSoundboards.Fragments.RenameDialogFragment;
-import com.wochstudios.InfiniteSoundboards.Listeners.DrawerOnItemClickListener;
-import com.wochstudios.InfiniteSoundboards.Listeners.IDialogListener;
-import com.wochstudios.InfiniteSoundboards.Listeners.ISoundboardFragmentListener;
+import com.wochstudios.infinitesoundboards.adapters.SoundboardAdapter;
+import com.wochstudios.infinitesoundboards.fragments.AddSoundDialogFragment;
+import com.wochstudios.infinitesoundboards.fragments.CreateSoundboardFragment;
+import com.wochstudios.infinitesoundboards.fragments.RenameDialogFragment;
+import com.wochstudios.infinitesoundboards.listeners.DrawerOnItemClickListener;
+import com.wochstudios.infinitesoundboards.listeners.IDialogListener;
+import com.wochstudios.infinitesoundboards.listeners.ISoundboardFragmentListener;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements IDialogListener, ISoundboardFragmentListener{
 
 	public MainActivityHelper mainHelper;
-	
-	private DrawerLayout drawerLayout;
-	private ListView drawerList;
+
 	private ActionBarDrawerToggle toggle;
     private DrawerOnItemClickListener listener;
+	@BindView(R.id.container) DrawerLayout drawerLayout;
+	@BindView(R.id.left_drawer) ListView drawerList;
 	
 
 	
@@ -38,20 +40,19 @@ public class MainActivity extends AppCompatActivity implements IDialogListener, 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		ButterKnife.bind(this);
 		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 		mainHelper = new MainActivityHelper(this);
-		//mainHelper.checkForSoundboards();
-		drawerLayout = (DrawerLayout)findViewById(R.id.container);
         listener = new DrawerOnItemClickListener(drawerLayout, mainHelper);
+		//drawerLayout = (DrawerLayout) findViewById(R.id.container);
         setupDrawerLayoutListener(drawerLayout);
-		drawerList = (ListView) findViewById(R.id.left_drawer);
 		setupDrawerList(drawerList);
         setupDrawerButtons();
 		if(savedInstanceState == null){
 			mainHelper.initSoundboardFragment();
 		}
-		Log.d("ACTIONBAR IS NULL?", (getSupportActionBar() != null)+"");
         setupActionBar();
+
 
 
 
@@ -91,9 +92,7 @@ public class MainActivity extends AppCompatActivity implements IDialogListener, 
     private void setupDrawerLayoutListener(DrawerLayout layout){
         layout.setDrawerListener(new DrawerLayout.DrawerListener() {
             @Override
-            public void onDrawerSlide(View drawerView, float slideOffset) {
-
-            }
+            public void onDrawerSlide(View drawerView, float slideOffset) {}
 
             @Override
             public void onDrawerOpened(View drawerView) {
@@ -110,9 +109,7 @@ public class MainActivity extends AppCompatActivity implements IDialogListener, 
             }
 
             @Override
-            public void onDrawerStateChanged(int newState) {
-
-            }
+            public void onDrawerStateChanged(int newState) {}
         });
     }
 

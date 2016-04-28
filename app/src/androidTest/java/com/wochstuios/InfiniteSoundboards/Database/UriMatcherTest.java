@@ -4,8 +4,8 @@ import android.content.UriMatcher;
 import android.net.Uri;
 import android.test.AndroidTestCase;
 
-import com.wochstudios.InfiniteSoundboards.ContentProviders.SoundboardProvider;
-import com.wochstudios.InfiniteSoundboards.Database.SounboardContract;
+import com.wochstudios.infinitesoundboards.contentprovider.SoundboardProvider;
+import com.wochstudios.infinitesoundboards.database.SounboardContract;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.wochstudios.InfiniteSoundboards.Database;
+package com.wochstudios.infinitesoundboards.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

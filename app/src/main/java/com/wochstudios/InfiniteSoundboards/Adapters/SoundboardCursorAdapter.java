@@ -1,4 +1,4 @@
-package com.wochstudios.InfiniteSoundboards.Adapters;
+package com.wochstudios.infinitesoundboards.adapters;
 
 import android.content.Context;
 import android.database.Cursor;
