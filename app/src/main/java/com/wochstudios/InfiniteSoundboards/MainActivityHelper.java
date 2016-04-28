@@ -1,4 +1,4 @@
-package com.wochstudios.InfiniteSoundboards;
+package com.wochstudios.infinitesoundboards;
 
 import android.app.Activity;
 import android.app.DialogFragment;
@@ -12,13 +12,13 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.wochstudios.InfiniteSoundboards.Controllers.DatabaseController;
-import com.wochstudios.InfiniteSoundboards.Controllers.DrawerController;
-import com.wochstudios.InfiniteSoundboards.Fragments.AddSoundDialogFragment;
-import com.wochstudios.InfiniteSoundboards.Fragments.CreateSoundboardFragment;
-import com.wochstudios.InfiniteSoundboards.Fragments.SoundboardFragment;
-import com.wochstudios.InfiniteSoundboards.Models.Sound;
-import com.wochstudios.InfiniteSoundboards.Models.Soundboard;
+import com.wochstudios.infinitesoundboards.controller.DatabaseController;
+import com.wochstudios.infinitesoundboards.controller.DrawerController;
+import com.wochstudios.infinitesoundboards.fragments.AddSoundDialogFragment;
+import com.wochstudios.infinitesoundboards.fragments.CreateSoundboardFragment;
+import com.wochstudios.infinitesoundboards.fragments.SoundboardFragment;
+import com.wochstudios.infinitesoundboards.models.Sound;
+import com.wochstudios.infinitesoundboards.models.Soundboard;
 
 import java.util.ArrayList;
 
@@ -102,7 +102,7 @@ public class MainActivityHelper
                 } else {
                     dialogFragment = new CreateSoundboardFragment();
                     ((CreateSoundboardFragment)dialogFragment).setArguments(databaseController);
-                    Toast.makeText(mainActivity, "Please create a InfiniteSoundboards first", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mainActivity, "Please create a infinitesoundboards first", Toast.LENGTH_SHORT).show();
                 }
                 break;
 /*            case RENAME_SOUNDBOARD_FRAGMENT_CD:

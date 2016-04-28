@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-    package="com.wochstudios.InfiniteSoundboards"
+    package="com.wochstudios.infinitesoundboards"
     xmlns:android="http://schemas.android.com/apk/res/android"
 	android:versionCode="8"
 	android:versionName="1.08" >
@@ -16,9 +16,10 @@
 		android:icon="@drawable/ic_launcher"
 		android:label="@string/app_name"
 		android:theme="@style/AppTheme"
+		android:supportsRtl="true"
         >
 		<activity
-			android:name="com.wochstudios.InfiniteSoundboards.MainActivity"
+			android:name="com.wochstudios.infinitesoundboards.MainActivity"
 			android:label="@string/app_name"
             android:screenOrientation="portrait">
 			<intent-filter>
@@ -27,18 +28,18 @@
 			</intent-filter>
 		</activity>
 		<activity
-			android:name="com.wochstudios.InfiniteSoundboards.SettingsActivity"
+			android:name="com.wochstudios.infinitesoundboards.SettingsActivity"
 			android:label="Preferences"
             android:screenOrientation="portrait"
             android:icon="@drawable/abc_ic_ab_back_mtrl_am_alpha">
 		</activity>
 
         <provider
-            android:authorities="com.wochstudios.InfiniteSoundboards"
-            android:name="com.wochstudios.InfiniteSoundboards.ContentProviders.SoundboardProvider">
+            android:authorities="com.wochstudios.infinitesoundboards"
+            android:name="com.wochstudios.infinitesoundboards.contentprovider.SoundboardProvider">
         </provider>
 
         <instrumentation android:name="android.test.InstrumentationTestRunner"
-                         android:targetPackage="com.wochstudios.InfiniteSoundboards" android:label="Tests for My App" />
+						 android:targetPackage="com.wochstudios.infinitesoundboards" android:label="Tests for My App" />
 		</application>
 </manifest>

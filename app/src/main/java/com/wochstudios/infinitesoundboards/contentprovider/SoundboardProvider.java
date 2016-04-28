@@ -1,4 +1,4 @@
-package com.wochstudios.InfiniteSoundboards.ContentProviders;
+package com.wochstudios.infinitesoundboards.contentprovider;
 
 import android.content.ContentProvider;
 import android.content.ContentUris;
@@ -8,8 +8,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 
-import com.wochstudios.InfiniteSoundboards.Database.SounboardContract;
-import com.wochstudios.InfiniteSoundboards.Database.SoundboardContentDBHelper;
+import com.wochstudios.infinitesoundboards.database.SounboardContract;
+import com.wochstudios.infinitesoundboards.database.SoundboardContentDBHelper;
 
 /**
  * Created by dave on 8/6/2015.

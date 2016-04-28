@@ -1,4 +1,4 @@
-package com.wochstudios.InfiniteSoundboards.Utils;
+package com.wochstudios.infinitesoundboards.utils;
 
 import android.content.Context;
 import android.media.MediaPlayer;
