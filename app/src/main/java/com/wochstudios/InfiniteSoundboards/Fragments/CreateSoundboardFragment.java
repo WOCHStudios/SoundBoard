@@ -1,4 +1,4 @@
-package com.wochstudios.InfiniteSoundboards.Fragments;
+package com.wochstudios.infinitesoundboards.fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -11,9 +11,9 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.wochstudios.InfiniteSoundboards.Controllers.DatabaseController;
-import com.wochstudios.InfiniteSoundboards.Listeners.IDialogListener;
-import com.wochstudios.InfiniteSoundboards.R;
+import com.wochstudios.infinitesoundboards.controller.DatabaseController;
+import com.wochstudios.infinitesoundboards.listeners.IDialogListener;
+import com.wochstudios.infinitesoundboards.R;
 
 public class CreateSoundboardFragment extends DialogFragment
 {
@@ -49,7 +49,7 @@ public class CreateSoundboardFragment extends DialogFragment
 				public void onClick(DialogInterface dialog, int id){
 					EditText text = (EditText)layout.findViewById(R.id.SoundBoardTitle);
                     if(text.getText().toString().isEmpty()){
-                        Toast.makeText(getActivity(),"Cannot create InfiniteSoundboards without name!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(),"Cannot create infinitesoundboards without name!",Toast.LENGTH_SHORT).show();
                     }else {
                         DC.addSoundboardToDatabase(text.getText().toString());
                         mListener.onDialogPositiveClick(CreateSoundboardFragment.this);

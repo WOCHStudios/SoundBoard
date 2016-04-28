@@ -1,13 +1,13 @@
-package com.wochstudios.InfiniteSoundboards.Controllers;
+package com.wochstudios.infinitesoundboards.controller;
 
 import android.content.ContentValues;
 import android.content.Context;
 import android.util.Log;
 
-import com.wochstudios.InfiniteSoundboards.Database.SounboardContract.SoundboardsTable;
-import com.wochstudios.InfiniteSoundboards.Database.SounboardContract.SoundsTable;
-import com.wochstudios.InfiniteSoundboards.Database.SoundboardDBHelper;
-import com.wochstudios.InfiniteSoundboards.Models.Soundboard;
+import com.wochstudios.infinitesoundboards.database.SounboardContract.SoundboardsTable;
+import com.wochstudios.infinitesoundboards.database.SounboardContract.SoundsTable;
+import com.wochstudios.infinitesoundboards.database.SoundboardDBHelper;
+import com.wochstudios.infinitesoundboards.models.Soundboard;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class DatabaseController
 	
 	public DatabaseController(Context con){
 		mDbHelper = new  SoundboardDBHelper(con);
-		//Add new InfiniteSoundboards for testing.
+		//Add new infinitesoundboards for testing.
 		//createTestSoundboard();
 	}
 	

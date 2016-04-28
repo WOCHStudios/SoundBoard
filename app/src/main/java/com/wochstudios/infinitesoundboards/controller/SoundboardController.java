@@ -1,10 +1,10 @@
-package com.wochstudios.InfiniteSoundboards.Controllers;
+package com.wochstudios.infinitesoundboards.controller;
 
 import android.content.Context;
 
-import com.wochstudios.InfiniteSoundboards.Models.Sound;
-import com.wochstudios.InfiniteSoundboards.Models.Soundboard;
-import com.wochstudios.InfiniteSoundboards.Utils.SoundPlayer;
+import com.wochstudios.infinitesoundboards.models.Sound;
+import com.wochstudios.infinitesoundboards.models.Soundboard;
+import com.wochstudios.infinitesoundboards.utils.SoundPlayer;
 
 
 public class SoundboardController {
