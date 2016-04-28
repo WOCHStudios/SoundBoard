@@ -23,13 +23,7 @@ public class SoundCursorAdapter extends CursorAdapter {
 
     }
 
-    private Sound convertRowToSound(Cursor cursor){
-        int id = cursor.getInt(cursor.getColumnIndex(SounboardContract.SoundsTable._ID));
-        String title = cursor.getString(cursor.getColumnIndex(SounboardContract.SoundsTable.COLUMN_TITLE));
-        String soundboard_id = cursor.getString(cursor.getColumnIndex(SounboardContract.SoundsTable.COLUMN_SOUNDBOARD_ID));
-        String file_uri = cursor.getString(cursor.getColumnIndex(SounboardContract.SoundsTable.COLUMN_URI));
-        return new Sound(id,title, Uri.parse(file_uri), soundboard_id);
-    }
+
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup viewGroup) {
@@ -41,7 +35,7 @@ public class SoundCursorAdapter extends CursorAdapter {
     public void bindView(View view, Context context, Cursor cursor) {
         Sound sound = convertRowToSound(cursor);
         TextView soundText = (TextView)view;
-        soundText.setText(sound.getTitle());
+        soundText.setText(cursor.getString(cursor.getColumnIndex(SounboardContract.SoundsTable.COLUMN_TITLE)));
     }
 
     public Sound getSound(int postion){
@@ -54,5 +48,13 @@ public class SoundCursorAdapter extends CursorAdapter {
             sound.setUri(Uri.parse(cursor.getString(cursor.getColumnIndex(SounboardContract.SoundsTable.COLUMN_URI))));
         }
         return sound;
+    }
+
+    private Sound convertRowToSound(Cursor cursor){
+        int id = cursor.getInt(cursor.getColumnIndex(SounboardContract.SoundsTable._ID));
+        String title = cursor.getString(cursor.getColumnIndex(SounboardContract.SoundsTable.COLUMN_TITLE));
+        String soundboard_id = cursor.getString(cursor.getColumnIndex(SounboardContract.SoundsTable.COLUMN_SOUNDBOARD_ID));
+        String file_uri = cursor.getString(cursor.getColumnIndex(SounboardContract.SoundsTable.COLUMN_URI));
+        return new Sound(id,title, Uri.parse(file_uri), soundboard_id);
     }
 }
