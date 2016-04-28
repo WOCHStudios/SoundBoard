@@ -29,6 +29,9 @@ import com.wochstudios.infinitesoundboards.MainActivityHelper;
 import com.wochstudios.infinitesoundboards.models.Soundboard;
 import com.wochstudios.infinitesoundboards.R;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class SoundboardFragment extends Fragment
 {
 	private SoundboardController SBC;
@@ -38,10 +41,10 @@ public class SoundboardFragment extends Fragment
 	private ActionMode actionMode;
 	private Uri soundsForSoundboardUri;
 
-	private ListView soundListView;
-    private TextView emptyView;
-	private FloatingActionButton addSoundButton;
-	private AdView ad;
+	@BindView(R.id.listSound) ListView soundListView;
+    @BindView(R.id.listSound_EmptyView) TextView emptyView;
+	@BindView(R.id.add_button) FloatingActionButton addSoundButton;
+	@BindView(R.id.adView) AdView ad;
 
 
 	
@@ -64,13 +67,11 @@ public class SoundboardFragment extends Fragment
 	{
 		init();
 		View rootView = inflater.inflate(R.layout.fragment_main,container,false);
-		//ButterKnife.bind(this, rootView);
-       	ad = (AdView) rootView.findViewById(R.id.adView);
+		ButterKnife.bind(this, rootView);
         AdRequest adRequest = new AdRequest.Builder().build();
         ad.loadAd(adRequest);
-
-		setupListView(rootView.findViewById(R.id.listSound), rootView.findViewById(R.id.listSound_EmptyView));
-		setupAddButton(rootView.findViewById(R.id.add_button));
+		setupListView();
+		setupAddButton();
 		return rootView;
 	}
 	
@@ -79,8 +80,7 @@ public class SoundboardFragment extends Fragment
 		soundsForSoundboardUri = SounboardContract.SoundsTable.buildSoundsFromSoundboardUri(soundboard.getID()+"");
 	}
 	
-	private void setupAddButton(View view){
-		addSoundButton = (FloatingActionButton)view;
+	private void setupAddButton(){
 		addSoundButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View p1) {
@@ -89,9 +89,8 @@ public class SoundboardFragment extends Fragment
         });
 	}
 	
-	private void setupListView(View list, View empty){
-		soundListView = (ListView) list;
-        setupEmptyView(empty);
+	private void setupListView(){
+        setupEmptyView();
         soundListView.setEmptyView(emptyView);
 		Cursor cur = getActivity().getContentResolver().query(soundsForSoundboardUri,null,null,null,null);
 		soundAdapter =new SoundCursorAdapter(getActivity(),cur,0);
@@ -114,8 +113,7 @@ public class SoundboardFragment extends Fragment
 	}
 
 
-    private void setupEmptyView(View empty){
-        emptyView = (TextView)empty;
+    private void setupEmptyView(){
         if(soundboard.getTitle() == null){
             emptyView.setText("Please select a Soundboard!");
         }else{

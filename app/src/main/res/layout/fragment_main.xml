@@ -44,23 +44,9 @@
         app:adSize="BANNER"
         app:adUnitId="@string/banner_ad_unit_id"></com.google.android.gms.ads.AdView>
 
-    <!--<ImageButton
-        android:id="@+id/add_button"
-        android:layout_width="@dimen/add_button_diameter"
-        android:layout_height="@dimen/add_button_diameter"
-        android:layout_gravity="end|bottom"
-        android:layout_marginBottom="@dimen/add_button_margin"
-        android:layout_marginEnd="@dimen/add_button_margin"
-        android:layout_above="@id/adView"
-        android:src="@android:drawable/ic_input_add"
-        android:tint="@android:color/white"
-        android:elevation="@dimen/add_button_elevation_low"
-        android:layout_alignParentEnd="true"
-        android:background="@drawable/oval"
-        />-->
-
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/add_button"
+        android:contentDescription="Add sound to soundboard"
         android:layout_width="@dimen/add_button_diameter"
         android:layout_height="@dimen/add_button_diameter"
         android:layout_above="@id/adView"
