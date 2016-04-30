@@ -22,7 +22,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.wochstudios.infinitesoundboards.adapters.SoundCursorAdapter;
 import com.wochstudios.infinitesoundboards.controller.SoundboardController;
-import com.wochstudios.infinitesoundboards.database.SounboardContract;
+import com.wochstudios.infinitesoundboards.database.SoundboardContract;
 import com.wochstudios.infinitesoundboards.listeners.ISoundboardFragmentListener;
 import com.wochstudios.infinitesoundboards.MainActivity;
 import com.wochstudios.infinitesoundboards.MainActivityHelper;
@@ -70,6 +70,7 @@ public class SoundboardFragment extends Fragment
 		ButterKnife.bind(this, rootView);
         AdRequest adRequest = new AdRequest.Builder().build();
         ad.loadAd(adRequest);
+
 		setupListView();
 		setupAddButton();
 		return rootView;
@@ -77,7 +78,7 @@ public class SoundboardFragment extends Fragment
 	
 	private void init(){
 		SBC = new SoundboardController(getActivity(), soundboard);
-		soundsForSoundboardUri = SounboardContract.SoundsTable.buildSoundsFromSoundboardUri(soundboard.getID()+"");
+		soundsForSoundboardUri = SoundboardContract.SoundsTable.buildSoundsFromSoundboardUri(soundboard.getID()+"");
 	}
 	
 	private void setupAddButton(){
