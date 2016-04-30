@@ -12,8 +12,8 @@ import android.util.Log;
 
 import com.wochstudios.infinitesoundboards.database.DAO.ISoundboardDAO;
 import com.wochstudios.infinitesoundboards.database.DAO.SoundboardDAO;
-import com.wochstudios.infinitesoundboards.database.SounboardContract.SoundboardsTable;
-import com.wochstudios.infinitesoundboards.database.SounboardContract.SoundsTable;
+import com.wochstudios.infinitesoundboards.database.SoundboardContract.SoundboardsTable;
+import com.wochstudios.infinitesoundboards.database.SoundboardContract.SoundsTable;
 import com.wochstudios.infinitesoundboards.models.Sound;
 import com.wochstudios.infinitesoundboards.models.Soundboard;
 

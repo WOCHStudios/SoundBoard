@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.test.AndroidTestCase;
 
 import com.wochstudios.infinitesoundboards.contentprovider.SoundboardProvider;
-import com.wochstudios.infinitesoundboards.database.SounboardContract;
+import com.wochstudios.infinitesoundboards.database.SoundboardContract;
 
 
 /**
@@ -15,11 +15,11 @@ public class UriMatcherTest extends AndroidTestCase {
     private static final long SOUNDBOARD_ID = 1;
     private static final long SOUND_ID = 1;
 
-    private static final Uri TEST_SOUNDBOARD_URI = SounboardContract.SoundboardsTable.CONTENT_URI;
-    private static final Uri TEST_SOUNDBOARD_WITH_ID_URI = SounboardContract.SoundboardsTable.buildSounboardUri(SOUNDBOARD_ID);
-    private static final Uri TEST_SOUND_URI = SounboardContract.SoundsTable.CONTENT_URI;
-    private static final Uri TEST_SOUND_WITH_ID_URI = SounboardContract.SoundsTable.buildSoundUri(SOUND_ID);
-    private static final Uri TEST_SOUNDS_FOR_SOUNDBOARD_URI = SounboardContract.SoundsTable.buildSoundsFromSoundboardUri(SOUNDBOARD_ID + "");
+    private static final Uri TEST_SOUNDBOARD_URI = SoundboardContract.SoundboardsTable.CONTENT_URI;
+    private static final Uri TEST_SOUNDBOARD_WITH_ID_URI = SoundboardContract.SoundboardsTable.buildSounboardUri(SOUNDBOARD_ID);
+    private static final Uri TEST_SOUND_URI = SoundboardContract.SoundsTable.CONTENT_URI;
+    private static final Uri TEST_SOUND_WITH_ID_URI = SoundboardContract.SoundsTable.buildSoundUri(SOUND_ID);
+    private static final Uri TEST_SOUNDS_FOR_SOUNDBOARD_URI = SoundboardContract.SoundsTable.buildSoundsFromSoundboardUri(SOUNDBOARD_ID + "");
 
 
     public UriMatcherTest(){

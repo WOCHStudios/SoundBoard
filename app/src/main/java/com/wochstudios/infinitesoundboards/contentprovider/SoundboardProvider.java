@@ -8,7 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.util.Log;
 
-import com.wochstudios.infinitesoundboards.database.SounboardContract;
+import com.wochstudios.infinitesoundboards.database.SoundboardContract;
 import com.wochstudios.infinitesoundboards.database.SoundboardContentDBHelper;
 
 /**
@@ -28,12 +28,12 @@ public class SoundboardProvider extends ContentProvider {
 
     public static UriMatcher buildMatcher() {
         final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
-        final String authority = SounboardContract.CONTENT_AUTHORITY;
+        final String authority = SoundboardContract.CONTENT_AUTHORITY;
 
-        matcher.addURI(authority, SounboardContract.PATH_SOUNDBOARDS, SOUNDBOARD);
-        matcher.addURI(authority, SounboardContract.PATH_SOUNDBOARDS + "/#", SOUNDBOARD_WITH_ID);
-        matcher.addURI(authority, SounboardContract.PATH_SOUNDS, SOUNDS);
-        matcher.addURI(authority, SounboardContract.PATH_SOUNDS + "/#", SOUNDS_WITH_ID);
+        matcher.addURI(authority, SoundboardContract.PATH_SOUNDBOARDS, SOUNDBOARD);
+        matcher.addURI(authority, SoundboardContract.PATH_SOUNDBOARDS + "/#", SOUNDBOARD_WITH_ID);
+        matcher.addURI(authority, SoundboardContract.PATH_SOUNDS, SOUNDS);
+        matcher.addURI(authority, SoundboardContract.PATH_SOUNDS + "/#", SOUNDS_WITH_ID);
 
         return matcher;
     }
@@ -50,10 +50,10 @@ public class SoundboardProvider extends ContentProvider {
         switch (match) {
             case SOUNDS :
             case SOUNDS_WITH_ID:
-                return SounboardContract.SoundsTable.CONTENT_TYPE;
+                return SoundboardContract.SoundsTable.CONTENT_TYPE;
             case SOUNDBOARD:
             case SOUNDBOARD_WITH_ID:
-                return SounboardContract.SoundboardsTable.CONTENT_TYPE;
+                return SoundboardContract.SoundboardsTable.CONTENT_TYPE;
             default:
                 throw new UnsupportedOperationException("Unknown URI:" + uri);
         }
@@ -65,7 +65,7 @@ public class SoundboardProvider extends ContentProvider {
         switch (matcher.match(uri)) {
             case SOUNDBOARD:
                 results = database.getReadableDatabase().query(
-                        SounboardContract.SoundboardsTable.TABLE_NAME,
+                        SoundboardContract.SoundboardsTable.TABLE_NAME,
                         projection,
                         selection,
                         selectionArgs,
@@ -77,7 +77,7 @@ public class SoundboardProvider extends ContentProvider {
             case SOUNDS:
                 if (uri.getQueryParameterNames().isEmpty()) {
                     results = database.getReadableDatabase().query(
-                            SounboardContract.SoundsTable.TABLE_NAME,
+                            SoundboardContract.SoundsTable.TABLE_NAME,
                             projection,
                             selection,
                             selectionArgs,
@@ -105,11 +105,11 @@ public class SoundboardProvider extends ContentProvider {
 
     private Cursor findSoundById(Uri uri, String[] projection, String sortOrder) {
         long sound_id = ContentUris.parseId(uri);
-        String selection = SounboardContract.SoundsTable._ID + "=?";
+        String selection = SoundboardContract.SoundsTable._ID + "=?";
         String[] args = {sound_id + ""};
 
         return database.getReadableDatabase().query(
-                SounboardContract.SoundsTable.TABLE_NAME,
+                SoundboardContract.SoundsTable.TABLE_NAME,
                 projection,
                 selection,
                 args,
@@ -121,10 +121,10 @@ public class SoundboardProvider extends ContentProvider {
 
     private Cursor findSounboardById(Uri uri, String[] projection, String sortOrder) {
         String soundboard_id = ContentUris.parseId(uri) + "";
-        String selection = SounboardContract.SoundboardsTable._ID + "=?";
+        String selection = SoundboardContract.SoundboardsTable._ID + "=?";
         String[] args = {soundboard_id};
         return database.getReadableDatabase().query(
-                SounboardContract.SoundboardsTable.TABLE_NAME,
+                SoundboardContract.SoundboardsTable.TABLE_NAME,
                 projection,
                 selection,
                 args,
@@ -135,11 +135,11 @@ public class SoundboardProvider extends ContentProvider {
     }
 
     private Cursor findSoundsBySoundboardId(Uri uri, String[] projection, String sortOrder) {
-        String soundboard_id = uri.getQueryParameter(SounboardContract.SoundsTable.COLUMN_SOUNDBOARD_ID);
-        String selection = SounboardContract.SoundsTable.COLUMN_SOUNDBOARD_ID + "=?";
+        String soundboard_id = uri.getQueryParameter(SoundboardContract.SoundsTable.COLUMN_SOUNDBOARD_ID);
+        String selection = SoundboardContract.SoundsTable.COLUMN_SOUNDBOARD_ID + "=?";
         String[] args = {soundboard_id};
         return database.getReadableDatabase().query(
-                SounboardContract.SoundsTable.TABLE_NAME,
+                SoundboardContract.SoundsTable.TABLE_NAME,
                 projection,
                 selection,
                 args,
@@ -170,12 +170,12 @@ public class SoundboardProvider extends ContentProvider {
 
     private Uri insertSoundboard(Uri uri, ContentValues values) {
         long _id = database.getWritableDatabase().insert(
-                SounboardContract.SoundboardsTable.TABLE_NAME,
+                SoundboardContract.SoundboardsTable.TABLE_NAME,
                 null,
                 values
                 );
         if(_id > 0){
-            return SounboardContract.SoundboardsTable.buildSounboardUri(_id);
+            return SoundboardContract.SoundboardsTable.buildSounboardUri(_id);
         }else{
             throw new android.database.SQLException("Failed to insert into" + uri);
         }
@@ -183,12 +183,12 @@ public class SoundboardProvider extends ContentProvider {
 
     private Uri insertSound(Uri uri, ContentValues values) {
         long _id = database.getWritableDatabase().insert(
-                SounboardContract.SoundsTable.TABLE_NAME,
+                SoundboardContract.SoundsTable.TABLE_NAME,
                 null,
                 values
         );
         if(_id > 0){
-            return SounboardContract.SoundsTable.buildSoundUri(_id);
+            return SoundboardContract.SoundsTable.buildSoundUri(_id);
         }else{
             throw new android.database.SQLException("Failed to insert into" + uri);
         }
@@ -202,13 +202,13 @@ public class SoundboardProvider extends ContentProvider {
         switch (matcher.match(uri)) {
             case SOUNDBOARD:
                 rowsDeleted = database.getWritableDatabase().delete(
-                        SounboardContract.SoundboardsTable.TABLE_NAME,
+                        SoundboardContract.SoundboardsTable.TABLE_NAME,
                         selection,
                         selectionArgs);
                 break;
             case SOUNDS:
                 rowsDeleted = database.getWritableDatabase().delete(
-                        SounboardContract.SoundsTable.TABLE_NAME,
+                        SoundboardContract.SoundsTable.TABLE_NAME,
                         selection,
                         selectionArgs);
                 break;
@@ -228,7 +228,7 @@ public class SoundboardProvider extends ContentProvider {
         switch (matcher.match(uri)) {
             case SOUNDBOARD:
                 rowsUpdated = database.getWritableDatabase().update(
-                        SounboardContract.SoundboardsTable.TABLE_NAME,
+                        SoundboardContract.SoundboardsTable.TABLE_NAME,
                         values,
                         selection,
                         selectionArgs
@@ -236,7 +236,7 @@ public class SoundboardProvider extends ContentProvider {
                 break;
             case SOUNDS:
                 rowsUpdated = database.getWritableDatabase().update(
-                        SounboardContract.SoundsTable.TABLE_NAME,
+                        SoundboardContract.SoundsTable.TABLE_NAME,
                         values,
                         selection,
                         selectionArgs
