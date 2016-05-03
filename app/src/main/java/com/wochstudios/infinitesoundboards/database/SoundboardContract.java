@@ -5,7 +5,7 @@ import android.content.ContentUris;
 import android.net.Uri;
 import android.provider.BaseColumns;
 
-public final class SounboardContract
+public final class SoundboardContract
 {
     public static final String CONTENT_AUTHORITY = "com.wochstudios.infinitesoundboards";
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);

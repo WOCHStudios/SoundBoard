@@ -27,6 +27,7 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
+		<service android:name=".service.MediaPlayerService" />
 		<activity
 			android:name="com.wochstudios.infinitesoundboards.SettingsActivity"
 			android:label="Preferences"
