@@ -12,7 +12,6 @@ import java.util.ArrayList;
 
 public class DrawerController
 {
-	private DrawerLayout drawerLayout;
 	
 	public DrawerController(){
 	}
