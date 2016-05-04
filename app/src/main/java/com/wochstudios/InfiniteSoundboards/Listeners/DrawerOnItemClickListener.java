@@ -10,6 +10,7 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 
+import com.wochstudios.infinitesoundboards.adapters.SoundboardCursorAdapter;
 import com.wochstudios.infinitesoundboards.fragments.RenameDialogFragment;
 import com.wochstudios.infinitesoundboards.MainActivityHelper;
 import com.wochstudios.infinitesoundboards.models.Soundboard;
@@ -19,27 +20,27 @@ public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLon
 {
 
     private DrawerLayout drawer;
-    private MainActivityHelper activityController;
+    private MainActivityHelper activityHelper;
     private Soundboard selectedSoundboard;
 	
 	public DrawerOnItemClickListener(DrawerLayout dl, MainActivityHelper mh){
 		drawer = dl;
-        activityController = mh;
+        activityHelper = mh;
     }
 	
 	
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 	{
-        selectedSoundboard = (Soundboard) parent.getItemAtPosition(position);
-        activityController.updateSoundboardFragment(selectedSoundboard.getID() + "");
+        selectedSoundboard = ((SoundboardCursorAdapter)parent.getAdapter()).getSoundboard(position);
+        activityHelper.updateSoundboardFragment(selectedSoundboard.getID() + "");
         drawer.closeDrawers();
 	}
 	
 	@Override
 	public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id)
 	{
-        selectedSoundboard = (Soundboard)parent.getItemAtPosition(position);
+		selectedSoundboard = ((SoundboardCursorAdapter)parent.getAdapter()).getSoundboard(position);
         PopupMenu popup = new PopupMenu(view.getContext(),view);
 		popup.setOnMenuItemClickListener(this);
 		popup.inflate(R.menu.soundboard_popup_menu);
@@ -52,14 +53,14 @@ public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLon
 	{
 		switch(item.getItemId()){
 			case R.id.remove_soundboard:
-                activityController.removeSoundboard(selectedSoundboard.getID() + "");
+                activityHelper.removeSoundboard(selectedSoundboard.getID() + "");
                 return true;
 			case R.id.rename_soundboard:
-                //activityController.renameSoundboard("TestRenameFunction", selectedSoundboard.getID()+"");
-                //activityController.showDialogFragment(activityController.RENAME_SOUNDBOARD_FRAGMENT_CD, selectedSoundboard.getTitle());
+                //activityHelper.renameSoundboard("TestRenameFunction", selectedSoundboard.getID()+"");
+                //activityHelper.showDialogFragment(activityHelper.RENAME_SOUNDBOARD_FRAGMENT_CD, selectedSoundboard.getTitle());
                 RenameDialogFragment renameDialogFragment = new RenameDialogFragment();
-                renameDialogFragment.setArguments(selectedSoundboard,activityController);
-                renameDialogFragment.show(activityController.getFragmentManager(),renameDialogFragment.getClass().getSimpleName());
+                renameDialogFragment.setArguments(selectedSoundboard, activityHelper);
+                renameDialogFragment.show(activityHelper.getFragmentManager(),renameDialogFragment.getClass().getSimpleName());
 
                 return true;
 			default:
@@ -73,11 +74,11 @@ public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLon
         switch (view.getId()){
             case R.id.open_settings:
                 Log.d(this.getClass().getSimpleName(),"Open Settings Clicked");
-                activityController.startSettingsActivity();
+                activityHelper.startSettingsActivity();
                 break;
             case R.id.new_soundboard:
                 Log.d(this.getClass().getSimpleName(),"Open New Soundboard clicked");
-                activityController.showDialogFragment(MainActivityHelper.CREATE_SOUNDBOARD_FRAGEMENT_CD,"");
+                activityHelper.showDialogFragment(MainActivityHelper.CREATE_SOUNDBOARD_FRAGEMENT_CD,"");
                 break;
             default:
                 break;

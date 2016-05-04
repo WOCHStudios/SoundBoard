@@ -173,6 +173,7 @@ public class SoundboardFragment extends Fragment
         this.soundboard =s;
         updateEmptyView();
 		//SBC.setSoundboard(soundboard);
+		soundsForSoundboardUri = SoundboardContract.SoundsTable.buildSoundsFromSoundboardUri(soundboard.getID()+"");
 		soundAdapter.changeCursor(getActivity().getContentResolver().query(soundsForSoundboardUri,null,null,null,null));
 		soundAdapter.notifyDataSetChanged();
 
