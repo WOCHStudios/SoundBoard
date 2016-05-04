@@ -6,14 +6,18 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.wochstudios.infinitesoundboards.adapters.SoundboardCursorAdapter;
 import com.wochstudios.infinitesoundboards.controller.DatabaseController;
 import com.wochstudios.infinitesoundboards.controller.DrawerController;
+import com.wochstudios.infinitesoundboards.database.SoundboardContract;
 import com.wochstudios.infinitesoundboards.fragments.AddSoundDialogFragment;
 import com.wochstudios.infinitesoundboards.fragments.CreateSoundboardFragment;
 import com.wochstudios.infinitesoundboards.fragments.SoundboardFragment;
@@ -83,7 +87,11 @@ public class MainActivityHelper
 	
 
 	public void  updateDrawerList(){
-        drawerController.refreshDrawerList(drawerList, databaseController.getSoundboards());
+		Uri soundboards = SoundboardContract.SoundboardsTable.CONTENT_URI;
+		Cursor cursor = mainActivity.getContentResolver().query(soundboards,null,null,null,null);
+		((SoundboardCursorAdapter)drawerList.getAdapter()).changeCursor(cursor);
+		((SoundboardCursorAdapter) drawerList.getAdapter()).notifyDataSetChanged();
+        //drawerController.refreshDrawerList(drawerList, databaseController.getSoundboards());
 	}
 	
 	
