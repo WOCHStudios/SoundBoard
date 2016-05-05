@@ -22,12 +22,6 @@
             android:orientation="vertical"
             android:background="#FFFFFF">
 
-            <TextView
-                android:id="@+id/drawer_header"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@color/Black"
-                android:text="Soundboards"/>
 
             <ListView
                 android:id="@+id/left_drawer"
