@@ -1,5 +1,5 @@
 
-package com.wochstudios.InfiniteSoundboards.Database;
+package com.wochstudios.infinitesoundboards.database;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -10,12 +10,12 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 import android.util.Log;
 
-import com.wochstudios.InfiniteSoundboards.Database.DAO.ISoundboardDAO;
-import com.wochstudios.InfiniteSoundboards.Database.DAO.SoundboardDAO;
-import com.wochstudios.InfiniteSoundboards.Database.SounboardContract.SoundboardsTable;
-import com.wochstudios.InfiniteSoundboards.Database.SounboardContract.SoundsTable;
-import com.wochstudios.InfiniteSoundboards.Models.Sound;
-import com.wochstudios.InfiniteSoundboards.Models.Soundboard;
+import com.wochstudios.infinitesoundboards.database.DAO.ISoundboardDAO;
+import com.wochstudios.infinitesoundboards.database.DAO.SoundboardDAO;
+import com.wochstudios.infinitesoundboards.database.SoundboardContract.SoundboardsTable;
+import com.wochstudios.infinitesoundboards.database.SoundboardContract.SoundsTable;
+import com.wochstudios.infinitesoundboards.models.Sound;
+import com.wochstudios.infinitesoundboards.models.Soundboard;
 
 import java.util.ArrayList;
 

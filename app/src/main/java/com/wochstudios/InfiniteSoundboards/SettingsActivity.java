@@ -1,11 +1,11 @@
-package com.wochstudios.InfiniteSoundboards;
+package com.wochstudios.infinitesoundboards;
 
-import android.app.Activity;
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.wochstudios.InfiniteSoundboards.Fragments.SettingsFragment;
+import com.wochstudios.infinitesoundboards.fragments.SettingsFragment;
 
 public class SettingsActivity extends AppCompatActivity
 {

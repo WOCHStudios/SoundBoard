@@ -1,4 +1,4 @@
-package com.wochstudios.InfiniteSoundboards.Database;
+package com.wochstudios.infinitesoundboards.database;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,14 +18,14 @@ public class SoundboardContentDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(SounboardContract.SoundboardsTable.SQL_CREATE_TABLE_SOUNDBOARDS);
-        db.execSQL(SounboardContract.SoundsTable.SQL_CREATE_TABLE_SOUNDS);
+        db.execSQL(SoundboardContract.SoundboardsTable.SQL_CREATE_TABLE_SOUNDBOARDS);
+        db.execSQL(SoundboardContract.SoundsTable.SQL_CREATE_TABLE_SOUNDS);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL(SounboardContract.SoundsTable.SQL_DELETE_TABLE_SOUNDS);
-        db.execSQL(SounboardContract.SoundboardsTable.SQL_DELETE_TABLE_SOUNDBOARDS);
+        db.execSQL(SoundboardContract.SoundsTable.SQL_DELETE_TABLE_SOUNDS);
+        db.execSQL(SoundboardContract.SoundboardsTable.SQL_DELETE_TABLE_SOUNDBOARDS);
         onCreate(db);
     }
 }

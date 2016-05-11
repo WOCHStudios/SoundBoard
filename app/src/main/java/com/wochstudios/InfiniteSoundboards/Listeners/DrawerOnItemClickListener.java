@@ -1,4 +1,4 @@
-package com.wochstudios.InfiniteSoundboards.Listeners;
+package com.wochstudios.infinitesoundboards.listeners;
 
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -10,10 +10,10 @@ import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.PopupMenu;
 import android.widget.PopupMenu.OnMenuItemClickListener;
 
-import com.wochstudios.InfiniteSoundboards.Fragments.RenameDialogFragment;
-import com.wochstudios.InfiniteSoundboards.MainActivityHelper;
-import com.wochstudios.InfiniteSoundboards.Models.Soundboard;
-import com.wochstudios.InfiniteSoundboards.R;
+import com.wochstudios.infinitesoundboards.fragments.RenameDialogFragment;
+import com.wochstudios.infinitesoundboards.MainActivityHelper;
+import com.wochstudios.infinitesoundboards.models.Soundboard;
+import com.wochstudios.infinitesoundboards.R;
 
 public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLongClickListener, OnMenuItemClickListener, View.OnClickListener
 {

@@ -1,4 +1,4 @@
-package com.wochstudios.InfiniteSoundboards.Fragments;
+package com.wochstudios.infinitesoundboards.fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -17,9 +17,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.wochstudios.InfiniteSoundboards.Controllers.DatabaseController;
-import com.wochstudios.InfiniteSoundboards.Listeners.IDialogListener;
-import com.wochstudios.InfiniteSoundboards.R;
+import com.wochstudios.infinitesoundboards.controller.DatabaseController;
+import com.wochstudios.infinitesoundboards.listeners.IDialogListener;
+import com.wochstudios.infinitesoundboards.R;
 
 public class AddSoundDialogFragment extends DialogFragment
 {
