@@ -10,6 +10,8 @@ import android.os.Binder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.wochstudios.infinitesoundboards.widget.SoundboardWidgetProvider;
+
 import java.io.FileDescriptor;
 import java.io.IOException;
 
@@ -30,7 +32,14 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		if(!mediaPlayer.isPlaying()){
-			Log.d(this.getClass().getSimpleName(), "Service Started Successfully");
+			if(intent != null && intent.hasExtra(SoundboardWidgetProvider.FROM_WIDGET)){
+				try {
+					setupMediaPlayer(intent);
+					startMediaPlayer();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		return START_STICKY;
 	}
@@ -47,6 +56,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
 	@Override
 	public void onCompletion(MediaPlayer mp) {
 		complete = true;
+
 	}
 
 	@Nullable
@@ -65,6 +75,7 @@ public class MediaPlayerService extends Service implements MediaPlayer.OnComplet
 
 	public void setupMediaPlayer(Intent intent) throws IOException{
 		if(!mediaPlayer.isPlaying()){
+			mediaPlayer.reset();
 			Uri uri = Uri.parse(intent.getStringExtra(soundUri));
 			mediaPlayer.setDataSource(getContentResolver()
 										.openAssetFileDescriptor(uri,"r").getFileDescriptor());

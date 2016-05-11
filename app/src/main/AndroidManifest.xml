@@ -27,7 +27,7 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
-		<service android:name=".service.MediaPlayerService" />
+
 		<activity
 			android:name="com.wochstudios.infinitesoundboards.SettingsActivity"
 			android:label="Preferences"
@@ -35,12 +35,26 @@
             android:icon="@drawable/abc_ic_ab_back_mtrl_am_alpha">
 		</activity>
 
+		<service android:name=".service.MediaPlayerService" />
+		<service android:name=".service.SoundboardWidgetService"
+					android:exported="false"
+					android:permission="android.permission.BIND_REMOTEVIEWS"/>
+
         <provider
             android:authorities="com.wochstudios.infinitesoundboards"
             android:name="com.wochstudios.infinitesoundboards.contentprovider.SoundboardProvider">
         </provider>
 
+		<receiver android:name=".widget.SoundboardWidgetProvider" android:label="Default soundboard">
+			<intent-filter>
+				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+				<action android:name="com.wochstudios.inifinitesoundboards.sounboardwidget.PLAY_ACTION"/>
+			</intent-filter>
+			<meta-data android:name="android.appwidget.provider" android:resource="@xml/widget_info" />
+		</receiver>
+
         <instrumentation android:name="android.test.InstrumentationTestRunner"
-						 android:targetPackage="com.wochstudios.infinitesoundboards" android:label="Tests for My App" />
+						 android:targetPackage="com.wochstudios.infinitesoundboards"
+						 android:label="Tests for My App" />
 		</application>
 </manifest>
