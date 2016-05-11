@@ -15,7 +15,7 @@ public class SoundboardWidgetService extends RemoteViewsService {
 	@Override
 	public RemoteViewsFactory onGetViewFactory(Intent intent) {
 		int appWidgetId = intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,AppWidgetManager.INVALID_APPWIDGET_ID);
-		listProvider = new SoundboardWidgetListProvider();
+		listProvider = new SoundboardWidgetListProvider(this.getApplicationContext(),intent);
 		return listProvider;
 	}
 }
