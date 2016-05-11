@@ -15,13 +15,7 @@ public class DrawerController
 	
 	public DrawerController(){
 	}
-		
-	public void refreshDrawerList(ListView lv,ArrayList<Soundboard> l){
-		((ArrayAdapter<Soundboard>)lv.getAdapter()).clear();
-		((ArrayAdapter<Soundboard>)lv.getAdapter()).addAll(l);
-		((ArrayAdapter<Soundboard>)lv.getAdapter()).notifyDataSetChanged();
-	}
-	
+
 	public ActionBarDrawerToggle getToggle(Activity con, DrawerLayout dl, int open, int close){
 		return new ActionBarDrawerToggle(con, dl, null, open, close);
 	}

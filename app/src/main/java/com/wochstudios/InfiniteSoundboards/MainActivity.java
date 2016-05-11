@@ -1,11 +1,14 @@
 package com.wochstudios.infinitesoundboards;
 
 import android.app.DialogFragment;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,6 +17,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.wochstudios.infinitesoundboards.adapters.SoundboardAdapter;
+import com.wochstudios.infinitesoundboards.adapters.SoundboardCursorAdapter;
+import com.wochstudios.infinitesoundboards.database.SoundboardContract;
 import com.wochstudios.infinitesoundboards.fragments.AddSoundDialogFragment;
 import com.wochstudios.infinitesoundboards.fragments.CreateSoundboardFragment;
 import com.wochstudios.infinitesoundboards.fragments.RenameDialogFragment;
@@ -28,8 +33,11 @@ public class MainActivity extends AppCompatActivity implements IDialogListener, 
 
 	public MainActivityHelper mainHelper;
 
+	private Uri soundboardsUri;
+	private SoundboardCursorAdapter adapter;
 	private ActionBarDrawerToggle toggle;
     private DrawerOnItemClickListener listener;
+
 	@BindView(R.id.container) DrawerLayout drawerLayout;
 	@BindView(R.id.left_drawer) ListView drawerList;
 	
@@ -44,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements IDialogListener, 
 		PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
 		mainHelper = new MainActivityHelper(this);
         listener = new DrawerOnItemClickListener(drawerLayout, mainHelper);
-		//drawerLayout = (DrawerLayout) findViewById(R.id.container);
         setupDrawerLayoutListener(drawerLayout);
 		setupDrawerList(drawerList);
         setupDrawerButtons();
@@ -68,14 +75,19 @@ public class MainActivity extends AppCompatActivity implements IDialogListener, 
         }else {
 			getSupportActionBar().setTitle(mainHelper.getCurrentSoundboardTitle());
         }
-		getSupportActionBar().setHomeButtonEnabled(true);
-		getSupportActionBar().setIcon(R.drawable.ic_drawer);
+		getSupportActionBar().setDisplayShowHomeEnabled(true);
+
 		toggle = mainHelper.getToggle(this,drawerLayout,R.string.drawer_open,R.string.drawer_close);
+		toggle.setDrawerIndicatorEnabled(true);
 	}
 
 	private void setupDrawerList(ListView lv){
-        SoundboardAdapter soundboardAdapter = new SoundboardAdapter(this,mainHelper.getDatabaseController().getSoundboards());
-        lv.setAdapter(soundboardAdapter);
+		soundboardsUri = SoundboardContract.SoundboardsTable.CONTENT_URI;
+		Cursor cursor = getContentResolver().query(soundboardsUri,null,null,null,null);
+		adapter = new SoundboardCursorAdapter(this,cursor,0);
+
+        //SoundboardAdapter soundboardAdapter = new SoundboardAdapter(this,mainHelper.getDatabaseController().getSoundboards());
+        lv.setAdapter(adapter);
 		lv.setOnItemClickListener(listener);
 		lv.setOnItemLongClickListener(listener);
 	}
@@ -96,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements IDialogListener, 
 
             @Override
             public void onDrawerOpened(View drawerView) {
-               getSupportActionBar().setTitle(getResources().getString(R.string.app_name));
+               getSupportActionBar().setTitle("Soundboards");
             }
 
             @Override
@@ -117,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements IDialogListener, 
 	 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		//getMenuInflater().inflate(R.menu.activity_main, menu);
+		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
 	}
 
