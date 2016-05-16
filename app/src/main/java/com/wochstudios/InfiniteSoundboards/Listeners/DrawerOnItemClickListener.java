@@ -16,7 +16,8 @@ import com.wochstudios.infinitesoundboards.MainActivityHelper;
 import com.wochstudios.infinitesoundboards.models.Soundboard;
 import com.wochstudios.infinitesoundboards.R;
 
-public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLongClickListener, OnMenuItemClickListener, View.OnClickListener
+public class DrawerOnItemClickListener implements OnItemClickListener,
+		OnItemLongClickListener, OnMenuItemClickListener
 {
 
     private DrawerLayout drawer;
@@ -68,20 +69,4 @@ public class DrawerOnItemClickListener implements OnItemClickListener, OnItemLon
 		}
 	}
 
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.open_settings:
-                Log.d(this.getClass().getSimpleName(),"Open Settings Clicked");
-                activityHelper.startSettingsActivity();
-                break;
-            case R.id.new_soundboard:
-                Log.d(this.getClass().getSimpleName(),"Open New Soundboard clicked");
-                activityHelper.showDialogFragment(MainActivityHelper.CREATE_SOUNDBOARD_FRAGEMENT_CD,"");
-                break;
-            default:
-                break;
-        }
-    }
 }
