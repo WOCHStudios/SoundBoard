@@ -18,6 +18,7 @@
 	
 	<style name="MyActionBar" parent="AppTheme">
 		<item name="android:background">@color/actionbar_bg</item>
+		<item name="background">@color/actionbar_bg</item>
 		<item name="android:titleTextStyle">@style/AppTheme.MyActionBar.TitleTextStyle</item>
 		
 		
