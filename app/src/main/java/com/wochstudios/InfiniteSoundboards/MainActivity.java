@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity implements IDialogListener, 
         listener = new DrawerOnItemClickListener(drawerLayout, mainHelper);
         setupDrawerLayoutListener(drawerLayout);
 		setupDrawerList(drawerList);
-        setupDrawerButtons();
 		if(savedInstanceState == null){
 			mainHelper.initSoundboardFragment();
 		}
@@ -75,31 +74,23 @@ public class MainActivity extends AppCompatActivity implements IDialogListener, 
         }else {
 			getSupportActionBar().setTitle(mainHelper.getCurrentSoundboardTitle());
         }
-		getSupportActionBar().setDisplayShowHomeEnabled(true);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setHomeButtonEnabled(true);
 
 		toggle = mainHelper.getToggle(this,drawerLayout,R.string.drawer_open,R.string.drawer_close);
 		toggle.setDrawerIndicatorEnabled(true);
+		toggle.syncState();
 	}
 
 	private void setupDrawerList(ListView lv){
 		soundboardsUri = SoundboardContract.SoundboardsTable.CONTENT_URI;
 		Cursor cursor = getContentResolver().query(soundboardsUri,null,null,null,null);
 		adapter = new SoundboardCursorAdapter(this,cursor,0);
-
-        //SoundboardAdapter soundboardAdapter = new SoundboardAdapter(this,mainHelper.getDatabaseController().getSoundboards());
         lv.setAdapter(adapter);
 		lv.setOnItemClickListener(listener);
 		lv.setOnItemLongClickListener(listener);
 	}
 
-
-    private void setupDrawerButtons(){
-        LinearLayout addSoundboardBtn = (LinearLayout) findViewById(R.id.new_soundboard);
-        LinearLayout settingsBtn = (LinearLayout) findViewById(R.id.open_settings);
-
-        addSoundboardBtn.setOnClickListener(listener);
-        settingsBtn.setOnClickListener(listener);
-    }
 
     private void setupDrawerLayoutListener(DrawerLayout layout){
         layout.setDrawerListener(new DrawerLayout.DrawerListener() {
