@@ -5,17 +5,16 @@
 				android:orientation="vertical"
 				android:background="@color/White">
 
-<!--	<TextView
+	<TextView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:id="@+id/widget_header"
-		android:background="@color/Black"
-		android:textColor="@color/White"
-		android:text="@string/app_name"/>-->
+		android:background="@color/actionbar_bg"
+		android:textColor="@color/White"/>
 
 	<ListView
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"
+		android:layout_height="wrap_content"
 		android:id="@+id/widget_sounds_list"
 		android:divider="@android:color/black"
 		android:dividerHeight="1sp"/>
