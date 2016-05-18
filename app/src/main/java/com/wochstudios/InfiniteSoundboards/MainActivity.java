@@ -66,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements IDialogListener, 
 	
 	
 	private void setupActionBar(){
-
         if(mainHelper.getCurrentSoundboardTitle() == null ||
                 !mainHelper.getCurrentSoundboardId().equals(PreferenceManager.getDefaultSharedPreferences(this).getString("defaultSoundboard", ""))){
 			getSupportActionBar().setTitle(R.string.app_name);
