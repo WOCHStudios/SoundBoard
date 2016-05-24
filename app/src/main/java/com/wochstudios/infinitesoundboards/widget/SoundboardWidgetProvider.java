@@ -80,6 +80,7 @@ public class SoundboardWidgetProvider extends AppWidgetProvider{
 
 	private RemoteViews updateWidgetListView(Context con, int widgetId){
 		RemoteViews remoteViews = new RemoteViews(con.getPackageName(), R.layout.widget_layout);
+		remoteViews.setTextViewText(R.id.widget_header,con.getText(R.string.app_name));
 		Intent intent = new Intent(con, SoundboardWidgetService.class);
 		intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID,widgetId);
 		intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
