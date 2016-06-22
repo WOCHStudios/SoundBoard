@@ -17,7 +17,9 @@ public class DrawerController
 	}
 
 	public ActionBarDrawerToggle getToggle(Activity con, DrawerLayout dl, int open, int close){
-		return new ActionBarDrawerToggle(con, dl, null, open, close);
+		ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(con, dl, null, open, close);
+		toggle.syncState();
+		return toggle;
 	}
 
 

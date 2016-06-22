@@ -8,6 +8,7 @@
             res/values-vXX/styles.xml, while customizations related to
             backward-compatibility can go here.
 		-->
+		<item name="colorPrimary">@color/actionbar_bg</item>
 	</style>
 	<!-- Application theme. -->
 	<style name="AppTheme" parent="AppBaseTheme">
@@ -18,6 +19,7 @@
 	
 	<style name="MyActionBar" parent="AppTheme">
 		<item name="android:background">@color/actionbar_bg</item>
+		<item name="background">@color/actionbar_bg</item>
 		<item name="android:titleTextStyle">@style/AppTheme.MyActionBar.TitleTextStyle</item>
 		
 		
