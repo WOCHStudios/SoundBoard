@@ -1,4 +1,4 @@
-package com.wochstudios.infinitesoundboards.fragments;
+package com.wochstudios.InfiniteSoundboards.fragments;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -25,15 +25,14 @@ import android.widget.TextView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.wochstudios.infinitesoundboards.adapters.SoundCursorAdapter;
-import com.wochstudios.infinitesoundboards.controller.SoundboardController;
-import com.wochstudios.infinitesoundboards.database.SoundboardContract;
-import com.wochstudios.infinitesoundboards.listeners.ISoundboardFragmentListener;
-import com.wochstudios.infinitesoundboards.MainActivity;
-import com.wochstudios.infinitesoundboards.MainActivityHelper;
-import com.wochstudios.infinitesoundboards.models.Soundboard;
-import com.wochstudios.infinitesoundboards.R;
-import com.wochstudios.infinitesoundboards.service.MediaPlayerService;
+import com.wochstudios.InfiniteSoundboards.adapters.SoundCursorAdapter;
+import com.wochstudios.InfiniteSoundboards.database.SoundboardContract;
+import com.wochstudios.InfiniteSoundboards.listeners.ISoundboardFragmentListener;
+import com.wochstudios.InfiniteSoundboards.MainActivity;
+import com.wochstudios.InfiniteSoundboards.MainActivityHelper;
+import com.wochstudios.InfiniteSoundboards.models.Soundboard;
+import com.wochstudios.InfiniteSoundboards.R;
+import com.wochstudios.InfiniteSoundboards.service.MediaPlayerService;
 
 import java.io.IOException;
 
@@ -58,6 +57,7 @@ public class SoundboardFragment extends Fragment
 	@BindView(R.id.adView) AdView ad;
 
 
+
 	
 	public SoundboardFragment(){
 
@@ -78,6 +78,8 @@ public class SoundboardFragment extends Fragment
 	{
 		View rootView = inflater.inflate(R.layout.fragment_main,container,false);
 		ButterKnife.bind(this, rootView);
+
+
         AdRequest adRequest = new AdRequest.Builder().build();
         ad.loadAd(adRequest);
 		mediaPlayerIntent = new Intent(getActivity(), MediaPlayerService.class);
@@ -156,7 +158,7 @@ public class SoundboardFragment extends Fragment
 		if(soundboard.getTitle() == null){
 			emptyView.setText("Please select a Soundboard!");
 		}else{
-			emptyView.setText("Please add sounds to infinitesoundboards!");
+			emptyView.setText("Please add sounds to InfiniteSoundboards!");
 		}
 	}
 
@@ -164,7 +166,7 @@ public class SoundboardFragment extends Fragment
 		if(soundboard.getTitle() == null){
 			emptyView.setText("Please select a Soundboard!");
 		}else{
-			emptyView.setText("Please add sounds to infinitesoundboards!");
+			emptyView.setText("Please add sounds to InfiniteSoundboards!");
 		}
 	}
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest
-    package="com.wochstudios.infinitesoundboards"
+    package="com.wochstudios.InfiniteSoundboards"
     xmlns:android="http://schemas.android.com/apk/res/android"
-	android:versionCode="8"
-	android:versionName="1.08" >
+	android:versionCode="9"
+	android:versionName="1.09" >
 	<uses-sdk
 		android:minSdkVersion="16"
 		android:targetSdkVersion="16" />
@@ -19,7 +19,7 @@
 		android:supportsRtl="true"
         >
 		<activity
-			android:name="com.wochstudios.infinitesoundboards.MainActivity"
+			android:name="com.wochstudios.InfiniteSoundboards.MainActivity"
 			android:label="@string/app_name"
             android:screenOrientation="portrait">
 			<intent-filter>
@@ -29,23 +29,23 @@
 		</activity>
 
 		<activity
-			android:name="com.wochstudios.infinitesoundboards.SettingsActivity"
+			android:name="com.wochstudios.InfiniteSoundboards.SettingsActivity"
 			android:label="Preferences"
             android:screenOrientation="portrait"
             android:icon="@drawable/abc_ic_ab_back_mtrl_am_alpha">
 		</activity>
 
-		<service android:name=".service.MediaPlayerService" />
-		<service android:name=".service.SoundboardWidgetService"
+		<service android:name="com.wochstudios.InfiniteSoundboards.service.MediaPlayerService" />
+		<service android:name="com.wochstudios.InfiniteSoundboards.service.SoundboardWidgetService"
 					android:exported="false"
 					android:permission="android.permission.BIND_REMOTEVIEWS"/>
 
         <provider
-            android:authorities="com.wochstudios.infinitesoundboards"
-            android:name="com.wochstudios.infinitesoundboards.contentprovider.SoundboardProvider">
+            android:authorities="com.wochstudios.InfiniteSoundboards"
+            android:name="com.wochstudios.InfiniteSoundboards.contentprovider.SoundboardProvider">
         </provider>
 
-		<receiver android:name=".widget.SoundboardWidgetProvider" android:label="Default soundboard">
+		<receiver android:name="com.wochstudios.InfiniteSoundboards.widget.SoundboardWidgetProvider" android:label="Default soundboard">
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
 				<action android:name="com.wochstudios.inifinitesoundboards.sounboardwidget.PLAY_ACTION"/>
@@ -54,7 +54,7 @@
 		</receiver>
 
         <instrumentation android:name="android.test.InstrumentationTestRunner"
-						 android:targetPackage="com.wochstudios.infinitesoundboards"
+						 android:targetPackage="com.wochstudios.InfiniteSoundboards"
 						 android:label="Tests for My App" />
 		</application>
 </manifest>

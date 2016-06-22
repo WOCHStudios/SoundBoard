@@ -1,4 +1,4 @@
-package com.wochstudios.infinitesoundboards.widget;
+package com.wochstudios.InfiniteSoundboards.widget;
 
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
@@ -13,9 +13,9 @@ import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
-import com.wochstudios.infinitesoundboards.R;
-import com.wochstudios.infinitesoundboards.database.SoundboardContract;
-import com.wochstudios.infinitesoundboards.models.Sound;
+import com.wochstudios.InfiniteSoundboards.R;
+import com.wochstudios.InfiniteSoundboards.database.SoundboardContract;
+import com.wochstudios.InfiniteSoundboards.models.Sound;
 
 import java.util.ArrayList;
 

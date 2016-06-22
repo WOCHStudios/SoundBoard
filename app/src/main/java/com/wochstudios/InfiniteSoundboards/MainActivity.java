@@ -1,4 +1,4 @@
-package com.wochstudios.infinitesoundboards;
+package com.wochstudios.InfiniteSoundboards;
 
 import android.app.DialogFragment;
 import android.database.Cursor;
@@ -8,23 +8,20 @@ import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.wochstudios.infinitesoundboards.adapters.SoundboardAdapter;
-import com.wochstudios.infinitesoundboards.adapters.SoundboardCursorAdapter;
-import com.wochstudios.infinitesoundboards.database.SoundboardContract;
-import com.wochstudios.infinitesoundboards.fragments.AddSoundDialogFragment;
-import com.wochstudios.infinitesoundboards.fragments.CreateSoundboardFragment;
-import com.wochstudios.infinitesoundboards.fragments.RenameDialogFragment;
-import com.wochstudios.infinitesoundboards.listeners.DrawerOnItemClickListener;
-import com.wochstudios.infinitesoundboards.listeners.IDialogListener;
-import com.wochstudios.infinitesoundboards.listeners.ISoundboardFragmentListener;
+import com.wochstudios.InfiniteSoundboards.adapters.SoundboardCursorAdapter;
+import com.wochstudios.InfiniteSoundboards.database.SoundboardContract;
+import com.wochstudios.InfiniteSoundboards.fragments.AddSoundDialogFragment;
+import com.wochstudios.InfiniteSoundboards.fragments.CreateSoundboardFragment;
+import com.wochstudios.InfiniteSoundboards.fragments.RenameDialogFragment;
+import com.wochstudios.InfiniteSoundboards.listeners.DrawerOnItemClickListener;
+import com.wochstudios.InfiniteSoundboards.listeners.IDialogListener;
+import com.wochstudios.InfiniteSoundboards.listeners.ISoundboardFragmentListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

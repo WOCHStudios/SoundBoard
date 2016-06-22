@@ -1,4 +1,4 @@
-package com.wochstudios.infinitesoundboards.database.DAO;
+package com.wochstudios.InfiniteSoundboards.database.DAO;
 
 import android.content.ContentValues;
 import android.database.Cursor;

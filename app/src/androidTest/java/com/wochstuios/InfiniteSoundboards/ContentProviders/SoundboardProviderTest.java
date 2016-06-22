@@ -10,9 +10,9 @@ import android.net.Uri;
 import android.test.AndroidTestCase;
 import android.util.Log;
 
-import com.wochstudios.infinitesoundboards.contentprovider.SoundboardProvider;
-import com.wochstudios.infinitesoundboards.database.SoundboardContract;
-import com.wochstudios.infinitesoundboards.database.SoundboardContentDBHelper;
+import com.wochstudios.InfiniteSoundboards.contentprovider.SoundboardProvider;
+import com.wochstudios.InfiniteSoundboards.database.SoundboardContract;
+import com.wochstudios.InfiniteSoundboards.database.SoundboardContentDBHelper;
 
 /**
  * Created by dave on 8/29/2015.
@@ -91,7 +91,7 @@ public class SoundboardProviderTest extends AndroidTestCase {
                 SoundboardContract.SoundboardsTable.COLUMN_NAME +"=?",
                 new String[]{"FromMethod"}
         );
-        assertEquals("Error Updating infinitesoundboards where _ID =2", 1, sounboardResult);
+        assertEquals("Error Updating InfiniteSoundboards where _ID =2", 1, sounboardResult);
 
     }
 
