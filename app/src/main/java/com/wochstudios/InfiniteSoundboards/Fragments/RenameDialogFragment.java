@@ -1,4 +1,4 @@
-package com.wochstudios.infinitesoundboards.fragments;
+package com.wochstudios.InfiniteSoundboards.fragments;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -10,10 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 
-import com.wochstudios.infinitesoundboards.listeners.IDialogListener;
-import com.wochstudios.infinitesoundboards.MainActivityHelper;
-import com.wochstudios.infinitesoundboards.models.Soundboard;
-import com.wochstudios.infinitesoundboards.R;
+import com.wochstudios.InfiniteSoundboards.listeners.IDialogListener;
+import com.wochstudios.InfiniteSoundboards.MainActivityHelper;
+import com.wochstudios.InfiniteSoundboards.models.Soundboard;
+import com.wochstudios.InfiniteSoundboards.R;
 
 /**
  * Created by dave on 11/23/2015.

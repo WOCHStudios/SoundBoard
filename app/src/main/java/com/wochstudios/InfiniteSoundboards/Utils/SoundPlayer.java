@@ -1,15 +1,12 @@
-package com.wochstudios.infinitesoundboards.utils;
+package com.wochstudios.InfiniteSoundboards.utils;
 
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.IBinder;
 import android.util.Log;
 
-import com.wochstudios.infinitesoundboards.service.MediaPlayerService;
+import com.wochstudios.InfiniteSoundboards.service.MediaPlayerService;
 
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;

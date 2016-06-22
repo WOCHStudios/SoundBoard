@@ -1,4 +1,4 @@
-package com.wochstudios.infinitesoundboards.widget;
+package com.wochstudios.InfiniteSoundboards.widget;
 
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -7,19 +7,12 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.preference.PreferenceManager;
-import android.support.v4.content.CursorLoader;
 import android.util.Log;
 import android.widget.RemoteViews;
-import android.widget.Toast;
 
-import com.wochstudios.infinitesoundboards.R;
-import com.wochstudios.infinitesoundboards.database.SoundboardContract;
-import com.wochstudios.infinitesoundboards.service.MediaPlayerService;
-import com.wochstudios.infinitesoundboards.service.SoundboardWidgetService;
-
-import java.util.prefs.PreferenceChangeEvent;
-import java.util.prefs.PreferenceChangeListener;
+import com.wochstudios.InfiniteSoundboards.R;
+import com.wochstudios.InfiniteSoundboards.service.MediaPlayerService;
+import com.wochstudios.InfiniteSoundboards.service.SoundboardWidgetService;
 
 /**
  * Created by dave on 5/5/2016.

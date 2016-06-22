@@ -1,10 +1,10 @@
-package com.wochstudios.infinitesoundboards.service;
+package com.wochstudios.InfiniteSoundboards.service;
 
 import android.appwidget.AppWidgetManager;
 import android.content.Intent;
 import android.widget.RemoteViewsService;
 
-import com.wochstudios.infinitesoundboards.widget.SoundboardWidgetListProvider;
+import com.wochstudios.InfiniteSoundboards.widget.SoundboardWidgetListProvider;
 
 /**
  * Created by dave on 5/5/2016.
