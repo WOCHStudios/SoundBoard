@@ -1,4 +1,4 @@
-package com.wochstudios.infinitesoundboards.models;
+package com.wochstudios.InfiniteSoundboards.models;
 
 public abstract class SoundboardModel
 {

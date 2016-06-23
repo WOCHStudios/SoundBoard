@@ -1,4 +1,4 @@
-package com.wochstudios.infinitesoundboards.adapters;
+package com.wochstudios.InfiniteSoundboards.adapters;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-import com.wochstudios.infinitesoundboards.R;
-import com.wochstudios.infinitesoundboards.database.SoundboardContract;
-import com.wochstudios.infinitesoundboards.models.Soundboard;
+import com.wochstudios.InfiniteSoundboards.R;
+import com.wochstudios.InfiniteSoundboards.database.SoundboardContract;
+import com.wochstudios.InfiniteSoundboards.models.Soundboard;
 
 /**
  * Created by dave on 4/26/2016.

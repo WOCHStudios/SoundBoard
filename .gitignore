@@ -1,0 +1,5 @@
+#ignore files
+app/Soundboard_keystore.jks
+*.apk
+keystore.properties
+app/build

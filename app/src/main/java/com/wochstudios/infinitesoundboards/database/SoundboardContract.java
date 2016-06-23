@@ -1,4 +1,4 @@
-package com.wochstudios.infinitesoundboards.database;
+package com.wochstudios.InfiniteSoundboards.database;
 
 import android.content.ContentResolver;
 import android.content.ContentUris;
@@ -7,7 +7,7 @@ import android.provider.BaseColumns;
 
 public final class SoundboardContract
 {
-    public static final String CONTENT_AUTHORITY = "com.wochstudios.infinitesoundboards";
+    public static final String CONTENT_AUTHORITY = "com.wochstudios.InfiniteSoundboards";
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
     public static final String PATH_SOUNDBOARDS = "sounboards";
     public static final String PATH_SOUNDS = "sounds";
